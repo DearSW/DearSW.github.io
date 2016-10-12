@@ -508,7 +508,7 @@ header .site-navigation ul li {
 }
 header .site-navigation ul li a {
   display: block;
-  color: #4caf50;
+  color: #fff;
   background: #f44336;
   border-radius: 20px;
   font-size: 1.6rem;
