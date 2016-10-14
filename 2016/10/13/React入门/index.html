@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React入门 | DearSW</title>
+
+  
+  <meta name="author" content="DearSW">
+  
+
+  
+  <meta name="description" content="###入门印象
+传统组件化的特点是把组件和原生DOM节点的渲染割裂起来
+现代的组件架构鼓励原生DOM节点和自定义组件的统一渲染融合，比如React以及未来的Web Components规范
+React最为人称道的是，它是一个专注于组件架构的类库。
+要想用好React，我们必须跳出以往的思维，拥抱Re">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="React入门"/>
+
+  <meta property="og:site_name" content="DearSW"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="http://odfgqiz57.bkt.clouddn.com/image/logo/logo1.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="DearSW" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">文章</a>
+    </h1>
+    <p class="site-description">天地有大美而不言，四时有明法而不议，万物有成理而不说</p>
+    <p class="site-description">原天地之美而达万物之理，是故至人无为，大圣不作，观于天地</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      <li><a href='/'>主页</a></li>
+      <li><a href='https://dearsw.github.io/archives/'>列表</a></li>
+      <li><a href='http://www.dearsw.top:8888'>菜单</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>React入门</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/13/React入门/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-13T15:19:46.000Z">
+          2016-10-13
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="入门印象"><a href="#入门印象" class="headerlink" title="###入门印象"></a>###入门印象</h2><ul>
+<li>传统组件化的特点是把组件和原生DOM节点的渲染割裂起来</li>
+<li>现代的组件架构鼓励原生DOM节点和自定义组件的统一渲染融合，比如React以及未来的Web Components规范</li>
+<li>React最为人称道的是，它是一个专注于组件架构的类库。</li>
+<li>要想用好React，我们必须跳出以往的思维，拥抱React的理念和思想，比如状态，虚拟DOM，组合优于继承，单向数据流。</li>
+<li>React专注于组件架构，所以模块系统可以直接采用CommonJS，测试框架可以使用Mocha，生态圈则可以直接依托npm，工具可以采用现成的Browserify或Webpack。</li>
+<li>React本质上是一个“状态机”，可以帮助开发者管理复杂的随着时间而变化的状态。它以一个精简的模型实现了这一点。React只关心两件事：更新DOM和响应事件。</li>
+<li>React不处理Ajax、路由和数据处理，也不规定数据组织的方式，它不是一个MVC框架。事实上，它已经在数个MVC框架中被用来渲染视图了。</li>
+</ul>
+<h2 id="JSX"><a href="#JSX" class="headerlink" title="###JSX"></a>###JSX</h2><ul>
+<li>在React中，组件是用于分离关注点的，而不是被当作模版或处理显示逻辑的。</li>
+<li>React包含了一种可选的类HTML标记语言。</li>
+<li>JSX即JavaScript XML，一种在React组件内部构建标签的类XML语法。</li>
+<li>JSX 会转换为原生的JS函数，因此有一些关键词我们是不能用的<ul>
+<li>for 要转换成 htmlFor</li>
+<li>class 要转换成 className</li>
+</ul>
+</li>
+<li>React把所有的内联样式都规范化为了驼峰形式，与JS中DOM的style属性一样。</li>
+<li><code>var R = React.DOM;</code></li>
+<li>React 自动绑定了组件所有方法的作用域，因此你不需要手动绑定。</li>
+<li><code>this.props.children</code> React将开始标签和结束标签之间的所有的子节点保存在一个名为 <code>this.props.children</code> 的特殊组件属性中。</li>
+<li><code>React.createClass()</code></li>
+</ul>
+<h2 id="数据流"><a href="#数据流" class="headerlink" title="###数据流"></a>###数据流</h2><ul>
+<li>在React中，数据的流向是单向的，从父节点传递到子节点，因而组件是简单且易把握的，他们只需从父节点获取props渲染即可。</li>
+<li>React内部还具有自己的状态，这些状态只能在组件内修改。</li>
+<li>你可以把React组件看成一个函数，它接受props和state作为参数，返回一个虚拟的DOM表现。</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/DearSW/HDY" target="_blank">HDY</a>
+    </br>
+    
+    &copy; 2016 DearSW
+    
+  </p>
+</footer>
+
+    
+  </div>
+</div>
+</body>
+</html>
