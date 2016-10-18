@@ -156,16 +156,26 @@ React最为人称道的是，它是一个专注于组件架构的类库。
 <li>使用<code>state</code>存储简单的视图状态</li>
 <li>使用<code>this.setState</code>来设置状态，而不要使用<code>this.state</code>直接修改状态</li>
 <li>不要尝试把<code>props</code>复制到<code>state</code>中，要尽可能把<code>props</code>当作数据源。</li>
+<li>更新组件内部状态会触发组件重绘。</li>
+<li>更新组件状态有两种方案，组件的<code>setState()</code>和<code>replaceState()</code>，更多的情况下会使用<code>setState()</code>，仅仅是把传入的对象合并到已有的state对象上。</li>
 </ul>
 <h2 id="事件处理"><a href="#事件处理" class="headerlink" title="###事件处理"></a>###事件处理</h2><ul>
 <li>React 通过将事件处理器绑定到组件上来处理事件，在事件被触发的同时，更新组件的内部状态。</li>
 <li>React 绑定事件处理器的语法和HTML语法非常类似，但性能不一样。</li>
+</ul>
+<h2 id="组件的复合"><a href="#组件的复合" class="headerlink" title="###组件的复合"></a>###组件的复合</h2><ul>
+<li>在传统HTML中，元素是构成页面的基础单元，但在React中，构成页面的基础单元是React组件。你可以把React组件理解成混入了JS表达能力的HTML元素，实际上写React代码主要就是构建组件，就像编写HTML文档时使用元素一样。</li>
+<li>复合（composability）</li>
+<li>本质上，一个组件就是一个JS函数，它接受属性（props）和状态（state）作为参数，并输出渲染好的HTML。</li>
 </ul>
 <h2 id="实例"><a href="#实例" class="headerlink" title="###实例"></a>###实例</h2><ul>
 <li>官网留言组件，数据流，事件绑定，如果看不懂、迷糊，很简单，那就反复看上几十遍，手敲十几遍，就什么都懂了。</li>
 <li>官方案例基本思想：React构件组件，jQuery之Ajax获取数据，Express搭建服务器。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;CommentBox url=&apos;/api/comments&apos; pollInterval=&#123;2000&#125; /&gt;</div><div class="line"></div><div class="line">CommentBox</div><div class="line">  |---this.setState(&#123;data: data&#125;)</div><div class="line">  |---this.props.url  this.props.pollInterval</div><div class="line">  |---CommentList</div><div class="line">  |			|---data=&#123;this.state.data&#125;</div><div class="line">  |			|---Comment</div><div class="line">  |			|</div><div class="line">  |</div><div class="line">  |---onCommentSubmit=&#123;this.handleCommentSubmit&#125;</div><div class="line">  |---CommentForm</div><div class="line">  			|---this.state.author</div><div class="line">  			|---this.state.text</div><div class="line">  			|---this.setState(&#123;author:&apos;&apos;,text:&apos;&apos;)</div><div class="line">  			|---this.setState(&#123;author: e.target.value)</div><div class="line">  			|---this.setState(&#123;text: e.target.value)</div></pre></td></tr></table></figure>
+<ul>
+<li>项目地址 <a href="https://github.com/DearSW/react-start" target="_blank" rel="external">https://github.com/DearSW/react-start</a></li>
+</ul>
 <h2 id="番外-ESLint"><a href="#番外-ESLint" class="headerlink" title="###番外(ESLint)"></a>###番外(ESLint)</h2><ul>
 <li>ESLint 支持JSX语法的检测，包含JSLint等功能，作者为<code>红宝书的作者</code></li>
 <li>全局安装<code>npm install eslint -g</code>  </li>

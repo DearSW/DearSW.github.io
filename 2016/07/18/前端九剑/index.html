@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>前端九剑 | DearSW</title>
+
+  
+  <meta name="author" content="DearSW">
+  
+
+  
+  <meta name="description" content="##CSS似酒，得品；JS似剑，得磨。###重剑无锋，大巧不工，JS九剑，虽有剑式，但至境却是无剑胜有剑，路漫漫其修远兮，上下而求索吧，苦行者。
+第一式
+
+1234567891011121314151617181920212223var obj = &amp;#123;	array: [1, 2, 3],	">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="前端九剑"/>
+
+  <meta property="og:site_name" content="DearSW"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="http://odfgqiz57.bkt.clouddn.com/image/logo/logo1.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="DearSW" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">文章</a>
+    </h1>
+    <p class="site-description">天地有大美而不言，四时有明法而不议，万物有成理而不说</p>
+    <p class="site-description">原天地之美而达万物之理，是故至人无为，大圣不作，观于天地</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      <li><a href='/'>主页</a></li>
+      <li><a href='https://dearsw.github.io/archives/'>列表</a></li>
+      <li><a href='http://www.dearsw.top:8888'>菜单</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>前端九剑</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/18/前端九剑/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-18T07:44:05.000Z">
+          2016-07-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="CSS似酒，得品；JS似剑，得磨。"><a href="#CSS似酒，得品；JS似剑，得磨。" class="headerlink" title="##CSS似酒，得品；JS似剑，得磨。"></a>##CSS似酒，得品；JS似剑，得磨。</h2><h2 id="重剑无锋，大巧不工，JS九剑，虽有剑式，但至境却是无剑胜有剑，路漫漫其修远兮，上下而求索吧，苦行者。"><a href="#重剑无锋，大巧不工，JS九剑，虽有剑式，但至境却是无剑胜有剑，路漫漫其修远兮，上下而求索吧，苦行者。" class="headerlink" title="###重剑无锋，大巧不工，JS九剑，虽有剑式，但至境却是无剑胜有剑，路漫漫其修远兮，上下而求索吧，苦行者。"></a>###重剑无锋，大巧不工，JS九剑，虽有剑式，但至境却是无剑胜有剑，路漫漫其修远兮，上下而求索吧，苦行者。</h2><ul>
+<li>第一式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">	array: [1, 2, 3],</div><div class="line">	sum: ()=&gt; &#123;</div><div class="line">		console.log(this === window); // =&gt; true</div><div class="line">		return this.array.reduce((result, item) =&gt; result + item);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">obj.sum(); // =&gt; Uncaught TypeError: Cannot read property &apos;reduce&apos; of undefined(…)</div><div class="line"></div><div class="line">出现错误，无法读出没有定义的‘reduce’属性。原因是箭头函数没有它自己的this值，其内部的this值继承自外围作用域。</div><div class="line">那么修改代码：</div><div class="line"></div><div class="line">var obj = &#123;</div><div class="line">	array: [1, 2, 3],</div><div class="line">	sum: function() &#123;</div><div class="line">		console.log(this === window); // =&gt; false</div><div class="line">		return this.array.reduce(function(result, item) &#123;</div><div class="line">			reutrn result + item;</div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">obj.sum(); // 6</div></pre></td></tr></table></figure>
+<ul>
+<li>第二式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var multiply = (a, b) =&gt; &#123;</div><div class="line">	return b === undefined ? (b) =&gt; &#123; return a * b &#125;  : a * b;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var double = multiplys(2);</div><div class="line">double(3); // =&gt; 6</div><div class="line"></div><div class="line">multiply(2, 3); // =&gt; 6</div></pre></td></tr></table></figure>
+<ul>
+<li>第三式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">        * </div><div class="line">        * @param str &#123;string&#125;</div><div class="line">        * @param expectsLowerCase &#123;boolean&#125;</div><div class="line">        * </div><div class="line">        * @return &#123;function&#125;</div><div class="line">        */</div><div class="line">function markup(str, expectsLowerCase) &#123;</div><div class="line">		var map = object.create(null);</div><div class="line">		var list = str.split(&apos;,&apos;);</div><div class="line">		for(var i = 0; i &lt; list.length; i++) &#123;</div><div class="line">			map[list[i]] = true;</div><div class="line">		&#125;</div><div class="line">		console.log(map);</div><div class="line">		return expectsLowerCase</div><div class="line">			? function(val) &#123; return map[val.toLowerCase()] ? true : false; &#125;</div><div class="line">			: function(val) &#123; return map[val] ? true : false; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var str = &apos;hello world,i love you.&apos;;</div><div class="line">var fn = markup(str, false); // =&gt; Object &#123;hello world: true, i love you.: true&#125;</div><div class="line">console.log(fn(&apos;hello&apos;)); // false</div><div class="line">console.log(fn(&apos;hello world&apos;)); // true</div></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Thanks, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/DearSW/HDY" target="_blank">HDY</a>
+    <br />
+    
+    &copy; 2016 DearSW
+    
+    <br />
+    <a href="http://www.dearsw.top:8888" target="_blank">My Blog</a>
+  </p>
+</footer>
+
+    
+  </div>
+</div>
+</body>
+</html>
