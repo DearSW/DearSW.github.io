@@ -109,7 +109,7 @@ React最为人称道的是，它是一个专注于组件架构的类库。
 </ul>
 </li>
 <li>React把所有的内联样式都规范化为了驼峰形式，与JS中DOM的style属性一样。</li>
-<li><code>var R = React.DOM;</code></li>
+<li><code>var R = React.DOM;</code> React在<code>React.DOM.*</code>命名空间下提供了一系列的工厂，如：<code>R.div(),R.hr(),R.h2(null,&#39;label text&#39;)</code>;</li>
 <li>React 自动绑定了组件所有方法的作用域，因此你不需要手动绑定。</li>
 <li><code>this.props.children</code> React将开始标签和结束标签之间的所有的子节点保存在一个名为 <code>this.props.children</code> 的特殊组件属性中。</li>
 <li><code>React.createClass()</code></li>
