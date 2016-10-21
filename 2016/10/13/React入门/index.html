@@ -161,8 +161,8 @@ React最为人称道的是，它是一个专注于组件架构的类库。
 <li>更新组件状态有两种方案，组件的<code>setState()</code>和<code>replaceState()</code>，更多的情况下会使用<code>setState()</code>，仅仅是把传入的对象合并到已有的state对象上。</li>
 </ul>
 <h2 id="事件处理"><a href="#事件处理" class="headerlink" title="###事件处理"></a>###事件处理</h2><ul>
-<li>React 通过将事件处理器绑定到组件上来处理事件，在事件被触发的同时，更新组件的内部状态。</li>
-<li>React 绑定事件处理器的语法和HTML语法非常类似，但性能不一样。</li>
+<li>React 通过将事件处理器绑定到组件上来处理事件，在事件被触发的同时，更新组件的内部状态（state），组件内部状态（state）的更新会触发组件重绘。</li>
+<li>React 绑定事件处理器的语法和HTML语法非常类似，但性能是不一样的。</li>
 </ul>
 <h2 id="组件的复合"><a href="#组件的复合" class="headerlink" title="###组件的复合"></a>###组件的复合</h2><ul>
 <li>在传统HTML中，元素是构成页面的基础单元，但在React中，构成页面的基础单元是React组件。你可以把React组件理解成混入了JS表达能力的HTML元素，实际上写React代码主要就是构建组件，就像编写HTML文档时使用元素一样。</li>

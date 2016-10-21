@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title> 前端技术库的组建 | DearSW</title>
+  <title> 前端技术库工程组建 | DearSW</title>
 
   
   <meta name="author" content="DearSW">
@@ -25,7 +25,7 @@ jQuery，在线版，&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content=" 前端技术库的组建"/>
+  <meta property="og:title" content=" 前端技术库工程组建"/>
 
   <meta property="og:site_name" content="DearSW"/>
 
@@ -66,7 +66,7 @@ jQuery，在线版，&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src
 
   
     
-    <h3 class="article-title"><span> 前端技术库的组建</span></h3>
+    <h3 class="article-title"><span> 前端技术库工程组建</span></h3>
     
   
 
@@ -113,8 +113,12 @@ jQuery，在线版，&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src
 <li><code>https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js</code>，这个是处理时间的默认版本。</li>
 <li><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment-with-locales.min.js&quot;&gt;&lt;/script&gt;</code>，这个是携带语言的版本，可以在脚本中声明语言：如这样<code>moment.locale(str)</code>。</li>
 <li><code>&lt;script src=&quot;./moment-timezone-with-data.min.js&quot;&gt;&lt;/script&gt;</code>，这个版本是世界时区的版本，并携带了各个时区的数据，这样使用：<code>var m = moment().tz(str);$labelTime.text(m.format(&quot;HH:mm A &quot;) + m.zoneAbbr());</code>，moment().tz(String) is used to change the timezone on an existing moment。</li>
+<li>演示地址 <a href="https://dearsw.github.io/Moment-demo/" target="_blank" rel="external">https://dearsw.github.io/Moment-demo/</a></li>
 </ul>
 </li>
+</ul>
+<ul>
+<li></li>
 </ul>
 <h2 id="模块加载器"><a href="#模块加载器" class="headerlink" title="###模块加载器"></a>###模块加载器</h2><ul>
 <li>AMD <code>&lt;script src=&quot;//cdn.bootcss.com/require.js/2.3.2/require.min.js&quot;&gt;&lt;/script&gt;</code></li>
@@ -128,6 +132,22 @@ jQuery，在线版，&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src
 <li>meta viewport</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，在具体一点，就是浏览器上(也可能是一个app中的webview)用来显示网页的那部分区域，但viewport又不局限于浏览器可视区域的大小，它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。在默认情况下，一般来讲，移动设备上的viewport都是要大于浏览器可视区域的，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。下图列出了一些设备上浏览器的默认viewport的宽度。</div><div class="line"></div><div class="line">&lt;meta name=&quot;msapplication-window&quot; content=&quot;width=device-width;height=device-height&quot;&gt;</div><div class="line"></div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</div><div class="line"></div><div class="line">content中有 6 个属性可用，width，initial-scale,minimum-scale,maximum-scale,height,user-scalable</div><div class="line"></div><div class="line">资源链接(http://www.cnblogs.com/2050/p/3877280.html)</div></pre></td></tr></table></figure>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="###兼容性"></a>###兼容性</h2><ul>
+<li>html5shiv.js － HTML5 支持，html5shiv is an HTML5 JavaScript shim for IE to recognise and style the HTML5 elements</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if lt IE 9]&gt;</div><div class="line">	&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>respond.js  – 媒体查询支持，min/max-width media query polyfill</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>selectivizr.js  – css伪类支持 (eg :last-child)，selectivizr is a JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8. </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>Modernizr － 浏览器特性检测，Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
 <h2 id="React"><a href="#React" class="headerlink" title="###React"></a>###React</h2><ul>
 <li><p>生产环境</p>
 <ul>
@@ -143,10 +163,7 @@ jQuery，在线版，&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src
 <ul>
 <li><p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/mobile.css&quot; media=&quot;(max-width: 640px)&quot;&gt;</code></p>
 </li>
-<li><p>`&lt;!–[if lt IE 9]&gt;</p>
-<pre><code>    &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js&quot;&gt;&lt;/script&gt;
-&lt;![endif]--&gt;`
-</code></pre></li>
+<li></li>
 <li><code>&lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;img/webclip.png&quot; sizes=&quot;512x512&quot;&gt;</code></li>
 <li><code>&lt;script async=&quot;&quot; src=&quot;//www.google-analytics.com/analytics.js&quot;&gt;&lt;/script&gt;</code></li>
 <li><code>&lt;script&gt;!function(e,a,t,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=a.createElement(t),s=a.getElementsByTagName(t)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,&quot;script&quot;,&quot;//www.google-analytics.com/analytics.js&quot;,&quot;ga&quot;),ga(&quot;create&quot;,&quot;UA-69889362-1&quot;,&quot;auto&quot;),ga(&quot;send&quot;,&quot;pageview&quot;);&lt;/script&gt;</code></li>
