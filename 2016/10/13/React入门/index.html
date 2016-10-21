@@ -179,9 +179,12 @@ React最为人称道的是，它是一个专注于组件架构的类库。
 </ul>
 <h2 id="技术栈-babel"><a href="#技术栈-babel" class="headerlink" title="###技术栈(babel)"></a>###技术栈(babel)</h2><ul>
 <li>在React实例中发现这样一段 JS 引入<code>&lt;script src=&quot;https://unpkg.com/babel-standalone@6.15.0/babel.min.js&quot;&gt;&lt;/script&gt;</code>，这是什么意思？</li>
-<li>使用babel-standalone模块提供的浏览器版本，将其插入网页，网页中实时将ES6代码转为ES5，对性能会有影响。生产环境需要加载已经转码完成的脚本。</li>
-<li>在react 0.14前，浏览器端实现对jsx的编译依赖jsxtransformer.js 。在react 0.14后，这个依赖的库改为browser.js，<br>页面script标签的type也由text/jsx改为text/babel，<br>但是以上只能用来测试学习react，<br>生产环境需要借助编译工具事先将jsx编译成js，<br>对应的这个工具也由react-tool更换为babel。</li>
+<li>使用babel-standalone模块提供的浏览器版本，将其插入网页，网页中实时将ES6代码转为ES5，对性能会有影响。生产环境需要加载已经转码完成的脚本。浏览器会提示：<code>You are using the in-browser Babel transformer. Be sure to precompile your scripts for production - https://babeljs.io/docs/setup/</code></li>
+<li>在react 0.14前，浏览器端实现对jsx的编译依赖jsxtransformer.js 。</li>
+<li>在react 0.14后，这个依赖的库改为browser.js，页面script标签的type也由text/jsx改为text/babel，但是以上只能用来测试学习react，生产环境需要借助编译工具事先将jsx编译成js，对应的这个工具也由react-tool更换为babel。</li>
+<li><code>.babelrc</code>babel的配置文件，必需的，放置在根目录下。包含两个字段，<code>&quot;presets&quot;</code>和<code>&quot;plugins&quot;</code>，其中 presets 很重要，官方提供了三个规则集，如下：</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">ES2015转码规则</div><div class="line">$ npm install --save-dev babel-preset-es2015</div><div class="line"></div><div class="line">react转码规则</div><div class="line">$ npm install --save-dev babel-preset-react</div><div class="line"></div><div class="line">ES7不同阶段语法提案的转码规则（共有4个阶段），选装一个</div><div class="line">$ npm install --save-dev babel-preset-stage-0</div><div class="line">$ npm install --save-dev babel-preset-stage-1</div><div class="line">$ npm install --save-dev babel-preset-stage-2</div><div class="line">$ npm install --save-dev babel-preset-stage-3</div><div class="line"></div><div class="line">	&#123;</div><div class="line">		&quot;presets&quot;: [&quot;es2015&quot;,&quot;react&quot;,&quot;stage-3&quot;]</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 <h2 id="番外-ESLint"><a href="#番外-ESLint" class="headerlink" title="###番外(ESLint)"></a>###番外(ESLint)</h2><ul>
 <li>ESLint 支持JSX语法的检测，包含JSLint等功能，作者为<code>红宝书的作者</code></li>
 <li>全局安装<code>npm install eslint -g</code>  </li>

@@ -10,14 +10,10 @@
   
 
   
-  <meta name="description" content="##CSS似酒，得品；JS似剑，得磨。
-
-####重剑无锋，大巧不工，JS九剑，虽有剑式，但至境却是无剑胜有剑，路漫漫其修远兮，上下而求索吧，苦行者。
-
-
+  <meta name="description" content="##CSS似酒，得品；JS似剑，得磨。####重剑无锋，大巧不工，路漫漫其修远兮，上下而求索吧，苦行者。
 第一式
 
-1234567891011121314151617181920212223var obj = &amp;#123;	array: [1, 2,">
+1234567891011121314151617181920212223var obj = &amp;#123;	array: [1, 2, 3],	sum: ()=&amp;gt; &amp;#123;	">
   
 
   
@@ -90,11 +86,7 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>##CSS似酒，得品；JS似剑，得磨。</p>
-<hr>
-<p>####重剑无锋，大巧不工，JS九剑，虽有剑式，但至境却是无剑胜有剑，路漫漫其修远兮，上下而求索吧，苦行者。</p>
-<hr>
-<ul>
+        <h2 id="CSS似酒，得品；JS似剑，得磨。"><a href="#CSS似酒，得品；JS似剑，得磨。" class="headerlink" title="##CSS似酒，得品；JS似剑，得磨。"></a>##CSS似酒，得品；JS似剑，得磨。</h2><h2 id="重剑无锋，大巧不工，路漫漫其修远兮，上下而求索吧，苦行者。"><a href="#重剑无锋，大巧不工，路漫漫其修远兮，上下而求索吧，苦行者。" class="headerlink" title="####重剑无锋，大巧不工，路漫漫其修远兮，上下而求索吧，苦行者。"></a>####重剑无锋，大巧不工，路漫漫其修远兮，上下而求索吧，苦行者。</h2><ul>
 <li>第一式</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">	array: [1, 2, 3],</div><div class="line">	sum: ()=&gt; &#123;</div><div class="line">		console.log(this === window); // =&gt; true</div><div class="line">		return this.array.reduce((result, item) =&gt; result + item);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">obj.sum(); // =&gt; Uncaught TypeError: Cannot read property &apos;reduce&apos; of undefined(…)</div><div class="line"></div><div class="line">出现错误，无法读出没有定义的‘reduce’属性。原因是箭头函数没有它自己的this值，其内部的this值继承自外围作用域。</div><div class="line">那么修改代码：</div><div class="line"></div><div class="line">var obj = &#123;</div><div class="line">	array: [1, 2, 3],</div><div class="line">	sum: function() &#123;</div><div class="line">		console.log(this === window); // =&gt; false</div><div class="line">		return this.array.reduce(function(result, item) &#123;</div><div class="line">			reutrn result + item;</div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">obj.sum(); // 6</div></pre></td></tr></table></figure>
