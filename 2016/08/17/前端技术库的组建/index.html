@@ -159,13 +159,31 @@ jQuery，在线版，&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src
 </li>
 <li><p>react-dom，在线版，<code>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.min.js&quot;&gt;&lt;/script&gt;</code></p>
 </li>
-<li><p>react-dom-server，在线版，<code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom-server.min.js&quot;&gt;&lt;/script&gt;</code><br>###SemanticUI</p>
+<li><p>react-dom-server，在线版，<code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom-server.min.js&quot;&gt;&lt;/script&gt;</code></p>
 </li>
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="Sencha-Touch"><a href="#Sencha-Touch" class="headerlink" title="###Sencha Touch"></a>###Sencha Touch</h2><p>###待整理</p>
+<h2 id="SemanticUI"><a href="#SemanticUI" class="headerlink" title="###SemanticUI"></a>###SemanticUI</h2><h2 id="Sencha-Touch"><a href="#Sencha-Touch" class="headerlink" title="###Sencha Touch"></a>###Sencha Touch</h2><h2 id="Canvas"><a href="#Canvas" class="headerlink" title="###Canvas"></a>###Canvas</h2><ul>
+<li><code>&lt;canvas width=&#39;x&#39; height=&#39;x&#39; id=&#39;x&#39; &gt;抱歉，请端正你的生活作风&lt;/canvas&gt;</code></li>
+<li><code>if(canvas.getContext){ canvas.getContext(&#39;2d&#39;) }</code></li>
+<li>2D上下文的坐标开始于<code>&lt;canvas&gt;</code>元素的左上角，原点坐标是(0,0)。默认情况下，width和height表示水平和垂直方向上可用的像素数目。</li>
+<li>填充（fillStyle）和描边（strokeStyle），默认值为“＃000000”，所有涉及描边和填充的操作都将使用这两个样式，除非重新设置这两个值。</li>
+<li>绘制矩形：fillRect(),strokeRect(),clearRect()，都接受4个参数，x坐标，y坐标，width，heigth；</li>
+<li>描边的线条宽度由lineWidth属性控制，值为整数；lineCap属性控制线条末端的形状是平头（butt）、圆头（round）、方头（square）；lineJoin属性控制线条相交的方式是圆交（round）、斜交（bevel）、斜接（miter）。</li>
+<li><p>绘制路径：</p>
+<ul>
+<li><code>arc(x, y, radius, startAngle, endAngle, counterclockwise)</code>，绘制一条弧线。</li>
+<li><code>arcTo(x1, y1, x2, y2, raduis)</code>，从上一点开始绘制一条弧线。</li>
+<li><code>lineTo(x, y)</code>，从上一点绘制一条直线，到(x, y)为止。</li>
+<li><code>moveTo(x, y)</code>，将绘图游标移动到(x, y)。</li>
+</ul>
+</li>
+<li><p>合成：<code>globalAlpha</code>和<code>globalCompositionOperation</code></p>
+</li>
+<li>使用图像数据：<code>getImageDate()</code></li>
+</ul>
+<p>###待整理</p>
 <ul>
 <li><p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/mobile.css&quot; media=&quot;(max-width: 640px)&quot;&gt;</code></p>
 </li>
