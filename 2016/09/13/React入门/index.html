@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React入门 | DearSW</title>
+
+  
+  <meta name="author" content="DearSW">
+  
+
+  
+  <meta name="description" content="###入门印象
+传统组件化的特点是把组件和原生DOM节点的渲染割裂起来
+现代的组件架构鼓励原生DOM节点和自定义组件的统一渲染融合，比如React以及未来的Web Components规范
+React最为人称道的是，它是一个专注于组件架构的类库。
+要想用好React，我们必须跳出以往的思维，拥抱Re">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="React入门"/>
+
+  <meta property="og:site_name" content="DearSW"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="http://odfgqiz57.bkt.clouddn.com/image/logo/logo1.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="DearSW" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">文章</a>
+    </h1>
+    <p class="site-description">天地有大美而不言，四时有明法而不议，万物有成理而不说</p>
+    <p class="site-description">原天地之美而达万物之理，是故至人无为，大圣不作，观于天地</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      <li><a href='/'>主页</a></li>
+      <li><a href='https://dearsw.github.io/archives/'>列表</a></li>
+      <li><a href='http://www.dearsw.top:8888'>菜单</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>React入门</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/13/React入门/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-13T15:19:46.000Z">
+          2016-09-13
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="入门印象"><a href="#入门印象" class="headerlink" title="###入门印象"></a>###入门印象</h2><ul>
+<li>传统组件化的特点是把组件和原生DOM节点的渲染割裂起来</li>
+<li>现代的组件架构鼓励原生DOM节点和自定义组件的统一渲染融合，比如React以及未来的Web Components规范</li>
+<li>React最为人称道的是，它是一个专注于组件架构的类库。</li>
+<li>要想用好React，我们必须跳出以往的思维，拥抱React的理念和思想，比如状态，虚拟DOM，组合优于继承，单向数据流。</li>
+<li>React专注于组件架构，所以模块系统可以直接采用CommonJS，测试框架可以使用Mocha，生态圈则可以直接依托npm，工具可以采用现成的Browserify或Webpack。</li>
+<li>React本质上是一个“状态机”，可以帮助开发者管理复杂的随着时间而变化的状态。它以一个精简的模型实现了这一点。React只关心两件事：更新DOM和响应事件。</li>
+<li>React不处理Ajax、路由和数据处理，也不规定数据组织的方式，它不是一个MVC框架。事实上，它已经在数个MVC框架中被用来渲染视图了。</li>
+<li>React 不是一个完整的MVC，MVVM框架</li>
+<li>React 跟 Web Components不冲突</li>
+<li>React 的特点就是轻</li>
+</ul>
+<h2 id="JSX"><a href="#JSX" class="headerlink" title="###JSX"></a>###JSX</h2><ul>
+<li>在React中，组件是用于分离关注点的，而不是被当作模版或处理显示逻辑的。</li>
+<li>React包含了一种可选的类HTML标记语言。</li>
+<li>JSX即JavaScript XML，一种在React组件内部构建标签的类XML语法。</li>
+<li>JSX 会转换为原生的JS函数，因此有一些关键词我们是不能用的<ul>
+<li>for 要转换成 htmlFor</li>
+<li>class 要转换成 className</li>
+</ul>
+</li>
+<li>React把所有的内联样式都规范化为了驼峰形式，与JS中DOM的style属性一样。</li>
+<li><code>var R = React.DOM;</code> React在<code>React.DOM.*</code>命名空间下提供了一系列的工厂，如：<code>R.div(),R.hr(),R.h2(null,&#39;label text&#39;)</code>;</li>
+<li>React 自动绑定了组件所有方法的作用域，因此你不需要手动绑定。</li>
+<li><code>this.props.children</code> React将开始标签和结束标签之间的所有的子节点保存在一个名为 <code>this.props.children</code> 的特殊组件属性中。</li>
+<li><code>React.createClass()</code></li>
+</ul>
+<h2 id="版本演进"><a href="#版本演进" class="headerlink" title="###版本演进"></a>###版本演进</h2><ul>
+<li>React 「一分为二」</li>
+<li><p>原本的 react 被拆分为 react 及 react-dom 两个 package。</p>
+<ul>
+<li>其中 react package 中包含React.createElement、 .createClass、 .Component， .PropTypes， .Children 这些 API。</li>
+<li>而 react-dom package 中包含 ReactDOM.render、 .unmountComponentAtNode、 .findDOMNode。</li>
+</ul>
+</li>
+<li><p>原本在服务端渲染用的两个 API .renderToString 和 .renderToStaticMarkup 被放在了 react-dom/server 中。</p>
+</li>
+<li><p>此外，原本 React.addons 下面的工具全部变成了独立的 package</p>
+<ul>
+<li>react-addons-clone-with-props</li>
+<li>react-addons-create-fragment</li>
+<li>react-addons-css-transition-group</li>
+<li>react-addons-linked-state-mixin</li>
+<li>react-addons-perf</li>
+<li>react-addons-pure-render-mixin</li>
+<li>react-addons-shallow-compare</li>
+<li>react-addons-test-utils</li>
+<li>react-addons-transition-group</li>
+<li>react-addons-update</li>
+<li>ReactDOM.unstable_batchedUpdates （在 react-dom 中）</li>
+</ul>
+</li>
+<li>refs 变成了真正的 DOM 节点。当我们需要获取 React 组件上某个 DOM 节点时，React 提供了 refs 方法方便我们快速引用。为了方便我们使用，React 还「贴心」地对 refs 做了一层封装，使用 。this.refs.xxx.getDOMNode() 或 React.findDOMNode(this.refs.xxx) 可以获取到真正的 DOM 节点。</li>
+<li>react-tools 及 JSXTransformer.js 已弃用。</li>
+<li>React.initializeTouchEvents 已弃用。</li>
+<li>props 一旦创建永远不可修改，因此 .setProps 及 .replaceProps 已废弃。</li>
+<li>children 不可以传对象类型，推荐传入数组，或使用 React.createFragment 方法（其实就是转换为了数组）。</li>
+<li>React.addons.classSet 已经移除，使用 classnames package 替代。</li>
+</ul>
+<h2 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="###生命周期函数"></a>###生命周期函数</h2><ul>
+<li><p>创建时</p>
+<ul>
+<li>getDefaultProps() // 对于那些没有被父辈组件指定props属性的新建实例来说，这个方法返回的对象可用于为实例设置默认的props值</li>
+<li>getInitialState() // 初始化每个实例的state</li>
+<li>componentWillMount() // 该方法在完成首次渲染之前被调用，这也是在render方法调用前可以修改组件state的最后一次机会</li>
+<li>render() // 创建一个虚拟DOM，用来表示组件的输出。对于一个组件来说，render是唯一一个必需的方法，并且有特定的规则。（是什么规则？）</li>
+<li>componentDidMount() // 在render方法成功调用并且真实的DOM已经被渲染出来之后，你可以在componentDidMount内部通过（？）来访问到它。（this.getDOMNode()）</li>
+</ul>
+</li>
+<li><p>存在时</p>
+<ul>
+<li>componentWillReceiveProps() // 任意时刻，组件的props都可以通过父辈组件来修改，在这个函数中你也将获得更改props对象以及更新state的机会</li>
+<li>shouldComponentUpdate()</li>
+<li>componentWillUpdate() // 组件会在接收到新的props或者state进行渲染之前，调用该方法，不可以在该方法中更新state或者props</li>
+<li>componentDidUpdate() // </li>
+</ul>
+</li>
+<li><p>销毁时</p>
+<ul>
+<li>componentWillUnmount() // 在组件被销毁之前调用这个方法，来做一些清除工作</li>
+</ul>
+</li>
+</ul>
+<img src="/2016/09/13/React入门/react1.png" alt="[react]" title="[react]">
+<h2 id="数据流"><a href="#数据流" class="headerlink" title="###数据流"></a>###数据流</h2><ul>
+<li>在React中，数据的流向是单向的，从父节点传递到子节点，因而组件是简单且易把握的，他们只需从父节点获取props渲染即可。</li>
+<li>React内部还具有自己的状态state，这些状态只能在组件内修改。</li>
+<li>你可以把React组件看成一个函数，它接受props和state作为参数，返回一个虚拟的DOM表现。</li>
+<li>使用<code>props</code>把任意类型的数据传递给组件。</li>
+<li>可以通过this.props访问props，但绝对不可以通过这种方式修改它，一个组件绝对不可以自己修改自己的props。</li>
+<li>propTypes 通过在组件中定义一个配置对象，React提供了一种验证props的方式。</li>
+<li>state只存在于组件内部</li>
+<li>千万不能直接修改this.state,永远记得要通过this.setState方法来修改。</li>
+<li>props are immutable: they are passed from the parent and are “owned” by the parent.</li>
+<li>To implement interactions, we introduce mutable <code>state</code> to the component. <code>this.state</code>is private to the component and can be changed by calling <code>this.setState()</code>. When the state updates,the component rerenders itself.</li>
+<li>使用<code>props</code>在整个组件树中传递数据和配置</li>
+<li>避免在组件内部修改<code>this.props</code>或调用<code>this.setProps</code>,请把<code>props</code>当作只读的（immutable）</li>
+<li>使用<code>props</code>来做事件处理器，与子组件通信</li>
+<li>使用<code>state</code>存储简单的视图状态</li>
+<li>使用<code>this.setState</code>来设置状态，而不要使用<code>this.state</code>直接修改状态</li>
+<li>不要尝试把<code>props</code>复制到<code>state</code>中，要尽可能把<code>props</code>当作数据源。</li>
+<li>更新组件内部状态会触发组件重绘。</li>
+<li>更新组件状态有两种方案，组件的<code>setState()</code>和<code>replaceState()</code>，更多的情况下会使用<code>setState()</code>，仅仅是把传入的对象合并到已有的state对象上。</li>
+</ul>
+<h2 id="事件处理"><a href="#事件处理" class="headerlink" title="###事件处理"></a>###事件处理</h2><ul>
+<li>React 通过将事件处理器绑定到组件上来处理事件，在事件被触发的同时，更新组件的内部状态（state），组件内部状态（state）的更新会触发组件重绘。</li>
+<li>React 绑定事件处理器的语法和HTML语法非常类似，但性能是不一样的。</li>
+</ul>
+<h2 id="组件"><a href="#组件" class="headerlink" title="###组件"></a>###组件</h2><ul>
+<li>在传统HTML中，元素是构成页面的基础单元，但在React中，构成页面的基础单元是React组件。你可以把React组件理解成混入了JS表达能力的HTML元素，实际上写React代码主要就是构建组件，就像编写HTML文档时使用元素一样。</li>
+<li>复合（composability）</li>
+<li>本质上，一个组件就是一个JS函数，它接受属性（props）和状态（state）作为参数，并输出渲染好的HTML。</li>
+<li>组件的核心理念就是可预测性和可预知性。</li>
+<li>在React中，表单组件有两种类型：约束组件和无约束组件。</li>
+<li>无约束组件可以用在基本的无须任何验证或者输入控制的表单中。</li>
+<li>约束组件的模式与React其他类型组件的模式一致，表单组件的状态交由React组件控制，状态值被存储在state中。</li>
+</ul>
+<h2 id="动画"><a href="#动画" class="headerlink" title="###动画"></a>###动画</h2><ul>
+<li>动画可以让用户体验变得更加流畅与自然。</li>
+<li>TransitionGroup(插件) ＋ CSS3 =&gt; CSSTransitionGroup(CSS渐变组)</li>
+<li>CSSTransitionGroup 会在合适的渲染、重渲染时间点有策略地添加和移除元素的class，以此来简化将CSS动画应用于渐变的过程。而你唯一需要做的是给些class写明合适的样式。</li>
+<li><code>var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;</code></li>
+<li><code>&lt;ReactCSSTransitionGroup transitionName=&#39;xx&#39;&gt;{...}&lt;/ReactCSSTransitionGroup&gt;</code></li>
+<li>使用渐变组需要注意两点：1、渐变组会延迟子组件的移除直到动画完成。2、渐变组的每一个子组件都必须设置一个唯一的<code>key</code>属性。</li>
+<li>默认情况下，渐变组同时启用了进入和退出的动画，可以通过给组件添加<code>transitionEnter={false}</code>或者<code>transitionLeave={false}</code>属性来控制。</li>
+</ul>
+<h2 id="实例"><a href="#实例" class="headerlink" title="###实例"></a>###实例</h2><ul>
+<li>官网留言组件，数据流，事件绑定，如果看不懂、迷糊，很简单，那就反复看上几十遍，手敲十几遍，就什么都懂了。</li>
+<li>官方案例基本思想：React构件组件，jQuery之Ajax获取数据，Express搭建服务器。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;CommentBox url=&apos;/api/comments&apos; pollInterval=&#123;2000&#125; /&gt;</div><div class="line"></div><div class="line">CommentBox</div><div class="line">  |---this.setState(&#123;data: data&#125;)</div><div class="line">  |---this.props.url  this.props.pollInterval</div><div class="line">  |---CommentList</div><div class="line">  |			|---data=&#123;this.state.data&#125;</div><div class="line">  |			|---Comment</div><div class="line">  |			|</div><div class="line">  |</div><div class="line">  |---onCommentSubmit=&#123;this.handleCommentSubmit&#125;</div><div class="line">  |---CommentForm</div><div class="line">  			|---this.state.author</div><div class="line">  			|---this.state.text</div><div class="line">  			|---this.setState(&#123;author:&apos;&apos;,text:&apos;&apos;)</div><div class="line">  			|---this.setState(&#123;author: e.target.value)</div><div class="line">  			|---this.setState(&#123;text: e.target.value)</div></pre></td></tr></table></figure>
+<ul>
+<li>项目地址 <a href="https://github.com/DearSW/react-start" target="_blank" rel="external">https://github.com/DearSW/react-start</a></li>
+</ul>
+<h2 id="技术栈-babel"><a href="#技术栈-babel" class="headerlink" title="###技术栈(babel)"></a>###技术栈(babel)</h2><ul>
+<li>在React实例中发现这样一段 JS 引入<code>&lt;script src=&quot;https://unpkg.com/babel-standalone@6.15.0/babel.min.js&quot;&gt;&lt;/script&gt;</code>，这是什么意思？</li>
+<li>使用babel-standalone模块提供的浏览器版本，将其插入网页，网页中实时将ES6代码转为ES5，对性能会有影响。生产环境需要加载已经转码完成的脚本。浏览器会提示：<code>You are using the in-browser Babel transformer. Be sure to precompile your scripts for production - https://babeljs.io/docs/setup/</code></li>
+<li>在react 0.14前，浏览器端实现对jsx的编译依赖jsxtransformer.js 。</li>
+<li>在react 0.14后，这个依赖的库改为browser.js，页面script标签的type也由text/jsx改为text/babel，但是以上只能用来测试学习react，生产环境需要借助编译工具事先将jsx编译成js，对应的这个工具也由react-tool更换为babel。</li>
+<li><code>.babelrc</code>babel的配置文件，必需的，放置在根目录下。包含两个字段，<code>&quot;presets&quot;</code>和<code>&quot;plugins&quot;</code>，其中 presets 很重要，官方提供了三个规则集，如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">ES2015转码规则</div><div class="line">$ npm install --save-dev babel-preset-es2015</div><div class="line"></div><div class="line">react转码规则</div><div class="line">$ npm install --save-dev babel-preset-react</div><div class="line"></div><div class="line">ES7不同阶段语法提案的转码规则（共有4个阶段），选装一个</div><div class="line">$ npm install --save-dev babel-preset-stage-0</div><div class="line">$ npm install --save-dev babel-preset-stage-1</div><div class="line">$ npm install --save-dev babel-preset-stage-2</div><div class="line">$ npm install --save-dev babel-preset-stage-3</div><div class="line"></div><div class="line">	&#123;</div><div class="line">		&quot;presets&quot;: [&quot;es2015&quot;,&quot;react&quot;,&quot;stage-3&quot;]</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h2 id="ERROR集合"><a href="#ERROR集合" class="headerlink" title="###ERROR集合"></a>###ERROR集合</h2><ul>
+<li>在 render 中的标签需要闭合，自闭合标签也需要闭合。</li>
+<li><code>Uncaught Invariant Violation: Minified React error #37;</code>浏览器提示这种错误，最后在ReactDOM.render()发现错误，第二个参数指定的容器不存在，导致错误。</li>
+<li>React 对<code>this</code>的态度，React 自动绑定了组件所有方法的作用域，因此你永远都不需要手动绑定。但是，如果产生了闭包，就需要手动来绑定了。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">handleClick: function(event) &#123;...&#125;</div><div class="line"></div><div class="line">render: function()&#123;</div><div class="line">	return ( &lt;div onClick=&#123;this.handleClick&#125; &gt;...&lt;/div&gt; )</div><div class="line">&#125;</div><div class="line"></div><div class="line">render: function()&#123;</div><div class="line">	return ( &lt;div onClick=&#123;this.handleClick.bind(this)&#125; &gt;...&lt;/div&gt; )</div><div class="line">&#125;</div><div class="line"></div><div class="line">var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;</div><div class="line"></div><div class="line">       var TodoList = React.createClass(&#123;</div><div class="line">           getInitialState: function() &#123;</div><div class="line">               return &#123;items: [&apos;hello&apos;, &apos;world&apos;, &apos;click&apos;, &apos;me&apos;]&#125;;</div><div class="line">           &#125;,</div><div class="line">           handleAdd: function() &#123;</div><div class="line">               var newItems =</div><div class="line">                       this.state.items.concat([prompt(&apos;Enter some text&apos;)]);</div><div class="line">               this.setState(&#123;items: newItems&#125;);</div><div class="line">           &#125;,</div><div class="line">           handleRemove: function(i) &#123;</div><div class="line">               var newItems = this.state.items;</div><div class="line">               newItems.splice(i, 1);</div><div class="line">               this.setState(&#123;items: newItems&#125;);</div><div class="line">           &#125;,</div><div class="line">           render: function() &#123;</div><div class="line"></div><div class="line">               var items = this.state.items.map(function(item, i) &#123;</div><div class="line">                   return (</div><div class="line">                           &lt;div key=&#123;item&#125; onClick=&#123;this.handleRemove.bind(this, i)&#125; className=&apos;item&apos;&gt;</div><div class="line">                               &#123;item&#125;</div><div class="line">                           &lt;/div&gt;</div><div class="line">                   )</div><div class="line">               &#125;.bind(this));</div><div class="line"></div><div class="line">               return (</div><div class="line">                       &lt;div className=&apos;todoList&apos;&gt;</div><div class="line"></div><div class="line">                           &lt;button onClick=&#123;this.handleAdd&#125; className=&apos;submit&apos;&gt;</div><div class="line">                               Add Item</div><div class="line">                           &lt;/button&gt;</div><div class="line"></div><div class="line">                           &lt;ReactCSSTransitionGroup</div><div class="line">                               transitionName=&quot;example&quot;</div><div class="line">                               transitionEnterTimeout=&#123;500&#125;</div><div class="line">                               transitionLeaveTimeout=&#123;300&#125;&gt;</div><div class="line">                               &#123;items&#125;</div><div class="line">                           &lt;/ReactCSSTransitionGroup&gt;</div><div class="line"></div><div class="line">                       &lt;/div&gt;</div><div class="line">               )</div><div class="line">           &#125;</div><div class="line">       &#125;);</div></pre></td></tr></table></figure>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="###工作流程"></a>###工作流程</h2><ul>
+<li><p>一个是编译：将 JSX （或者你用了 ES6 的特性的话也需要这一步）编译到被浏览器广泛支持的 ES5 的代码。</p>
+</li>
+<li><p>第二个是进行模块绑定：因为浏览器不识得这些模块（通常是编译成 ES5 的 CommonJS 规范实现的模块，这并不是浏览器支持的东西），不知道怎么去加载他们，模块绑定就是根据模块之间的依赖关系，将其“合并”到单个或者几个 JS 文件，让程序能直接被浏览器执行。</p>
+</li>
+<li><p>第一个编译的步骤可以直接交给 Babel 搞定。</p>
+</li>
+<li><p>第二个步骤的话，目前推荐用 webpack 做比较方便。</p>
+</li>
+<li><p>再之就是用 Gulp 控制那两个工具去处理源代码和输出了，总体上是这么个流程。</p>
+</li>
+<li><p>细节的比如 uglify，sourcemap 之类的事情都可以通过上述工具便捷地完成。</p>
+</li>
+</ul>
+<h2 id="番外-ESLint"><a href="#番外-ESLint" class="headerlink" title="###番外(ESLint)"></a>###番外(ESLint)</h2><ul>
+<li>ESLint 支持JSX语法的检测，包含JSLint等功能，作者为<code>红宝书的作者</code></li>
+<li>全局安装<code>npm install eslint -g</code>  </li>
+<li>配置文件<code>.eslintrc</code> ，新建此文件在你需要的根目录下即可（并填入相应的配置项）</li>
+<li>忽略文件<code>.eslintignore</code></li>
+<li><code>.eslintrc</code>的基本配置项如下所示：</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">        &quot;extends&quot;: &quot;eslint:recommended&quot;,</div><div class="line">        &quot;env&quot;:&#123;</div><div class="line">          &quot;node&quot;:true,</div><div class="line">          &quot;es6&quot;:true</div><div class="line">        &#125;,</div><div class="line">        &quot;rules&quot;: &#123;</div><div class="line">            &quot;semi&quot;: [&quot;error&quot;, &quot;always&quot;],</div><div class="line">            &quot;quotes&quot;: &quot;off&quot;,</div><div class="line">            &quot;no-console&quot;:&quot;off&quot;,</div><div class="line">            &quot;no-unused-vars&quot;:&quot;off&quot;,</div><div class="line">            &quot;no-unreachable&quot;:&quot;off&quot;,</div><div class="line">            &quot;no-redeclare&quot;:&quot;warn&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如需要自动修复一些不规范的代码问题,例如没有分号的问题,可以在目录终端下输入命令 <code>eslint . --fix</code> 来进行修复</p>
+</li>
+</ul>
+<h2 id="番外（-ajax）"><a href="#番外（-ajax）" class="headerlink" title="###番外（$.ajax）"></a>###番外（$.ajax）</h2><ul>
+<li>是jQuery最底层的Ajax实现</li>
+<li>语法<code>$.ajax(options)</code>，options为参数对象，这个对象中包含了所需要的请求设置以及回调函数等信息，参数以key／value的形式存在，所有参数都是可选的。</li>
+<li>介绍一个体验优化参数，<code>global</code>参数，它的value是boolean类型的，默认为true，表示触发全局Ajax事件，设置为false将不会触发全局Ajax事件</li>
+<li>全局Ajax事件有6个：<code>ajaxStart(callback)</code> <code>ajaxStop(callback)</code> <code>ajaxComplete(callback)</code> <code>ajaxError(callback)</code> <code>ajaxSend(callback)</code> <code>ajaxSuccess(callback)</code></li>
+<li>使用这些全局Ajax事件就是在用户发起Ajax请求后，为了让用户知道服务器正在处理数据，了解当前的变化，不至于让用户感到茫然，及时给用户一些反馈。</li>
+<li>比如在<code>ajaxStart()</code>中启动一个新的类名，在此类名下，按钮或者某块区域给出动态提示，接着在 <code>ajaxStop()</code>中移除这个类名，表示完成了Ajax请求。</li>
+</ul>
+<h2 id="资源链接"><a href="#资源链接" class="headerlink" title="###资源链接"></a>###资源链接</h2><ul>
+<li><a href="http://lib.csdn.net/article/react/29964" target="_blank" rel="external">React工程目录搭建</a></li>
+<li>最好的文档 <a href="https://facebook.github.io/react/docs/" target="_blank" rel="external">官方文档</a> (可能需要翻墙访问)</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Thanks, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/DearSW/HDY" target="_blank">HDY</a>
+    <br />
+    
+    &copy; 2016 DearSW
+    
+    <br />
+    <a href="http://www.dearsw.top:8888" target="_blank">My Blog</a>
+  </p>
+</footer>
+
+    
+  </div>
+</div>
+</body>
+</html>
