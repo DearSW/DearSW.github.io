@@ -11,12 +11,8 @@
 
   
   <meta name="description" content="###Deco IDE
-Deco IDE 是什么？The best IDE for building React Nativeapps is now free and open source.
-工程目录示例
-
-
-
-实时显示出你的代码变化。Search for existing open-source">
+Deco IDE 是什么？The best IDE for building React Native apps is now free and open source.
+实时显示出你的代码变化。Search for existing open-source React Na">
   
 
   
@@ -90,14 +86,28 @@ Deco IDE 是什么？The best IDE for building React Nativeapps is now free and 
     <div class="entry">
       
         <h2 id="Deco-IDE"><a href="#Deco-IDE" class="headerlink" title="###Deco IDE"></a>###Deco IDE</h2><ul>
-<li><a href="https://www.decosoftware.com/" target="_blank" rel="external">Deco IDE 是什么？</a>The best IDE for building React Native<br>apps is now free and open source.</li>
-<li>工程目录示例</li>
+<li><a href="https://www.decosoftware.com/" target="_blank" rel="external">Deco IDE 是什么？</a>The best IDE for building React Native apps is now free and open source.</li>
+<li>实时显示出你的代码变化。Search for existing open-source React Native components to accelerate your development. Each component has a convenient thumbnail preview to help you find the right one.Then insert the component with one click and customize.</li>
+<li><p>快速建立已经开源的组件，加速开发。Search for existing open-source React Native components to accelerate your development. Each component has a convenient thumbnail preview to help you find the right one.Then insert the component with one click and customize.</p>
+</li>
+<li><p>工程目录示例</p>
+<ul>
+<li>android/：在 Android Studio 打开你的项目或者构建项目所必须的文件。</li>
+<li>ios/：在 Xcode 打开你的项目或者构建项目所必须的文件。 </li>
+<li>node_modules/：你的 RN 项目运行所需要的NPM包。</li>
+<li>.flowconfig：如果你想要使用 FB 的 flow 语言（对JS进行静态检查），就需要使用这个配置文件。</li>
+<li>.watchmanconfig：FB 的 Watchman 的配置文件，检测 RN 的包。</li>
+<li>.gitignore：Default files for git to ignore。</li>
+<li>index.ios.js：在 iOS 上运行 RN App 的入口文件。</li>
+<li>index.android.js：在 Android 上运行 RN App 的入口文件。</li>
+<li>package.json：描述项目和罗列需要的 npm 包依赖。</li>
+</ul>
+</li>
 </ul>
 <img src="/2016/10/28/React-Native-入门/RNProject.png" alt="RNProject.png" title="">
 <ul>
-<li>实时显示出你的代码变化。Search for existing open-source React Native components to accelerate your development. Each component has a convenient thumbnail preview to help you find the right one.Then insert the component with one click and customize.</li>
-<li>快速建立已经开源的组件，加速开发。Search for existing open-source React Native components to accelerate your development. Each component has a convenient thumbnail preview to help you find the right one.Then insert the component with one click and customize.</li>
-<li>使用步骤<ul>
+<li><p>使用步骤</p>
+<ul>
 <li>Step 1: Download, install, and run Deco</li>
 <li>Step 2: Create a new project</li>
 <li>Step 3: Run iOS Simulator</li>
@@ -107,6 +117,16 @@ Deco IDE 是什么？The best IDE for building React Nativeapps is now free and 
 <li>Step 7: Have fun, and join our Slack channel!</li>
 </ul>
 </li>
+<li><p>什么是 Deco 组件？</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">组件是高度复用的 JSX 模版，Deco 能自动添加组件到项目。</div><div class="line">有些组件需要 npm 依赖，Deco 会自动下载这些依赖和导入到你的代码中。</div><div class="line">组件插入这种方式也可能含有可调的特性（自动添加到属性面板）。</div><div class="line">插入组件有两种方式：1、直接拖拽组件到你的代码中。2、在搜索面板点击插入。</div><div class="line">移除组件：The easiest way to remove a recently-added component is with undo ⌘+z. You will need to manually remove npm dependencies from your package.json. If undoing isn&apos;t possible, there are three places to check for related code you need to delete:</div><div class="line"></div><div class="line">In your JSX code, where you inserted the component&apos;s JSX</div><div class="line">At the top of the file, you may need to remove any import statements that were added when the component was inserted</div><div class="line">If any npm dependencies were installed when the component was inserted, remove them from the package.json.</div></pre></td></tr></table></figure>
+<ul>
+<li>模拟器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">	1、开启 RN Packager，Deco 会自动开启 RN Packager 当你开启模拟器，你也可以手动开启。</div><div class="line">当 Packager 运行之后，你可以在 Deco 底部看到 packager output。</div><div class="line">	2、开启 iOS 模拟器，你可以开启任何已经安装了的 iOS 模拟器通过点击模拟器按钮。</div><div class="line">	3、开启 Android 模拟器。</div><div class="line">	4、开启 Hot Reload，开启热加载，自动刷新 app 当有代码变化时。</div></pre></td></tr></table></figure>
+<ul>
+<li>Where can I learn React and React Native? We recommend following the Facebook’s official getting started <a href="https://facebook.github.io/react-native/docs/getting-started.html#content" target="_blank" rel="external">documentation</a>, and then going through this guide, <a href="http://www.reactnativeexpress.com/" target="_blank" rel="external">React Native Express</a>.</li>
 </ul>
 
       
