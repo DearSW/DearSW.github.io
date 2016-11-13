@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ionic 开发 | DearSW</title>
+
+  
+  <meta name="author" content="DearSW">
+  
+
+  
+  <meta name="description" content="###基本Ionic环境搭建
+
+基于node环境，使用npm来安装环境，首先需要安装node
+npm install -g ionic 
+npm install -g cordova
+
+###开始一个新的Ionic项目
+
+官网提供了三个示例项目：tabs、blank、sidemenu
+ionic s">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="ionic 开发"/>
+
+  <meta property="og:site_name" content="DearSW"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="http://odfgqiz57.bkt.clouddn.com/image/logo/logo1.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="DearSW" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">文章</a>
+    </h1>
+    <p class="site-description">天地有大美而不言，四时有明法而不议，万物有成理而不说</p>
+    <p class="site-description">原天地之美而达万物之理，是故至人无为，大圣不作，观于天地</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      <li><a href='/'>主页</a></li>
+      <li><a href='https://dearsw.github.io/archives/'>列表</a></li>
+      <li><a href='http://www.dearsw.top:8888'>菜单</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>ionic 开发</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/11/11/ionic-开发/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-11T05:39:34.000Z">
+          2016-11-11
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>###基本Ionic环境搭建</p>
+<ul>
+<li>基于node环境，使用npm来安装环境，首先需要安装node</li>
+<li>npm install -g ionic </li>
+<li>npm install -g cordova</li>
+</ul>
+<p>###开始一个新的Ionic项目</p>
+<ul>
+<li>官网提供了三个示例项目：tabs、blank、sidemenu</li>
+<li>ionic start [myProjectName] [tabs/blank/sidemenu]</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">hooks           //google之后这个目录应该是在编译cordova时自定义的脚本命令，方便整合到我们的编译系统和版本控制系统中</div><div class="line">plugins         //cordova插件的目录，插件的安装下一节详述</div><div class="line">scss            //scss文件，发布时编译这个目录下的文件输出到www的css目录中</div><div class="line">www             //我们的开发目录，页面、样式、脚本和图片都放在这个目录下</div><div class="line">	--css</div><div class="line">	--img</div><div class="line">	--js</div><div class="line">	--lib</div><div class="line">	--index.html //作为我们的程序入口文件，首先编辑这个文件</div><div class="line">bower.json      //bower配置文件</div><div class="line">config.xml      //Ionic的配置文件 ⱃ可以配置app的id，名称、描述起始页和一起其他配置</div><div class="line">gulpfile.js     //gulp构建工具的执行文件，在这个文件中创建任务实现编译scss，css、js优化等</div><div class="line">ionic.project   //Ionic的项目文件可以配置Ionic命令中livereload的监控文件</div><div class="line">package.json    //npm配置文件</div></pre></td></tr></table></figure>
+<img src="/2016/11/11/ionic-开发/ionic项目目录结构.png" alt="ionic项目目录结构.png" title="">
+<p>###运行Ionic项目</p>
+<ul>
+<li>切换到项目目录，也就是[myProjectName]目录：cd [myProjectName]</li>
+<li>构建平台：ionic platform add ios／android，如果遇见问题，可以先使用：ionic hooks add</li>
+<li>移除平台：ionic platform remove ios／android</li>
+<li>编译：ionic build ios／android</li>
+<li>开始编译项目，编译完成之后用Xcode打开开发目录下platform-&gt;ios-&gt;myIonic.xcodeproj的项目文件，Xcode中选择要运行的虚拟机版本并执行快捷键cmd+R运行虚拟机，虚拟机打开后会自动运行你应用。</li>
+</ul>
+<p>###Ionic项目编码</p>
+<ul>
+<li>www／index.html是程序入口文件，Ionic针对移动端自定义了一套样式库，并且使用Angular的指令封装了各个模块。</li>
+</ul>
+<p>###Cordova插件</p>
+<ul>
+<li>Cordova插件开发步骤</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">1、首先构建一个目录，如下</div><div class="line">	plugins</div><div class="line">		|</div><div class="line">		|—— justalk</div><div class="line">				|</div><div class="line">				|——plugin.xml(配置文件）</div><div class="line">				|</div><div class="line">				|——src(对应不同的平台)</div><div class="line">				|	 |</div><div class="line">				|	 |——android</div><div class="line">				|	 |		|</div><div class="line">				|	 |		|——JustCall.java</div><div class="line">				|	 |——ios</div><div class="line">				|	 	  |</div><div class="line">				|	 	  |——JustCall	.h</div><div class="line">				|	 	  |——JustCall.m</div><div class="line">				|</div><div class="line">				|——www</div><div class="line">					|</div><div class="line">					|——justalk.js</div></pre></td></tr></table></figure>
+<ul>
+<li><p>plugin.xml(配置文件)</p>
+<ul>
+<li><p>关键标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;js-module name=&quot;JustalkPlugin&quot; src=&quot;www/justalk.js&quot;&gt; </div><div class="line">	&lt;clobbers target=&quot;justalk&quot; /&gt; </div><div class="line">&lt;/js-module&gt;</div><div class="line">name是插件名，src指向js文件。</div></pre></td></tr></table></figure>
+</li>
+<li><p>关键标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;platform name=&quot;ios&quot;&gt;</div><div class="line"></div><div class="line">	&lt;config-file target=&quot;config.xml&quot; parent=&quot;/*&quot;&gt;</div><div class="line">	</div><div class="line">		&lt;feature name=&quot;justalk&quot;&gt;</div><div class="line">			&lt;param name=&quot;ios-package&quot; value=&quot;JustCall&quot; /&gt;</div><div class="line">		&lt;feature&gt;</div><div class="line">		</div><div class="line">		&lt;header-file src=&quot;src/ios/JustCall.h&quot; target-dir=&quot;junyikang-app/classes&quot; /&gt;</div><div class="line">	&lt;source-file src=&quot;src/ios/JustCall.m&quot; target-dir=&quot;junyikang-app/classes&quot; /&gt;</div><div class="line">		</div><div class="line">	&lt;config-file&gt;</div><div class="line"></div><div class="line">&lt;/platform&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>www/justalk.js<ul>
+<li>在这里写上JS方法，并暴露给web工程使用，使用CommonJS规范编码。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>插件编码完成后，就是使用命令行来生成Cordova插件<ul>
+<li>首先切换到工程目录，使用命令：cordova plugin add [插件的绝对路径]</li>
+<li>在工程目录下移除插件：cordova plugin remove [插件名]</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Thanks, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/DearSW/HDY" target="_blank">HDY</a>
+    <br />
+    
+    &copy; 2016 DearSW
+    
+    <br />
+    <a href="http://www.dearsw.top:8888" target="_blank">My Blog</a>
+  </p>
+</footer>
+
+    
+  </div>
+</div>
+</body>
+</html>
