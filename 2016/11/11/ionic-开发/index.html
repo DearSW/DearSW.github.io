@@ -13,13 +13,13 @@
   <meta name="description" content="###基本Ionic环境搭建
 
 基于node环境，使用npm来安装环境，首先需要安装node
-npm install -g ionic 
+npm install -g ionic
 npm install -g cordova
 
 ###开始一个新的Ionic项目
 
 官网提供了三个示例项目：tabs、blank、sidemenu
-ionic s">
+ionic st">
   
 
   
@@ -95,22 +95,22 @@ ionic s">
         <p>###基本Ionic环境搭建</p>
 <ul>
 <li>基于node环境，使用npm来安装环境，首先需要安装node</li>
-<li>npm install -g ionic </li>
-<li>npm install -g cordova</li>
+<li><code>npm install -g ionic</code></li>
+<li><code>npm install -g cordova</code></li>
 </ul>
 <p>###开始一个新的Ionic项目</p>
 <ul>
 <li>官网提供了三个示例项目：tabs、blank、sidemenu</li>
-<li>ionic start [myProjectName] [tabs/blank/sidemenu]</li>
+<li><code>ionic start [myProjectName] [tabs/blank/sidemenu]</code></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">hooks           //google之后这个目录应该是在编译cordova时自定义的脚本命令，方便整合到我们的编译系统和版本控制系统中</div><div class="line">plugins         //cordova插件的目录，插件的安装下一节详述</div><div class="line">scss            //scss文件，发布时编译这个目录下的文件输出到www的css目录中</div><div class="line">www             //我们的开发目录，页面、样式、脚本和图片都放在这个目录下</div><div class="line">	--css</div><div class="line">	--img</div><div class="line">	--js</div><div class="line">	--lib</div><div class="line">	--index.html //作为我们的程序入口文件，首先编辑这个文件</div><div class="line">bower.json      //bower配置文件</div><div class="line">config.xml      //Ionic的配置文件 ⱃ可以配置app的id，名称、描述起始页和一起其他配置</div><div class="line">gulpfile.js     //gulp构建工具的执行文件，在这个文件中创建任务实现编译scss，css、js优化等</div><div class="line">ionic.project   //Ionic的项目文件可以配置Ionic命令中livereload的监控文件</div><div class="line">package.json    //npm配置文件</div></pre></td></tr></table></figure>
 <img src="/2016/11/11/ionic-开发/ionic项目目录结构.png" alt="ionic项目目录结构.png" title="">
 <p>###运行Ionic项目</p>
 <ul>
 <li>切换到项目目录，也就是[myProjectName]目录：cd [myProjectName]</li>
-<li>构建平台：ionic platform add ios／android，如果遇见问题，可以先使用：ionic hooks add</li>
-<li>移除平台：ionic platform remove ios／android</li>
-<li>编译：ionic build ios／android</li>
+<li>构建平台：<code>ionic platform add ios／android</code>，如果遇见问题，可以先使用：<code>ionic hooks add</code></li>
+<li>移除平台：<code>ionic platform remove ios／android</code></li>
+<li>编译：<code>ionic build ios／android</code></li>
 <li>开始编译项目，编译完成之后用Xcode打开开发目录下platform-&gt;ios-&gt;myIonic.xcodeproj的项目文件，Xcode中选择要运行的虚拟机版本并执行快捷键cmd+R运行虚拟机，虚拟机打开后会自动运行你应用。</li>
 </ul>
 <p>###Ionic项目编码</p>
@@ -142,8 +142,20 @@ ionic s">
 </ul>
 <ul>
 <li>插件编码完成后，就是使用命令行来生成Cordova插件<ul>
-<li>首先切换到工程目录，使用命令：cordova plugin add [插件的绝对路径]</li>
-<li>在工程目录下移除插件：cordova plugin remove [插件名]</li>
+<li>首先切换到工程目录，使用命令：<code>cordova plugin add [插件的绝对路径]</code></li>
+<li>在工程目录下移除插件：<code>cordova plugin remove [插件名]</code></li>
+</ul>
+</li>
+</ul>
+<p>###Xcode专题</p>
+<ul>
+<li><code>ionic build ios</code> 运行之后，会编译出Xcode使用的文件（xxx.xcodeprej)，接着可以使用Mac系统上的Xcode来进行开发。</li>
+<li>Xcode的项目配置<ul>
+<li>Framework，添加系统库，或者第三方静态库，比如xxx.framework、xxx.a、xxx.tbd等文件，都需要在<code>TARGETS-&gt;Build Phases</code>下的<code>Link Binary With Libraries</code>中添加，接着会在工程左侧的Frameworks目录显示出来。</li>
+<li>Bundle文件，里面打包了许多资源文件，SDK有时会携带这样的文件，可以直接将其添加到Frameworks目录下，在Frameworks目录上右键点击，选择<code>Add Files to ...</code>，即可。那么会在<code>TARGETS-&gt;Build Phases</code>下的<code>Copy Bundle Resources</code>中显示出来。</li>
+<li>Prefix.pch文件，可以用来存储共享信息，比如设备屏幕的宽度，高度，版本号等等公用信息。如果添加了这个文件，那么需要在<code>TARGETS-&gt;Build Settings-&gt;Apple LLVM8.0-Language</code>中设置<code>Precompile Prefix Header</code> 和 <code>Prefix Header</code></li>
+<li>如果添加了库文件，头文件，lib文件，需要设置<code>TARGETS-&gt;Build Settings-&gt;Search Paths</code>下的<code>Framework Search Paths</code> 、 <code>Header Search Paths</code> 和 <code>Library Search Paths</code>。</li>
+<li>其他重要配置项：<code>TARGETS-&gt;Apple LLVM8.0 - Preprocessing</code>下的<code>Preprocessor Macros</code>，可以将其设置为<code>DEBUG=1 ZPLATFORM=ZPLATFORM_IOS OPENSSL_CONF_FILE_IOS_ARM64</code>；<code>TARGETS-&gt;General-&gt;Deployment Info</code>下的<code>Deployment Target</code>设置为较低的版本，同时与<code>PROJECT-&gt;Info-&gt;Deployment Target</code>下的<code>iOS Deployment Target</code>保持一致。</li>
 </ul>
 </li>
 </ul>
