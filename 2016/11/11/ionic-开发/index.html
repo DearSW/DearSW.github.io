@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ionic 开发 | DearSW</title>
+  <title>ionic-iOS开发说明 | DearSW</title>
 
   
   <meta name="author" content="DearSW">
@@ -12,14 +12,14 @@
   
   <meta name="description" content="###基本Ionic环境搭建
 
-基于node环境，使用npm来安装环境，首先需要安装node
+基于node环境，使用npm来安装环境，首先需要安装node。
 npm install -g ionic
 npm install -g cordova
+ionic info，这个会显示出当前所有的ionic环境搭建情况。
 
 ###开始一个新的Ionic项目
 
-官网提供了三个示例项目：tabs、blank、sidemenu
-ionic st">
+官网提供">
   
 
   
@@ -31,7 +31,7 @@ ionic st">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="ionic 开发"/>
+  <meta property="og:title" content="ionic-iOS开发说明"/>
 
   <meta property="og:site_name" content="DearSW"/>
 
@@ -72,7 +72,7 @@ ionic st">
 
   
     
-    <h3 class="article-title"><span>ionic 开发</span></h3>
+    <h3 class="article-title"><span>ionic-iOS开发说明</span></h3>
     
   
 
@@ -94,14 +94,17 @@ ionic st">
       
         <p>###基本Ionic环境搭建</p>
 <ul>
-<li>基于node环境，使用npm来安装环境，首先需要安装node</li>
+<li>基于node环境，使用npm来安装环境，首先需要安装node。</li>
 <li><code>npm install -g ionic</code></li>
 <li><code>npm install -g cordova</code></li>
+<li><code>ionic info</code>，这个会显示出当前所有的ionic环境搭建情况。</li>
 </ul>
 <p>###开始一个新的Ionic项目</p>
 <ul>
-<li>官网提供了三个示例项目：tabs、blank、sidemenu</li>
-<li><code>ionic start [myProjectName] [tabs/blank/sidemenu]</code></li>
+<li>官网提供了几个示例项目如：tabs、sidemenu等。</li>
+<li>开始官方的示例项目：<code>ionic start [myProjectName] [tabs/sidemenu]</code>，这样会从github下载示例代码。</li>
+<li>开始自己的新项目：<code>ionic start [自己的工程名] blank</code>，blank表示空白模版，这样会从github下载空白模版。</li>
+<li>大致会生成如下内容</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">hooks           //google之后这个目录应该是在编译cordova时自定义的脚本命令，方便整合到我们的编译系统和版本控制系统中</div><div class="line">plugins         //cordova插件的目录，插件的安装下一节详述</div><div class="line">scss            //scss文件，发布时编译这个目录下的文件输出到www的css目录中</div><div class="line">www             //我们的开发目录，页面、样式、脚本和图片都放在这个目录下</div><div class="line">	--css</div><div class="line">	--img</div><div class="line">	--js</div><div class="line">	--lib</div><div class="line">	--index.html //作为我们的程序入口文件，首先编辑这个文件</div><div class="line">bower.json      //bower配置文件</div><div class="line">config.xml      //Ionic的配置文件 ⱃ可以配置app的id，名称、描述起始页和一起其他配置</div><div class="line">gulpfile.js     //gulp构建工具的执行文件，在这个文件中创建任务实现编译scss，css、js优化等</div><div class="line">ionic.project   //Ionic的项目文件可以配置Ionic命令中livereload的监控文件</div><div class="line">package.json    //npm配置文件</div></pre></td></tr></table></figure>
 <img src="/2016/11/11/ionic-开发/ionic项目目录结构.png" alt="ionic项目目录结构.png" title="">
@@ -115,27 +118,28 @@ ionic st">
 </ul>
 <p>###Ionic项目编码</p>
 <ul>
-<li>www／index.html是程序入口文件，Ionic针对移动端自定义了一套样式库，并且使用Angular的指令封装了各个模块。</li>
+<li>www／index.html是程序入口文件，Ionic针对移动端自定义了一套样式库，并且使用Angular的指令封装了各个模块。在index.html中调用插件的方法需要引入这两个js文件，<code>&lt;script type=&quot;text/javascript&quot; src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</code><br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;cordova_plugins.js&quot;&gt;&lt;/script&gt;</code></li>
 </ul>
 <p>###Cordova插件</p>
 <ul>
 <li>Cordova插件开发步骤</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">1、首先构建一个目录，如下</div><div class="line">	plugins</div><div class="line">		|</div><div class="line">		|—— justalk</div><div class="line">				|</div><div class="line">				|——plugin.xml(配置文件）</div><div class="line">				|</div><div class="line">				|——src(对应不同的平台)</div><div class="line">				|	 |</div><div class="line">				|	 |——android</div><div class="line">				|	 |		|</div><div class="line">				|	 |		|——JustCall.java</div><div class="line">				|	 |——ios</div><div class="line">				|	 	  |</div><div class="line">				|	 	  |——JustCall	.h</div><div class="line">				|	 	  |——JustCall.m</div><div class="line">				|</div><div class="line">				|——www</div><div class="line">					|</div><div class="line">					|——justalk.js</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">1、首先构建一个目录，如下</div><div class="line">	plugins</div><div class="line">		|</div><div class="line">		|—— justalk</div><div class="line">				|</div><div class="line">				|——plugin.xml(配置文件）</div><div class="line">				|</div><div class="line">				|——src(对应不同的平台)</div><div class="line">				|	 |</div><div class="line">				|	 |——android</div><div class="line">				|	 |		|</div><div class="line">				|	 |		|——JustCall.java</div><div class="line">				|	 |——ios</div><div class="line">				|	 	  |</div><div class="line">				|	 	  |——JustCall.h</div><div class="line">				|	 	  |——JustCall.m</div><div class="line">				|</div><div class="line">				|——www</div><div class="line">					|</div><div class="line">					|——justalk.js</div></pre></td></tr></table></figure>
 <ul>
 <li><p>plugin.xml(配置文件)</p>
 <ul>
 <li><p>关键标签：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;js-module name=&quot;JustalkPlugin&quot; src=&quot;www/justalk.js&quot;&gt; </div><div class="line">	&lt;clobbers target=&quot;justalk&quot; /&gt; </div><div class="line">&lt;/js-module&gt;</div><div class="line">name是插件名，src指向js文件。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;js-module name=&quot;JustalkPlugin&quot; src=&quot;www/justalk.js&quot;&gt; </div><div class="line">	&lt;clobbers target=&quot;justalk&quot; /&gt; </div><div class="line">&lt;/js-module&gt;</div><div class="line">name是插件名，src指向www目录下的js文件，target定义一个调用js文件中方法的对象。</div></pre></td></tr></table></figure>
 </li>
 <li><p>关键标签：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;platform name=&quot;ios&quot;&gt;</div><div class="line"></div><div class="line">	&lt;config-file target=&quot;config.xml&quot; parent=&quot;/*&quot;&gt;</div><div class="line">	</div><div class="line">		&lt;feature name=&quot;justalk&quot;&gt;</div><div class="line">			&lt;param name=&quot;ios-package&quot; value=&quot;JustCall&quot; /&gt;</div><div class="line">		&lt;feature&gt;</div><div class="line">		</div><div class="line">		&lt;header-file src=&quot;src/ios/JustCall.h&quot; target-dir=&quot;junyikang-app/classes&quot; /&gt;</div><div class="line">	&lt;source-file src=&quot;src/ios/JustCall.m&quot; target-dir=&quot;junyikang-app/classes&quot; /&gt;</div><div class="line">		</div><div class="line">	&lt;config-file&gt;</div><div class="line"></div><div class="line">&lt;/platform&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;platform name=&quot;ios&quot;&gt; //表明是iOS平台</div><div class="line"></div><div class="line">	&lt;config-file target=&quot;config.xml&quot; parent=&quot;/*&quot;&gt;</div><div class="line">	// target 和 parent 在iOS平台可以直接这样写</div><div class="line">		&lt;feature name=&quot;justalk&quot;&gt;</div><div class="line">			&lt;param name=&quot;ios-package&quot; value=&quot;JustCall&quot; /&gt;</div><div class="line">		&lt;feature&gt;</div><div class="line">		</div><div class="line">	&lt;config-file&gt;</div><div class="line">	</div><div class="line">	&lt;header-file src=&quot;src/ios/JustCall.h&quot;  /&gt;</div><div class="line">	&lt;source-file src=&quot;src/ios/JustCall.m&quot;  /&gt;</div><div class="line">	// 区别于android，iOS没有target-dir属性</div><div class="line"></div><div class="line">&lt;/platform&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-</ul>
+<li><p>src中编码底层文件，定义方法，并与www/justalk.js中的方法对应起来。</p>
+</li>
+<li><p>www/justalk.js</p>
 <ul>
-<li>www/justalk.js<ul>
 <li>在这里写上JS方法，并暴露给web工程使用，使用CommonJS规范编码。</li>
 </ul>
 </li>
@@ -150,14 +154,37 @@ ionic st">
 <p>###Xcode专题</p>
 <ul>
 <li><code>ionic build ios</code> 运行之后，会编译出Xcode使用的文件（xxx.xcodeprej)，接着可以使用Mac系统上的Xcode来进行开发。</li>
-<li>Xcode的项目配置<ul>
+<li><code>ionic run ios</code>，会自动(重新)将www的部署到ios平台。</li>
+<li><p>Xcode的项目配置</p>
+<ul>
 <li>Framework，添加系统库，或者第三方静态库，比如xxx.framework、xxx.a、xxx.tbd等文件，都需要在<code>TARGETS-&gt;Build Phases</code>下的<code>Link Binary With Libraries</code>中添加，接着会在工程左侧的Frameworks目录显示出来。</li>
 <li>Bundle文件，里面打包了许多资源文件，SDK有时会携带这样的文件，可以直接将其添加到Frameworks目录下，在Frameworks目录上右键点击，选择<code>Add Files to ...</code>，即可。那么会在<code>TARGETS-&gt;Build Phases</code>下的<code>Copy Bundle Resources</code>中显示出来。</li>
 <li>Prefix.pch文件，可以用来存储共享信息，比如设备屏幕的宽度，高度，版本号等等公用信息。如果添加了这个文件，那么需要在<code>TARGETS-&gt;Build Settings-&gt;Apple LLVM8.0-Language</code>中设置<code>Precompile Prefix Header</code> 和 <code>Prefix Header</code></li>
-<li>如果添加了库文件，头文件，lib文件，需要设置<code>TARGETS-&gt;Build Settings-&gt;Search Paths</code>下的<code>Framework Search Paths</code> 、 <code>Header Search Paths</code> 和 <code>Library Search Paths</code>。</li>
+<li>如果添加了库文件，头文件，lib文件，需要设置<code>TARGETS-&gt;Build Settings-&gt;Search Paths</code>下的<code>Framework Search Paths</code> 、 <code>Header Search Paths</code> 和 <code>Library Search Paths</code>。一般使用定义宏来编写路径，方便运行在其他电脑环境。比如<code>$(PROJECT_DIR)</code>表示当前平台目录路径。</li>
 <li>其他重要配置项：<code>TARGETS-&gt;Apple LLVM8.0 - Preprocessing</code>下的<code>Preprocessor Macros</code>，可以将其设置为<code>DEBUG=1 ZPLATFORM=ZPLATFORM_IOS OPENSSL_CONF_FILE_IOS_ARM64</code>；<code>TARGETS-&gt;General-&gt;Deployment Info</code>下的<code>Deployment Target</code>设置为较低的版本，同时与<code>PROJECT-&gt;Info-&gt;Deployment Target</code>下的<code>iOS Deployment Target</code>保持一致。</li>
 </ul>
 </li>
+<li><p>注意，在Xcode中有些是目录不是真实存在的，只是一个虚拟目录，仅仅表示引用。</p>
+</li>
+<li>关于程序不能运行时不能全屏的问题分析解决：构建IOS程序时，是使用xib作为启动页面的，但是xib只能使用在Xcode8.0以上的系统，以前的系统还是需要在lanchImage里面设置启动图片，而且启动图片还需要分为不同的倍图和对应的设备。重点：在工程找到<code>Images.xcassets</code>这个文件夹，Finder中去查看，便会发现其中有许多的图片文件，这真是各个分辨率需要使用的。如果没有，请生成，并加入到其中。如果有了的话，你在Xcode中点击这个文件夹，你会发现右侧中会点亮相应的图框，表示已经添加了的不同分辨率的图片。接着，还需要在工程中设置，进入到这里<code>TARGETS-&gt;General-&gt;App Icons and Launch Images</code>下的 <code>Lacnch Images Source</code>选项添加这个Image即可。</li>
+<li>关于IOS的头部区域占用页面20px的问题，只需要在app.js中添加<code>ionic.platform.fullScreen()</code>即可，具体请 <a href="https://forum.ionicframework.com/t/ios-header-size-is-too-large/16127/4" target="_blank" rel="external">点击这里</a></li>
+<li>关于IOS程序WEB页面调试的方法，详情请 <a href="http://stackoverflow.com/questions/11262236/ios-remote-debugging" target="_blank" rel="external">点击这里</a></li>
+</ul>
+<p>###更新</p>
+<ul>
+<li>在www目录下的index.html是主要的入口文件，里面是这样的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">	&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width&quot;&gt;</div><div class="line">    &lt;title&gt;&lt;/title&gt;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    &lt;!-- un-comment this code to enable service worker</div><div class="line">    &lt;script&gt;</div><div class="line">      if (&apos;serviceWorker&apos; in navigator) &#123;</div><div class="line">        navigator.serviceWorker.register(&apos;service-worker.js&apos;)</div><div class="line">          .then(() =&gt; console.log(&apos;service worker installed&apos;))</div><div class="line">          .catch(err =&gt; console.log(&apos;Error&apos;, err));</div><div class="line">      &#125;</div><div class="line">    &lt;/script&gt;--&gt;</div><div class="line"></div><div class="line">    &lt;link href=&quot;lib/ionic/css/ionic.css&quot; rel=&quot;stylesheet&quot;&gt;</div><div class="line">    &lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above</div><div class="line">    &lt;link href=&quot;css/ionic.app.css&quot; rel=&quot;stylesheet&quot;&gt;</div><div class="line">    --&gt;</div><div class="line"></div><div class="line">    &lt;!-- ionic/angularjs js --&gt;</div><div class="line">    &lt;script src=&quot;lib/ionic/js/jquery/jquery-1.11.3.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;lib/ionic/js/ionic.bundle.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;lib/ionic/js/angular/angular-cookies.min.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">    &lt;!-- cordova script (this will be a 404 during development) --&gt;</div><div class="line">    &lt;!--&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt; --&gt;</div><div class="line"></div><div class="line">    &lt;!-- your app&apos;s js --&gt;</div><div class="line">    &lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;js/controllers.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;js/services.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;js/ajaxService.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;js/junyikang.js&quot;&gt;&lt;/script&gt;</div><div class="line">	   &lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;</div><div class="line">	 &lt;script src=&quot;cordova_plugins.js&quot;&gt;&lt;/script&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body ng-app=&quot;app&quot;&gt;</div><div class="line">    &lt;!--</div><div class="line">      The nav bar that will be updated as we navigate between views.</div><div class="line">    --&gt;</div><div class="line">    &lt;ion-nav-bar class=&quot;bar-positive&quot;&gt;</div><div class="line">      &lt;ion-nav-back-button&gt;</div><div class="line">      &lt;/ion-nav-back-button&gt;</div><div class="line">    &lt;/ion-nav-bar&gt;</div><div class="line">    &lt;!--</div><div class="line">      The views will be rendered in the &lt;ion-nav-view&gt; directive below</div><div class="line">      Templates are in the /templates folder (but you could also</div><div class="line">      have templates inline in this html file if you&apos;d like).</div><div class="line">    --&gt;</div><div class="line">    &lt;ion-nav-view&gt;&lt;/ion-nav-view&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>在templates目录下的模版html会被渲染在 <code>&lt;ion-nav-view&gt;</code> 中</li>
+<li><code>&lt;ion-nav-bar&gt;</code>,会创建一个 topbar，我们可以在其中加上一个 回退的 button，类似这样，<code>&lt;ion-nav-bar&gt;&lt;ion-nav-back-button&gt;&lt;/ion-nav-back-button&gt;&lt;/ion-nav-bar&gt;</code></li>
+<li><code>&lt;ion-nav-back-button&gt;</code>不仅可以自定义样式，还可以自定义点击行为。</li>
+<li><code>&lt;ion-view&gt;</code>视图内容的容器，和一些导航信息。</li>
+<li><code>&lt;ion-content&gt;</code>可以控制页面，比如页面的滚动下拉等效果。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;ion-content</div><div class="line">[delegate-handle=&quot;&quot;]</div><div class="line">[direction=&quot;&quot;]</div><div class="line">[locking=&quot;&quot;]</div><div class="line">[padding=&quot;&quot;]</div><div class="line">[scroll=&quot;&quot;]</div><div class="line">[overflow-scroll=&quot;&quot;]</div><div class="line">[scrollbar-x=&quot;&quot;]</div><div class="line">[scrollbar-y=&quot;&quot;]</div><div class="line">[start-x=&quot;&quot;]</div><div class="line">[start-y=&quot;&quot;]</div><div class="line">[on-scroll=&quot;&quot;]</div><div class="line">[on-scroll-complete=&quot;&quot;]</div><div class="line">[has-bouncing=&quot;&quot;]</div><div class="line">[scroll-event-interval=&quot;&quot;]&gt;</div><div class="line">...</div><div class="line">&lt;/ion-content&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>app.controller(controllerID, [arg..., function(arg...) { } ]);</code></li>
 </ul>
 
       
