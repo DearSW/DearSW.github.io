@@ -186,6 +186,14 @@ ionic info，这个会显示出当前所有的ionic环境搭建情况。
 <ul>
 <li><code>app.controller(controllerID, [arg..., function(arg...) { } ]);</code></li>
 </ul>
+<p>###APP语音功能</p>
+<ul>
+<li>cordova提供两个插件，cordova-plugin-media-capture和Cordova-plugin-media，Cordova-plugin-media-capture 是使用调用手机系统的录音软件，无法自定义UI；cordova-plugin-media 是调用原生代码，高度自定义。</li>
+<li>注意点，android 和 ios 的 <code>src</code> 的写法是不一样的，<code>src</code>使用<code>cordova.file.*</code>来写，但是，IOS是要去掉头部的<code>file://</code>这段字符串，<code>var src = cordova.file.tempDirectory.substring(7) + name +  &quot;.wav&quot;;</code></li>
+<li>android 和 iOS 的录音拓展名也是不同的，iOS只能是 <code>.wav</code>，android 是 <code>.amr</code>。</li>
+<li>录音上传时，使用 cordova-plugin-file-transfer 插件，但是上传的src必须使用<code>cordova.file.*</code>这种 Filesystem写法。</li>
+<li>还有一个问题，<code>.wav</code>文件太大，如何解决？</li>
+</ul>
 
       
     </div>
