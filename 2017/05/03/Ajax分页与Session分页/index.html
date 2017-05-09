@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ajax分页 | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Ajax,分页," />
+  
+
+  <meta name="description" content="Request对象实现分页
+由于最近在做毕设，碰到需要从数据库取出大量数据，直接把大量的数据展现在前端页面上时，由于数据过多，体验并不好。所以采取分页来实现。
+后端是用Java来做的，数据库是MySQL。
+逻辑是
+首先访问一个路由 比如：/getSome。
+Servlet接收到这个路由，并从数据库取出部分数据，通过request对象返回JSP页面所需要的数据，并转发到特定的JSP页面。
+JSP页面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax分页">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/Ajax分页与Session分页/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="Request对象实现分页
+由于最近在做毕设，碰到需要从数据库取出大量数据，直接把大量的数据展现在前端页面上时，由于数据过多，体验并不好。所以采取分页来实现。
+后端是用Java来做的，数据库是MySQL。
+逻辑是
+首先访问一个路由 比如：/getSome。
+Servlet接收到这个路由，并从数据库取出部分数据，通过request对象返回JSP页面所需要的数据，并转发到特定的JSP页面。
+JSP页面">
+<meta property="og:image" content="http://yoursite.com/2017/05/03/Ajax分页与Session分页/1.png">
+<meta property="og:image" content="http://yoursite.com/2017/05/03/Ajax分页与Session分页/2.png">
+<meta property="og:image" content="http://yoursite.com/2017/05/03/Ajax分页与Session分页/3.png">
+<meta property="og:updated_time" content="2017-05-05T01:15:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax分页">
+<meta name="twitter:description" content="Request对象实现分页
+由于最近在做毕设，碰到需要从数据库取出大量数据，直接把大量的数据展现在前端页面上时，由于数据过多，体验并不好。所以采取分页来实现。
+后端是用Java来做的，数据库是MySQL。
+逻辑是
+首先访问一个路由 比如：/getSome。
+Servlet接收到这个路由，并从数据库取出部分数据，通过request对象返回JSP页面所需要的数据，并转发到特定的JSP页面。
+JSP页面">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/03/Ajax分页与Session分页/1.png">
+
+  
+
+  
+    <link rel="icon" href="/logo3.png">
+  
+
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  <!-- 
+
+  
+
+  
+ -->
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">大雨</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">大雨</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Request对象实现分页"><span class="toc-text">Request对象实现分页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax实现分页"><span class="toc-text">Ajax实现分页</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Ajax分页与Session分页" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Ajax分页</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.05.03</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="Request对象实现分页"><a href="#Request对象实现分页" class="headerlink" title="Request对象实现分页"></a>Request对象实现分页</h3><ul>
+<li>由于最近在做毕设，碰到需要从数据库取出大量数据，直接把大量的数据展现在前端页面上时，由于数据过多，体验并不好。所以采取分页来实现。</li>
+<li>后端是用Java来做的，数据库是MySQL。</li>
+<li>逻辑是<ul>
+<li>首先访问一个路由 比如：/getSome。</li>
+<li>Servlet接收到这个路由，并从数据库取出部分数据，通过request对象返回JSP页面所需要的数据，并转发到特定的JSP页面。</li>
+<li>JSP页面通过EL和JSTL来接收后端传来的数据，并填入指定位置。</li>
+<li>然后a标签的href就通过携带参数来实现上下页，分页，第几页。</li>
+</ul>
+</li>
+<li>这样实现固然能实现分页，但是，却需要刷新整个页面。要是不想刷新整个页面就只能用Ajax来实现分页了。</li>
+</ul>
+<h3 id="Ajax实现分页"><a href="#Ajax实现分页" class="headerlink" title="Ajax实现分页"></a>Ajax实现分页</h3><ul>
+<li>Ajax分页只需要刷新部分，就可以更新数据，体验很好。</li>
+<li><p>前端使用的semanticUI，HTML为</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;ccc&quot;  class=&quot;ui blurring segment one column row&quot;&gt;</div><div class="line"></div><div class="line"></div><div class="line">                &lt;!-- 在segment中出现遮罩层 --&gt;</div><div class="line">                &lt;div class=&quot;ui dimmer&quot;&gt;</div><div class="line">                      &lt;div class=&quot;ui text loader&quot;&gt;加载中&lt;/div&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">                  </div><div class="line"></div><div class="line">                &lt;table id=&quot;zzc&quot; class=&quot;ui celled table&quot;&gt;</div><div class="line"></div><div class="line">                     &lt;thead&gt;</div><div class="line">                        &lt;tr&gt;</div><div class="line">                            &lt;th&gt;编号&lt;/th&gt;</div><div class="line">                            &lt;th&gt;名称&lt;/th&gt;</div><div class="line">                            &lt;th&gt;描述&lt;/th&gt;</div><div class="line">                            &lt;th&gt;售价&lt;/th&gt;</div><div class="line">                            &lt;th&gt;进价&lt;/th&gt;</div><div class="line">                            &lt;th&gt;库存&lt;/th&gt; </div><div class="line">                            &lt;th&gt;分类&lt;/th&gt;</div><div class="line">                            &lt;th&gt;图片&lt;/th&gt;</div><div class="line">                        &lt;/tr&gt;</div><div class="line">                     &lt;/thead&gt;</div><div class="line">	</div><div class="line">                     &lt;tbody id=&quot;tbody&quot;&gt;</div><div class="line">                         &lt;!-- 数据列表 --&gt;</div><div class="line">	</div><div class="line">                     &lt;/tbody&gt;</div><div class="line">	</div><div class="line">                     &lt;tfoot id=&quot;tfoot&quot;&gt;</div><div class="line">                     		&lt;!-- 分页条 --&gt;</div><div class="line">                       </div><div class="line">                     &lt;/tfoot&gt;</div><div class="line">                    </div><div class="line">                  &lt;/table&gt;</div><div class="line"></div><div class="line">                  </div><div class="line">              &lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>JS</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	$(function() &#123;</div><div class="line"></div><div class="line">            </div><div class="line">            var curPage = 1; //当前页码 </div><div class="line">            var total,pageSize,totalPage; //总记录数，每页显示数，总页数 </div><div class="line"></div><div class="line"></div><div class="line">            //获取 第page页 的数据 </div><div class="line">            function getData(page) &#123;</div><div class="line"></div><div class="line">                $(&apos;#ccc&apos;).dimmer(&apos;show&apos;);// 产生遮罩层，为了友好的交互体验</div><div class="line"></div><div class="line">                $.ajax(&#123; </div><div class="line">                    type: &apos;GET&apos;, </div><div class="line">                    url: &apos;getallcommodityajax&apos;, </div><div class="line">                    data: &#123;</div><div class="line">                        currentPage: page - 1</div><div class="line">                    &#125;, </div><div class="line">                    dataType:&apos;json&apos;, </div><div class="line">                    beforteSend: function(data, textStatus, xhr) &#123;</div><div class="line">                        console.log(&apos;发送前&apos;);</div><div class="line">                    &#125;,</div><div class="line">                    success:function(data, textStatus, xhr)&#123; </div><div class="line">                    	// 这里data是后端servlet返回的JSON数据对象，读者不必在意</div><div class="line">                        $(&apos;#ccc&apos;).dimmer(&apos;hide&apos;);// 清除遮罩层</div><div class="line">                        $(&apos;#tbody&apos;).empty();// 清除以前的数据区，防止数据展示叠加</div><div class="line">                        total = data[3]; //总记录数 </div><div class="line">                        pageSize = data[4]; //每页显示条数 </div><div class="line">                        curPage = page; //当前页 </div><div class="line">                        totalPage = data[1]; //总页数 </div><div class="line">                        var node = &quot;&quot;;</div><div class="line">                        </div><div class="line">                        // data[0]为数据列</div><div class="line">                        $.each(data[0],function(i, item)&#123; </div><div class="line"></div><div class="line">                            node += &apos;&lt;tr&gt;&apos;+</div><div class="line">&apos;                          &lt;td&gt;&apos;+</div><div class="line">&apos;                            &lt;div class=&quot;ui ribbon label&quot;&gt;&apos;+ item.commodityNo +&apos;&lt;/div&gt;&apos;+</div><div class="line">&apos;                          &lt;/td&gt;&apos;+</div><div class="line">&apos;                          &lt;td&gt;&apos;+ item.commodityName +&apos;&lt;/td&gt;&apos;+</div><div class="line">&apos;                          &lt;td&gt;&apos;+ item.commodityDescription +&apos;&lt;/td&gt;&apos;+</div><div class="line">&apos;                          &lt;td&gt;&apos;+ item.commodityPrice +&apos;&lt;/td&gt;&apos;+</div><div class="line">&apos;                          &lt;td&gt;&apos;+ item.commodityBid +&apos;&lt;/td&gt;&apos;+</div><div class="line">&apos;                          &lt;td&gt;&apos;+ item.commodityStock +&apos;&lt;/td&gt;&apos;+</div><div class="line">&apos;                          &lt;td&gt;&apos;+ item.commodityType +&apos;&lt;/td&gt;&apos;+</div><div class="line">&apos;                          &lt;td&gt;8&lt;img class=&quot;ui right spaced avatar image&quot; src=&quot;./administrator/img/logo.png&quot;&gt;&lt;/td&gt;&apos;+</div><div class="line">&apos;                        &lt;/tr&gt;&apos;;</div><div class="line"></div><div class="line"></div><div class="line">                        &#125;);</div><div class="line"></div><div class="line">                        $(&apos;#tbody&apos;).append(node); </div><div class="line">                    &#125;, </div><div class="line">                    complete:function()&#123; </div><div class="line">                        $(&apos;#ccc&apos;).dimmer(&apos;hide&apos;);</div><div class="line"></div><div class="line">                        getPageBar(); //生成分页条 </div><div class="line">                    &#125;, </div><div class="line">                    error:function()&#123; </div><div class="line">                        alert(&quot;数据加载失败&quot;); </div><div class="line">                    &#125; </div><div class="line">                &#125;); </div><div class="line">            &#125;</div><div class="line"></div><div class="line"></div><div class="line">            //获取分页条 </div><div class="line">            function getPageBar()&#123; </div><div class="line"></div><div class="line">                $(&apos;#tfoot&apos;).empty();</div><div class="line"></div><div class="line">                var header = &apos;&lt;tr&gt;&apos;+</div><div class="line">&apos;                            &lt;th colspan=&quot;8&quot;&gt;&apos;+</div><div class="line">&apos;                              &lt;div class=&quot;ui right floated pagination menu&quot;&gt;&apos;;</div><div class="line"></div><div class="line">                var footer = &apos;&lt;/div&gt;&apos;+</div><div class="line">&apos;                            &lt;/th&gt;&apos;+</div><div class="line">&apos;                        &lt;/tr&gt;&apos;;</div><div class="line"></div><div class="line">                var body = &quot;&quot;;</div><div class="line"></div><div class="line"></div><div class="line">                //页码大于最大页数 </div><div class="line">                if(curPage&gt;totalPage) curPage = totalPage; </div><div class="line">                //页码小于1 </div><div class="line">                if(curPage&lt;1) curPage = 1; </div><div class="line">                body = &apos;&lt;div class=&quot;item&quot;&gt;&apos;+</div><div class="line">&apos;                                    &lt;div class=&quot;ui tag label&quot;&gt;&apos; + &apos;共&apos; + total + &apos;条数据 &apos; +  curPage + &apos;/&apos; + totalPage + &apos;&lt;/div&gt;&apos;+</div><div class="line">&apos;                       &lt;/div&gt;&apos;;</div><div class="line">                 </div><div class="line">                //如果是第一页 </div><div class="line">                if(curPage==1)&#123; </div><div class="line">                    body += &apos;&lt;a class=&quot;item&quot;&gt;首页&lt;/a&gt;&lt;a class=&quot;icon item&quot;&gt;&lt;i class=&quot;left chevron icon&quot;&gt;&lt;/i&gt;&lt;/a&gt;&apos;; </div><div class="line">                &#125;else&#123; </div><div class="line">                    body += &apos;&lt;a href=&quot;javascript:void(0)&quot;  class=&quot;item&quot; rel=&quot;1&quot;&gt;首页&lt;/a&gt;&apos; + </div><div class="line">                    &apos;&lt;a href=&quot;javascript:void(0)&quot; class=&quot;icon item&quot; rel=&quot;&apos;+(curPage-1)+&apos;&quot;&gt;&lt;i class=&quot;left chevron icon&quot;&gt;&lt;/i&gt;&lt;/a&gt;&apos;; </div><div class="line">                &#125; </div><div class="line">                 </div><div class="line">                //如果是最后页 </div><div class="line">                if(curPage&gt;=totalPage)&#123; </div><div class="line">                    body += &apos;&lt;a class=&quot;icon item&quot;&gt;&lt;i class=&quot;right chevron icon&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a class=&quot;item&quot;&gt;尾页&lt;/a&gt;&apos;; </div><div class="line">                &#125;else&#123; </div><div class="line">                    body += &apos;&lt;a href=&quot;javascript:void(0)&quot; class=&quot;icon item&quot; rel=&quot;&apos;+(parseInt(curPage)+1)+&apos;&quot;&gt;&apos; + </div><div class="line">                    &apos;&lt;i class=&quot;right chevron icon&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a class=&quot;item&quot; href=&quot;javascript:void(0)&quot; rel=&quot;&apos;+totalPage+&apos;&quot;&gt;尾页&lt;/a&gt; &apos;; </div><div class="line">                &#125; </div><div class="line">                </div><div class="line">                var pagination = header + body + footer;</div><div class="line"></div><div class="line">                $(&apos;#tfoot&apos;).html(pagination); </div><div class="line">            &#125;</div><div class="line">            getData(1);</div><div class="line"></div><div class="line">			// 因为分页的a标签是动态生成的，所以需要动态绑定</div><div class="line">            $(&apos;#tfoot&apos;).on(&apos;click&apos;,&apos;a&apos;,function()&#123; </div><div class="line">                var rel = $(this).attr(&quot;rel&quot;); </div><div class="line">                if(rel)&#123; </div><div class="line">                    getData(rel); </div><div class="line">                &#125; </div><div class="line">            &#125;);</div><div class="line">        &#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>测试图示</li>
+</ul>
+<img src="/2017/05/03/Ajax分页与Session分页/1.png" alt="1.png" title="">
+<img src="/2017/05/03/Ajax分页与Session分页/2.png" alt="2.png" title="">
+<img src="/2017/05/03/Ajax分页与Session分页/3.png" alt="3.png" title="">
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/05/01/Spring-Mvc-学习指南/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/05/05/Ajax上传文件/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,15 +1,20 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
 <head>
   <meta charset="utf-8">
   
-  <title>Fetch大法 | DearSW</title>
+  <title>Fetch大法 | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta name="author" content="DearSW">
+    <meta name="keywords" content="Java,React,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript" />
   
 
-  
   <meta name="description" content="###初始读书整理
 
 IE8+ 以上的浏览器，运行可行
@@ -20,80 +25,216 @@ Fetch API 基于 Promise 设计
 Fetch 优点主要有：
 
 语法简洁，更加语义化
-基于标准 Promise 实现，支持 async/await">
+基于标准 Promise 实现，支持 async/await
+同构方便，使用 isomorphic-fetch
+
+
+Fetch API提供了一个fetch()方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fetch大法">
+<meta property="og:url" content="http://yoursite.com/2016/11/22/Fetch大法/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="###初始读书整理
+
+IE8+ 以上的浏览器，运行可行
+Fetch API 基于 Promise 设计
+传统的 XMLHttpRequest 是一个设计粗燥的 API，不关注分离原则。
+
+
+Fetch 优点主要有：
+
+语法简洁，更加语义化
+基于标准 Promise 实现，支持 async/await
+同构方便，使用 isomorphic-fetch
+
+
+Fetch API提供了一个fetch()方">
+<meta property="og:updated_time" content="2017-04-29T10:35:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fetch大法">
+<meta name="twitter:description" content="###初始读书整理
+
+IE8+ 以上的浏览器，运行可行
+Fetch API 基于 Promise 设计
+传统的 XMLHttpRequest 是一个设计粗燥的 API，不关注分离原则。
+
+
+Fetch 优点主要有：
+
+语法简洁，更加语义化
+基于标准 Promise 实现，支持 async/await
+同构方便，使用 isomorphic-fetch
+
+
+Fetch API提供了一个fetch()方">
+
   
 
   
-  
-  <meta name="keywords" content="">
-  
-
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-  <meta property="og:title" content="Fetch大法"/>
-
-  <meta property="og:site_name" content="DearSW"/>
-
-  
-  <meta property="og:image" content="/favicon.ico"/>
+    <link rel="icon" href="/logo3.png">
   
 
-  <link href="http://odfgqiz57.bkt.clouddn.com/image/logo/logo1.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="DearSW" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  <!-- 
+
+  
+
+  
+ -->
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
 </head>
 
-
 <body>
-<div class="blog">
-  <div class="content">
 
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">文章</a>
-    </h1>
-    <p class="site-description">天地有大美而不言，四时有明法而不议，万物有成理而不说</p>
-    <p class="site-description">原天地之美而达万物之理，是故至人无为，大圣不作，观于天地</p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      <li><a href='/'>主页</a></li>
-      <li><a href='https://dearsw.github.io/archives/'>列表</a></li>
-      <li><a href='http://www.dearsw.top:8888'>菜单</a></li>
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">大雨</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">大雨</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
     </ul>
-  </nav>
-</header>
-
-
-    <main class="site-main posts-loop">
-    <article>
-
-  
-    
-    <h3 class="article-title"><span>Fetch大法</span></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/11/22/Fetch大法/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-11-22T02:54:43.000Z">
-          2016-11-22
-        </time>
-      </a>
-    </span>
   </div>
 
 
-  
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Fetch大法" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Fetch大法</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.11.22</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
 
   <div class="article-content">
-    <div class="entry">
-      
-        <p>###初始读书整理</p>
+    
+      <p>###初始读书整理</p>
 <ul>
 <li>IE8+ 以上的浏览器，运行可行</li>
 <li>Fetch API 基于 Promise 设计</li>
@@ -111,45 +252,181 @@ Fetch 优点主要有：
 </li>
 </ul>
 
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
     
   </div>
 </article>
 
-  
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/11/16/SVN/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/01/05/Tomcat-Mac安装版/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
 
 
 
-    </main>
 
-    <footer class="site-footer">
-  <p class="site-info">
-    Thanks, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/DearSW/HDY" target="_blank">HDY</a>
-    <br />
-    
-    &copy; 2016 DearSW
-    
-    <br />
-    <a href="http://www.dearsw.top:8888" target="_blank">My Blog</a>
-  </p>
-</footer>
+</div>
 
-    
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
   </div>
 </div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
 </body>
 </html>

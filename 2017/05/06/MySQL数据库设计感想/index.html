@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>MySQL数据库设计感想 | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="MySQL,数据库," />
+  
+
+  <meta name="description" content="主键
+主键是指表中一个列或列的组合（联合主键），其值能唯一地标识表中的每一行。
+主键的特点
+
+唯一性：一个表中只能有一个主键。
+非空性：主键的值不可重复，也不为空。
+必要性：在有些数据库中，虽然主键不是必需的，但最好为每个表都设置一个主键，不管是单主键还是联合主键。它存在代表着表结构的完整性，表的记录必须得有唯一区分的字段，主键主要是用于其他表的外键关联，以及本记录的修改与删除。
+无意义性：在开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL数据库设计感想">
+<meta property="og:url" content="http://yoursite.com/2017/05/06/MySQL数据库设计感想/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="主键
+主键是指表中一个列或列的组合（联合主键），其值能唯一地标识表中的每一行。
+主键的特点
+
+唯一性：一个表中只能有一个主键。
+非空性：主键的值不可重复，也不为空。
+必要性：在有些数据库中，虽然主键不是必需的，但最好为每个表都设置一个主键，不管是单主键还是联合主键。它存在代表着表结构的完整性，表的记录必须得有唯一区分的字段，主键主要是用于其他表的外键关联，以及本记录的修改与删除。
+无意义性：在开发">
+<meta property="og:updated_time" content="2017-05-06T03:26:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL数据库设计感想">
+<meta name="twitter:description" content="主键
+主键是指表中一个列或列的组合（联合主键），其值能唯一地标识表中的每一行。
+主键的特点
+
+唯一性：一个表中只能有一个主键。
+非空性：主键的值不可重复，也不为空。
+必要性：在有些数据库中，虽然主键不是必需的，但最好为每个表都设置一个主键，不管是单主键还是联合主键。它存在代表着表结构的完整性，表的记录必须得有唯一区分的字段，主键主要是用于其他表的外键关联，以及本记录的修改与删除。
+无意义性：在开发">
+
+  
+
+  
+    <link rel="icon" href="/logo3.png">
+  
+
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  <!-- 
+
+  
+
+  
+ -->
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">大雨</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">大雨</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主键"><span class="toc-text">主键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自增主键设计"><span class="toc-text">自增主键设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备注"><span class="toc-text">备注</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-MySQL数据库设计感想" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">MySQL数据库设计感想</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.05.06</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/数据库/">数据库</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><ul>
+<li>主键是指表中一个列或列的组合（联合主键），其值能唯一地标识表中的每一行。</li>
+<li><p>主键的特点</p>
+<ul>
+<li>唯一性：一个表中只能有一个主键。</li>
+<li>非空性：主键的值不可重复，也不为空。</li>
+<li>必要性：在有些数据库中，虽然主键不是必需的，但最好为每个表都设置一个主键，不管是单主键还是联合主键。它存在代表着表结构的完整性，表的记录必须得有唯一区分的字段，主键主要是用于其他表的外键关联，以及本记录的修改与删除。</li>
+<li>无意义性：在开发过程中，可能会看到将一些表使用有意义的字段表示主键，例如<code>用户登录信息表</code>将<code>登录名</code>作为主键，<code>订单表</code>中将<code>订单编号</code>作为主键，如此设计主键一般都是没什么问题，因为将这些主键基本不具有意义更改的可能性。但是，也有一些例外的情况，例如<code>订单表</code>需要支持需求，订单可以作废，并重新生成订单，而且订单号要保持原订单号一致，那将订单编号作为主键就满足不了要求了。因此读者在使用具有实际意义的字段作为主键时，需要考虑是否存在这种可能性。</li>
+</ul>
+</li>
+<li><p>一般常用的主键有</p>
+<ul>
+<li>自增主键</li>
+<li>GUID主键</li>
+</ul>
+</li>
+<li><p>自增主键</p>
+<ul>
+<li>这种方式是使用数据库提供的自增数值型字段作为自增主键，它的优点是<ol>
+<li>数据库自动编号，速度快，而且是增量增长，按顺序存放，对于检索非常有利。</li>
+<li>数字型，占用空间小，易排序，在程序中传递也方便。</li>
+<li>如果通过非系统增加记录时，可以不用指定该字段，不用担心主键重复问题。</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>其实它的缺点也就是来自其优点，缺点如下</p>
+<ol>
+<li>因为自动增长，在手动要插入指定ID的记录时会显得麻烦，尤其是当系统与其它系统集成时，需要数据导入时，很难保证原系统的ID不发生主键冲突（前提是老系统也是数字型的）。特别是在新系统上线时，新旧系统并行存在，并且是异库异构的数据库的情况下，需要双向同步时，自增主键将是你的噩梦；</li>
+<li>在系统集成或割接时，如果新旧系统主键不同是数字型就会导致修改主键数据类型，这也会导致其它有外键关联的表的修改，后果同样很严重；</li>
+<li>若系统也是数字型的，在导入时，为了区分新老数据，可能想在老数据主键前统一加一个字符标识（例如“o”，old）来表示这是老数据，那么自动增长的数字型又面临一个挑战。</li>
+</ol>
+</li>
+<li><p>MySQL（auto_increment）、SQL Server（IDENTITY）、Informix、Oracle（首先创建自增序列，接着为自增主键的表创建插入时的触发器，给自增主键ID赋值）等数据库都支持这种自增主键，这种主键在各种系统中应用广泛，但是如果考虑到有新旧系统并存等问题，为了避免不必要的麻烦，使用自增主键要三思。</p>
+</li>
+</ul>
+</li>
+<li><p>GUID主键</p>
+<ul>
+<li>目前一个比较好的主键是采用GUID（Globally Unique Identifier，全球唯一标识符），GUID的特点如下：<ul>
+<li>（1）  在空间上和时间上具有唯一性，保证同一时间不同地方产生的数字不同；<br>（2）  世界上的任何两台计算机都不会生成重复的GUID值；<br>（3）  需要GUID的时候，可以完全由算法自动生成，不需要一个权威机构来管理；<br>（4）  GUID的长度固定，并且相对而言较短小，非常适合于排序、标识和存储。<br>可以将GUID主键定义为字符型，但值由GUID生成，GUID是可以自动生成，也可以程序生成，而且键值不可能重复，可以解决系统集成问题，几个系统的GUID值导到一起时，也不会发生重复，就算有“o”老数据也可以区分，而且效率很高。</li>
+</ul>
+</li>
+<li>在SQL里也可以使用 NewID()生成。主要优点是：<ul>
+<li>（1）同 IDENTITY 列相比，uniqueidentifier列可以通过 NewID()函数提前得知新增加行的ID，为应用程序的后续处理提供很大方便；<br>（2）便于数据库移植，其它数据库中并不一定具有 IDENTITY 列，而 GUID列可以作为字符型列转换到其它数据库中，同时将应用程序中产生的GUID值存入数据库，它不会对原有数据带来影响。<br>缺点是：<br>（1）GUID值较长，不容易记忆和输入，而且这个值是随机、无顺序的。<br>（2）GUID的值有16个字节，与其它诸如 4 字节的整数相比要相对大一些。这意味着如果在数据库中使用 uniqueidentifier键，可能会带来两方面的消极影响：存储空间增大、索引时间较慢。<br>基于上面的分析，使用GUID的利大于弊。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="自增主键设计"><a href="#自增主键设计" class="headerlink" title="自增主键设计"></a>自增主键设计</h3><ul>
+<li>使用自增主键时，会碰见命名系统的新旧改变，那么可以在新命名系统上添加一段标识数字。</li>
+<li><p>数据库用id做主键，并且自增，这样设计好吗？</p>
+<blockquote>
+<p>这也没绝对的好坏，但以我来说，尽量不用自增主键。除非：</p>
+<blockquote>
+<ol>
+<li>表中找不出3个以内字段可以表示的业务主键</li>
+<li>没有集中大量的插入操作</li>
+<li>不使用自增id作为外键（即id变化不影响系统逻辑和功能）</li>
+</ol>
+</blockquote>
+<p>同时符合以上3条，我会用自增id；通常尽量使用业务主键做id，实在找不出业务主键，那就用guid。</p>
+</blockquote>
+</li>
+<li><p>例如购物车表的设计，用户ID和商品ID是外键，由于购物车本身不作为父表与其他的表发生交互，很适合采用自增主键。</p>
+</li>
+</ul>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ul>
+<li>参考链接 <a href="http://blog.csdn.net/likika2012/article/details/9949949" target="_blank" rel="external">http://blog.csdn.net/likika2012/article/details/9949949</a></li>
+</ul>
+
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/05/05/Ajax上传文件/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/05/08/jQuery中的attr和prop/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

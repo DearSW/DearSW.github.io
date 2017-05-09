@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tomcat Mac安装版 | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Tomcat," />
+  
+
+  <meta name="description" content="说明
+安装步骤
+首先官网下载Tomcat.zip
+将解压的tomcat文件夹放入 /usr/local 中
+修改文件权限，分别是 /usr/local/tomcat/bin 目录下的
+startup.sh 
+catalina.sh
+执行命令 
+sudo chmod 775 startup.sh
+sudo chmod 775 catalina.sh
+
+
+
+
+
+
+启动tomcat，在 /usr/loc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat Mac安装版">
+<meta property="og:url" content="http://yoursite.com/2017/01/05/Tomcat-Mac安装版/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="说明
+安装步骤
+首先官网下载Tomcat.zip
+将解压的tomcat文件夹放入 /usr/local 中
+修改文件权限，分别是 /usr/local/tomcat/bin 目录下的
+startup.sh 
+catalina.sh
+执行命令 
+sudo chmod 775 startup.sh
+sudo chmod 775 catalina.sh
+
+
+
+
+
+
+启动tomcat，在 /usr/loc">
+<meta property="og:image" content="http://yoursite.com/2017/01/05/Tomcat-Mac安装版/step1.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/05/Tomcat-Mac安装版/step2.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/05/Tomcat-Mac安装版/step3.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/05/Tomcat-Mac安装版/step4.png">
+<meta property="og:updated_time" content="2017-04-29T10:34:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tomcat Mac安装版">
+<meta name="twitter:description" content="说明
+安装步骤
+首先官网下载Tomcat.zip
+将解压的tomcat文件夹放入 /usr/local 中
+修改文件权限，分别是 /usr/local/tomcat/bin 目录下的
+startup.sh 
+catalina.sh
+执行命令 
+sudo chmod 775 startup.sh
+sudo chmod 775 catalina.sh
+
+
+
+
+
+
+启动tomcat，在 /usr/loc">
+<meta name="twitter:image" content="http://yoursite.com/2017/01/05/Tomcat-Mac安装版/step1.png">
+
+  
+
+  
+    <link rel="icon" href="/logo3.png">
+  
+
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  <!-- 
+
+  
+
+  
+ -->
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">大雨</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">大雨</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#说明"><span class="toc-text">说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在myecplise2017中配置Tomcat"><span class="toc-text">在myecplise2017中配置Tomcat</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Tomcat-Mac安装版" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Tomcat Mac安装版</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.01.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/后端/">后端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ul>
+<li>安装步骤<ol>
+<li>首先官网下载Tomcat.zip</li>
+<li>将解压的tomcat文件夹放入 /usr/local 中</li>
+<li>修改文件权限，分别是 /usr/local/tomcat/bin 目录下的<ul>
+<li>startup.sh </li>
+<li>catalina.sh<ul>
+<li>执行命令 <ul>
+<li>sudo chmod 775 startup.sh</li>
+<li>sudo chmod 775 catalina.sh</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>启动tomcat，在 /usr/local/tomcat/bin 执行命令 sudo sh ./startup.sh</li>
+<li>关闭tomcat，在 /usr/local/tomcat/bin 执行命令 sudo sh ./shutdown.sh</li>
+<li>在浏览器中输入 localhost:8080 便可知是否成功</li>
+<li>参考链接<ul>
+<li><a href="http://www.jianshu.com/p/db08d23049ce" target="_blank" rel="external">http://www.jianshu.com/p/db08d23049ce</a></li>
+<li><a href="http://m.jb51.net/article/94201.htm" target="_blank" rel="external">http://m.jb51.net/article/94201.htm</a></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="在myecplise2017中配置Tomcat"><a href="#在myecplise2017中配置Tomcat" class="headerlink" title="在myecplise2017中配置Tomcat"></a>在myecplise2017中配置Tomcat</h3><ul>
+<li>打开设置</li>
+</ul>
+<img src="/2017/01/05/Tomcat-Mac安装版/step1.png" alt="step1.png" title="">
+<ul>
+<li>看到上图中，点击右边的add按钮，则会看到如下的部分</li>
+</ul>
+<img src="/2017/01/05/Tomcat-Mac安装版/step2.png" alt="step2.png" title="">
+<ul>
+<li>一定要把 create a new local server 勾选上，点击next</li>
+</ul>
+<img src="/2017/01/05/Tomcat-Mac安装版/step3.png" alt="step3.png" title="">
+<ul>
+<li>这里把 Tomcat installation directory 填上，就是你安装tomcat的目录（/usr/local/tomcat）填好之后，就可以了，你回到MyEclipse之后就会发现，Tomcat服务器就已经安装好了。</li>
+</ul>
+<img src="/2017/01/05/Tomcat-Mac安装版/step4.png" alt="step4.png" title="">
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/11/22/Fetch大法/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/02/19/SSM框架整合/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

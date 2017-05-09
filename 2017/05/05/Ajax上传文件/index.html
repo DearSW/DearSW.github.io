@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ajax上传文件 | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Ajax,FormData," />
+  
+
+  <meta name="description" content="说明
+contentType，内容类型，用于定义网络文件的类型和网页的编码，决定文件接收方应该以什么形式、什么编码来读取这个文件。
+以前利用form表单来上传数据时，默认的contentType是application/x-www-form-urlencoded，意思是数据被编码成键值对，这是标准的编码格式。如果要来上传文件，那么contentType必须为multipart/form-data，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax上传文件">
+<meta property="og:url" content="http://yoursite.com/2017/05/05/Ajax上传文件/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="说明
+contentType，内容类型，用于定义网络文件的类型和网页的编码，决定文件接收方应该以什么形式、什么编码来读取这个文件。
+以前利用form表单来上传数据时，默认的contentType是application/x-www-form-urlencoded，意思是数据被编码成键值对，这是标准的编码格式。如果要来上传文件，那么contentType必须为multipart/form-data，">
+<meta property="og:updated_time" content="2017-05-05T01:14:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax上传文件">
+<meta name="twitter:description" content="说明
+contentType，内容类型，用于定义网络文件的类型和网页的编码，决定文件接收方应该以什么形式、什么编码来读取这个文件。
+以前利用form表单来上传数据时，默认的contentType是application/x-www-form-urlencoded，意思是数据被编码成键值对，这是标准的编码格式。如果要来上传文件，那么contentType必须为multipart/form-data，">
+
+  
+
+  
+    <link rel="icon" href="/logo3.png">
+  
+
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  <!-- 
+
+  
+
+  
+ -->
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">大雨</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">大雨</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#说明"><span class="toc-text">说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最简单明了的代码示例"><span class="toc-text">最简单明了的代码示例</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Ajax上传文件" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Ajax上传文件</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.05.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ul>
+<li>contentType，内容类型，用于定义网络文件的类型和网页的编码，决定文件接收方应该以什么形式、什么编码来读取这个文件。</li>
+<li>以前利用form表单来上传数据时，默认的contentType是<code>application/x-www-form-urlencoded</code>，意思是数据被编码成键值对，这是标准的编码格式。如果要来上传文件，那么contentType必须为<code>multipart/form-data</code>，意思是数据被编码为一条消息，页面上的每个控件对应消息中的一个部分。</li>
+<li>这里使用到的技术，前端为jQuery的Ajax，后端为Java的servlet。</li>
+</ul>
+<h3 id="最简单明了的代码示例"><a href="#最简单明了的代码示例" class="headerlink" title="最简单明了的代码示例"></a>最简单明了的代码示例</h3><ul>
+<li><p>HTML，使用最简单的一个表单，包含一个text和file类型的控件。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">&lt;!-- 编码必须为 multipart/form-data --&gt;</div><div class="line">&lt;form id=&quot;uploadForm&quot; enctype=&quot;multipart/form-data&quot;&gt;</div><div class="line">          &lt;input type=&quot;text&quot; name=&quot;description&quot; /&gt;</div><div class="line">          &lt;input id=&quot;file&quot; type=&quot;file&quot; name=&quot;file&quot;  /&gt;</div><div class="line">          &lt;button id=&quot;upload&quot; &gt;upload&lt;/button&gt;</div><div class="line"> &lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>JS</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">function test() &#123;</div><div class="line">		</div><div class="line">	var form = document.getElementById(&apos;uploadForm&apos;);</div><div class="line">	var formdata = new FormData(form);</div><div class="line">         </div><div class="line">         $.ajax(&#123;</div><div class="line">             url: &apos;addnewcommodity&apos;, // 后端Java接收地址</div><div class="line">             type: &apos;POST&apos;, // 必须为POST方式</div><div class="line">             cache: false,</div><div class="line">             data: formdata,</div><div class="line">             processData: false,</div><div class="line">             contentType: false,</div><div class="line">             success: function (returndata) &#123;  </div><div class="line">                   alert(&quot;success&quot;); </div><div class="line">             &#125;,  </div><div class="line">             error: function (returndata) &#123;  </div><div class="line">                   alert(&quot;error&quot;);  </div><div class="line">             &#125;</div><div class="line">         &#125;);</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line">         </div><div class="line"> $(&apos;#upload2&apos;).on(&apos;click&apos;, function()&#123;</div><div class="line"></div><div class="line">     test2();</div><div class="line"></div><div class="line"> &#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>到这里前端做的事已经完成了，剩下的就是后端的事情了。</p>
+</li>
+<li><p>Servlet，这里新建一个Servlet，注意这两个注解！很重要。然后关注doGet()和doPost()方法，看后端是如何获取到这两个表单的数据的！</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">	@WebServlet(&quot;/addnewcommodity&quot;)</div><div class="line">	@MultipartConfig</div><div class="line">	public class AddNewCommodity extends HttpServlet &#123;</div><div class="line">	</div><div class="line">		private static final long serialVersionUID = 1L;</div><div class="line">     </div><div class="line">		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</div><div class="line">			doPost(request, response);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</div><div class="line">	</div><div class="line">			</div><div class="line">			String description = request.getParameter(&quot;description&quot;);</div><div class="line">			Part imgPart = request.getPart(&quot;file&quot;);</div><div class="line">			</div><div class="line">			// 下面的代码是生成一个输出路径，并将这个文件 imgPart 存储到路径中读者可不比理会，只需关注上面的获取数据。</div><div class="line">			Date date = new Date(System.currentTimeMillis());</div><div class="line">			SimpleDateFormat sd = new SimpleDateFormat(&quot;yyyyMMddHHmmssSSS&quot;);</div><div class="line">			String temp = sd.format(date); // 获取一个时间戳</div><div class="line">			String imgPartFileName = imgPart.getSubmittedFileName();//获取上传文件名</div><div class="line">			String imgPartFileNamePrefix = imgPartFileName.substring(0, imgPartFileName.indexOf(&apos;.&apos;)); // 取出文件的前缀名</div><div class="line">			String imgPartFileNameSuffer = imgPartFileName.substring(imgPartFileName.lastIndexOf(&apos;.&apos;)); // 取出文件的后缀名</div><div class="line">			String newFileName = imgPartFileNamePrefix + &quot;_&quot; + temp + imgPartFileNameSuffer; // 生成的新文件名</div><div class="line">			</div><div class="line">			String savePath = this.getServletContext().getRealPath(&quot;/common/img/commoditypicture/&quot;); // 获取当前servlet的存储路径</div><div class="line">			System.out.println(savePath);</div><div class="line">			</div><div class="line">			String fileSavePath = savePath + newFileName; // 文件保存路径完成</div><div class="line">	</div><div class="line">	</div><div class="line">			OutputStream out = null;</div><div class="line">			InputStream filecontent = null;</div><div class="line">			PrintWriter writer = response.getWriter();</div><div class="line">			</div><div class="line">		    try &#123;</div><div class="line">		    	</div><div class="line">		    	out = new FileOutputStream(fileSavePath);</div><div class="line">		        filecontent = imgPart.getInputStream();</div><div class="line">		        </div><div class="line">		        int read = 0;</div><div class="line">		        final byte[] bytes = new byte[1024];</div><div class="line">	</div><div class="line">		        while ((read = filecontent.read(bytes)) != -1) &#123;</div><div class="line">		            out.write(bytes, 0, read);</div><div class="line">		        &#125;</div><div class="line">				</div><div class="line">		        writer.println(&quot;New file &quot; + newFileName + &quot; created at &quot; + fileSavePath);</div><div class="line">		        </div><div class="line">			&#125; catch (Exception e) &#123;</div><div class="line">				</div><div class="line">				writer.println(&quot;You either did not specify a file to upload or are &quot;</div><div class="line">		                + &quot;trying to upload a file to a protected or nonexistent &quot;</div><div class="line">		                + &quot;location.&quot;);</div><div class="line">		        writer.println(&quot;&lt;br/&gt; ERROR: &quot; + e.getMessage());</div><div class="line">				</div><div class="line">			&#125; finally &#123;</div><div class="line">		        if (out != null) &#123;</div><div class="line">		            out.close();</div><div class="line">		        &#125;</div><div class="line">		        if (filecontent != null) &#123;</div><div class="line">		            filecontent.close();</div><div class="line">		        &#125;</div><div class="line">		        if (writer != null) &#123;</div><div class="line">		            writer.close();</div><div class="line">		        &#125;</div><div class="line">		    &#125;</div><div class="line">		    </div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>至此，大体工作都完成了。如果你要了解FormData的兼容性，请移步<a href="http://www.caniuse.com/#search=formdata" target="_blank" rel="external">caniuse</a>。</li>
+<li>参考链接：<a href="https://docs.oracle.com/javaee/7/tutorial/servlets016.htm#BABDGFJJ" target="_blank" rel="external">Oracle官方实例 The fileupload Example Application</a></li>
+</ul>
+
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/05/03/Ajax分页与Session分页/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/05/06/MySQL数据库设计感想/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

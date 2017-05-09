@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Spring学习笔记（一） | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Spring," />
+  
+
+  <meta name="description" content="笔记
+Spring框架核心功能：
+管理程序的代码（代码的切入）：AOP（面向切面的编程）
+内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）
+
+
+
+
+
+IoC：依赖注入，控制反转。
+
+内存空间的创建：反射创建对象
+内存空间的赋值    
+get/set方法注入
+构造方法注入
+接口注入
+
+
+Spring框架对象的匹配方式
+id名称
+class类型
+
+
+Spring框架对象的生命周期（在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring学习笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2017/04/09/Spring学习笔记/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="笔记
+Spring框架核心功能：
+管理程序的代码（代码的切入）：AOP（面向切面的编程）
+内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）
+
+
+
+
+
+IoC：依赖注入，控制反转。
+
+内存空间的创建：反射创建对象
+内存空间的赋值    
+get/set方法注入
+构造方法注入
+接口注入
+
+
+Spring框架对象的匹配方式
+id名称
+class类型
+
+
+Spring框架对象的生命周期（在">
+<meta property="og:updated_time" content="2017-05-09T03:22:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring学习笔记（一）">
+<meta name="twitter:description" content="笔记
+Spring框架核心功能：
+管理程序的代码（代码的切入）：AOP（面向切面的编程）
+内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）
+
+
+
+
+
+IoC：依赖注入，控制反转。
+
+内存空间的创建：反射创建对象
+内存空间的赋值    
+get/set方法注入
+构造方法注入
+接口注入
+
+
+Spring框架对象的匹配方式
+id名称
+class类型
+
+
+Spring框架对象的生命周期（在">
+
+  
+
+  
+    <link rel="icon" href="/logo3.png">
+  
+
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  <!-- 
+
+  
+
+  
+ -->
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">大雨</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">大雨</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#笔记"><span class="toc-text">笔记</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Spring学习笔记" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Spring学习笔记（一）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.04.09</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/后端/">后端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><ul>
+<li>Spring框架核心功能：<ul>
+<li>管理程序的代码（代码的切入）：AOP（面向切面的编程）</li>
+<li>内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol>
+<li><p>IoC：依赖注入，控制反转。</p>
+<ol>
+<li>内存空间的创建：反射创建对象</li>
+<li>内存空间的赋值    <ol>
+<li>get/set方法注入</li>
+<li>构造方法注入</li>
+<li>接口注入</li>
+</ol>
+</li>
+<li>Spring框架对象的匹配方式<ol>
+<li>id名称</li>
+<li>class类型</li>
+</ol>
+</li>
+<li>Spring框架对象的生命周期（在同一个ApplicationContext范围内的生命周期）<ol>
+<li>所有项目都可以设置生命周期<ol>
+<li>单例模式：<code>scope=&quot;sington&quot;</code>，Spring只创建一个实例，一般逻辑业务都是使用单例模式</li>
+<li>原型模式：<code>scope=&quot;protype&quot;</code>，Spring每一次获取就会创建一个新的实例，一般action都使用原型模式</li>
+</ol>
+</li>
+<li>Web项目的生命周期，session，request等</li>
+</ol>
+</li>
+<li></li>
+<li>Spring加载配置文件的方式<ol>
+<li>Java项目<ol>
+<li>FileSystemXmlApplicationContext() </li>
+<li>ClassPathXmlApplicationContext() （推荐）</li>
+</ol>
+</li>
+<li>Web项目</li>
+</ol>
+</li>
+<li>Spring命名空间<code>scope</code>属性</li>
+</ol>
+</li>
+<li><p><code>&lt;bean&gt; &lt;/bean&gt;</code>标签开辟空间，创建对象</p>
+<ul>
+<li><p>Person类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">package com.bean.Person</div><div class="line">	</div><div class="line">public class Person &#123;</div><div class="line">	</div><div class="line">	private String name;</div><div class="line">	private int age;</div><div class="line">	</div><div class="line">	public String getName() &#123;</div><div class="line">		...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setName() &#123;</div><div class="line">		...</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">	public String getAge() &#123;</div><div class="line">		...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setAge() &#123;</div><div class="line">		...</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Spring配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">&lt;bean id=&quot;person&quot; class=&quot;com.bean.Person&quot; scope=&quot;&quot;&gt; </div><div class="line"></div><div class="line">	&lt;property name=&quot;name&quot; value=&quot;King&quot; /&gt;</div><div class="line">	&lt;property name=&quot;age&quot; value=&quot;18&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/02/19/SSM框架整合/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/04/29/Java函数式编程/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
