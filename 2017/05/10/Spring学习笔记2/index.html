@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Spring学习笔记（二） | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Spring," />
+  
+
+  <meta name="description" content="概述
+Spring框架所使用的主要设计模式
+代理设计模式（实现AOP的基础）
+如果已有的方法在使用的时候需要对原有的方法进行改进，此时有两种办法，一是修改原有的方法，但是这样做的的话违背了开闭原则，不是很好。二是采用一个代理类调用原来的方法，且对产生的结果进行控制，使用代理模式可以将功能划分的更加清晰，有助于后期维护。
+
+
+装饰器设计模式（实现框架整合的基础）
+
+
+
+笔记
+Spring框架的AOP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring学习笔记（二）">
+<meta property="og:url" content="http://yoursite.com/2017/05/10/Spring学习笔记2/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="概述
+Spring框架所使用的主要设计模式
+代理设计模式（实现AOP的基础）
+如果已有的方法在使用的时候需要对原有的方法进行改进，此时有两种办法，一是修改原有的方法，但是这样做的的话违背了开闭原则，不是很好。二是采用一个代理类调用原来的方法，且对产生的结果进行控制，使用代理模式可以将功能划分的更加清晰，有助于后期维护。
+
+
+装饰器设计模式（实现框架整合的基础）
+
+
+
+笔记
+Spring框架的AOP">
+<meta property="og:updated_time" content="2017-05-10T07:52:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring学习笔记（二）">
+<meta name="twitter:description" content="概述
+Spring框架所使用的主要设计模式
+代理设计模式（实现AOP的基础）
+如果已有的方法在使用的时候需要对原有的方法进行改进，此时有两种办法，一是修改原有的方法，但是这样做的的话违背了开闭原则，不是很好。二是采用一个代理类调用原来的方法，且对产生的结果进行控制，使用代理模式可以将功能划分的更加清晰，有助于后期维护。
+
+
+装饰器设计模式（实现框架整合的基础）
+
+
+
+笔记
+Spring框架的AOP">
+
+  
+
+  
+    <link rel="icon" href="/logo3.png">
+  
+
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  <!-- 
+
+  
+
+  
+ -->
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">大雨</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">大雨</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#笔记"><span class="toc-text">笔记</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Spring学习笔记2" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Spring学习笔记（二）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.05.10</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/后端/">后端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>Spring框架所使用的主要设计模式<ul>
+<li>代理设计模式（实现AOP的基础）<ul>
+<li>如果已有的方法在使用的时候需要对原有的方法进行改进，此时有两种办法，一是修改原有的方法，但是这样做的的话违背了<code>开闭原则</code>，不是很好。二是采用一个代理类调用原来的方法，且对产生的结果进行控制，使用代理模式可以将功能划分的更加清晰，有助于后期维护。</li>
+</ul>
+</li>
+<li>装饰器设计模式（实现框架整合的基础）</li>
+</ul>
+</li>
+</ul>
+<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><ul>
+<li><p>Spring框架的AOP：面向切面编程</p>
+<ul>
+<li>代理设计模式分类<ul>
+<li>静态代理：通过自己定义类来实现代理设计模式。<ul>
+<li>原型类、原型接口、代理类都需要自己实现。</li>
+<li>弊端：通常情况下，一个原型类对应一个代理类。 </li>
+</ul>
+</li>
+<li>动态代理：通过JDK提供的功能来生成类，来实现代理设计模式。<ul>
+<li>自行定义原型类、原型接口</li>
+<li>系统自动生成原型类所定义的代理类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代理设计模式的实现（静态代理）</p>
+<ul>
+<li>代理类、原型类、原型接口</li>
+<li><p>在代理类中切入代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">// 原型接口</div><div class="line">public interface Sourceable &#123;</div><div class="line"></div><div class="line">	public void talk() throws Exception;</div><div class="line"></div><div class="line">&#125;</div><div class="line">		</div><div class="line">// 原型类</div><div class="line">public class Source implements Sourceable &#123;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void talk() throws Exception &#123;</div><div class="line">	</div><div class="line">		System.out.println(&quot;hello&quot;);</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">// 代理类</div><div class="line">public class proxy implements Sourceable &#123;</div><div class="line"></div><div class="line">	private Source source;</div><div class="line">	public proxyImpl(Source source) &#123;</div><div class="line">		super();</div><div class="line">		this.source = source;</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	// 下面这种引入也是可以的，推荐上面那种引入方式</div><div class="line">	// private Source source = new Source();</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void talk() throws Exceptions &#123;</div><div class="line">	</div><div class="line">		System.out.println(&quot;Start&quot;);</div><div class="line">		source.talk();</div><div class="line">		System.out.println(&quot;End&quot;);</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>其中代理类中的<code>System.out.println(&quot;Start&quot;);</code>和 <code>System.out.println(&quot;End&quot;);</code>就是切入的代码。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>AOP在Spring框架中的应用，AOP代码的切入，只能切入到IoC创建的对象中。</p>
+<ul>
+<li>创建一个通知Advice：代码切入的方式（在什么情况下进行切入），如下<ul>
+<li>Interception：在原型类代码的执行过程中进行切入。</li>
+<li>Before：在原型类代码执行前切入</li>
+<li>After：在原型类代码执行后切入</li>
+<li>Throw：在原型类代码执行异常时切入</li>
+<li>Introduction： 在原型类代码执行完成后切入</li>
+</ul>
+</li>
+<li>切入点</li>
+</ul>
+</li>
+</ul>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">// 创建一个通知</div><div class="line">public class MethodAop implements org.aopalliance.intercept.MethodInterceptor &#123;</div><div class="line"></div><div class="line">	</div><div class="line">	public Object invoke(MethodInvocation arg0) throws Throwable &#123;</div><div class="line">	</div><div class="line">		try &#123;</div><div class="line">		</div><div class="line">			System.out.println(&quot;开始事务&quot;);</div><div class="line">			</div><div class="line"></div><div class="line">			Object object = method.proceed();</div><div class="line">			</div><div class="line"></div><div class="line">			System.out.println(&quot;提交事务&quot;);</div><div class="line">			return object;</div><div class="line">			</div><div class="line">		</div><div class="line">		&#125; catch(e) &#123;</div><div class="line">			</div><div class="line">			System.out.println(&quot;回滚事务&quot;);				</div><div class="line">		&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">	</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre>
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/05/08/jQuery中的attr和prop/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

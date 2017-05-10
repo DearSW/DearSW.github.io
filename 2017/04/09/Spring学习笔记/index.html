@@ -15,85 +15,79 @@
     <meta name="keywords" content="Spring," />
   
 
-  <meta name="description" content="笔记
+  <meta name="description" content="概述
 Spring框架核心功能：
+
 管理程序的代码（代码的切入）：AOP（面向切面的编程）
-内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）
+ 内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）
 
 
 
 
+笔记
+Spring框架的IoC：依赖注入，控制反转。
 
-IoC：依赖注入，控制反转。
+内存空间的创建：反射机制创建对象。
 
-内存空间的创建：反射创建对象
 内存空间的赋值    
-get/set方法注入
-构造方法注入
-接口注入
 
-
-Spring框架对象的匹配方式
+get/set方法注入：默认的赋值方式。
 id名称
-class类型
+class类型 
 
 
-Spring框架对象的生命周期（在">
+构造方法注入：对注入的bean需要创建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring学习笔记（一）">
 <meta property="og:url" content="http://yoursite.com/2017/04/09/Spring学习笔记/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
-<meta property="og:description" content="笔记
+<meta property="og:description" content="概述
 Spring框架核心功能：
+
 管理程序的代码（代码的切入）：AOP（面向切面的编程）
-内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）
+ 内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）
 
 
 
 
+笔记
+Spring框架的IoC：依赖注入，控制反转。
 
-IoC：依赖注入，控制反转。
+内存空间的创建：反射机制创建对象。
 
-内存空间的创建：反射创建对象
 内存空间的赋值    
-get/set方法注入
-构造方法注入
-接口注入
 
-
-Spring框架对象的匹配方式
+get/set方法注入：默认的赋值方式。
 id名称
-class类型
+class类型 
 
 
-Spring框架对象的生命周期（在">
-<meta property="og:updated_time" content="2017-05-09T03:22:36.000Z">
+构造方法注入：对注入的bean需要创建">
+<meta property="og:updated_time" content="2017-05-10T03:05:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring学习笔记（一）">
-<meta name="twitter:description" content="笔记
+<meta name="twitter:description" content="概述
 Spring框架核心功能：
+
 管理程序的代码（代码的切入）：AOP（面向切面的编程）
-内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）
+ 内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）
 
 
 
 
+笔记
+Spring框架的IoC：依赖注入，控制反转。
 
-IoC：依赖注入，控制反转。
+内存空间的创建：反射机制创建对象。
 
-内存空间的创建：反射创建对象
 内存空间的赋值    
-get/set方法注入
-构造方法注入
-接口注入
 
-
-Spring框架对象的匹配方式
+get/set方法注入：默认的赋值方式。
 id名称
-class类型
+class类型 
 
 
-Spring框架对象的生命周期（在">
+构造方法注入：对注入的bean需要创建">
 
   
 
@@ -218,7 +212,7 @@ Spring框架对象的生命周期（在">
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#笔记"><span class="toc-text">笔记</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#笔记"><span class="toc-text">笔记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bean标签"><span class="toc-text">bean标签</span></a></li></ol>
   </div>
 
 
@@ -266,30 +260,48 @@ Spring框架对象的生命周期（在">
 
   <div class="article-content">
     
-      <h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><ul>
-<li>Spring框架核心功能：<ul>
-<li>管理程序的代码（代码的切入）：AOP（面向切面的编程）</li>
-<li>内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）</li>
-</ul>
-</li>
-</ul>
+      <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>Spring框架核心功能：</p>
+<blockquote>
+<p>管理程序的代码（代码的切入）：AOP（面向切面的编程）</p>
+<p> 内存空间的创建（控制对象的作用域）：IoC（依赖注入，控制反转）</p>
+</blockquote>
+</blockquote>
 <hr>
+<hr>
+<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><ol>
+<li><p>Spring框架的IoC：依赖注入，控制反转。</p>
 <ol>
-<li><p>IoC：依赖注入，控制反转。</p>
+<li><p>内存空间的创建：反射机制创建对象。</p>
+</li>
+<li><p>内存空间的赋值    </p>
 <ol>
-<li>内存空间的创建：反射创建对象</li>
-<li>内存空间的赋值    <ol>
-<li>get/set方法注入</li>
-<li>构造方法注入</li>
-<li>接口注入</li>
+<li>get/set方法注入：默认的赋值方式。<ol>
+<li>id名称</li>
+<li>class类型 </li>
 </ol>
 </li>
-<li>Spring框架对象的匹配方式<ol>
-<li>id名称</li>
+<li>构造方法注入：对注入的bean需要创建相应的构造方法，基本数据类型采用的还是get/set方法。<ol>
 <li>class类型</li>
 </ol>
 </li>
-<li>Spring框架对象的生命周期（在同一个ApplicationContext范围内的生命周期）<ol>
+<li>接口注入：接口引入进来。这种注入方式，还是以上两种方式，只不过是在实现数据注入的基础之上加入接口。</li>
+</ol>
+</li>
+<li><p>Spring框架对象的匹配方式</p>
+<ol>
+<li>id名称（get/set方法注入）<ol>
+<li>类中的属性名和Bean中id值相匹配，<code>&lt;property name=&quot;类的属性&quot; ref=&quot;关联的Bean的id值&quot; /&gt;</code>。</li>
+<li>自动匹配。</li>
+</ol>
+</li>
+<li>class类型（get/set方法注入）</li>
+<li>构造函数</li>
+<li>接口注入</li>
+</ol>
+</li>
+<li><p>Spring框架对象的生命周期（在同一个ApplicationContext范围内的生命周期）</p>
+<ol>
 <li>所有项目都可以设置生命周期<ol>
 <li>单例模式：<code>scope=&quot;sington&quot;</code>，Spring只创建一个实例，一般逻辑业务都是使用单例模式</li>
 <li>原型模式：<code>scope=&quot;protype&quot;</code>，Spring每一次获取就会创建一个新的实例，一般action都使用原型模式</li>
@@ -298,30 +310,53 @@ Spring框架对象的生命周期（在">
 <li>Web项目的生命周期，session，request等</li>
 </ol>
 </li>
-<li></li>
-<li>Spring加载配置文件的方式<ol>
-<li>Java项目<ol>
+<li><p>Spring可以将内存空间的创建和内存空间的赋值分离开来。</p>
+</li>
+<li><p>Spring加载配置文件的方式</p>
+<ol>
+<li><p>Java项目</p>
+<ol>
 <li>FileSystemXmlApplicationContext() </li>
-<li>ClassPathXmlApplicationContext() （推荐）</li>
+<li><p>ClassPathXmlApplicationContext() （推荐）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 加载配置文件</div><div class="line">ApplicationContext ac = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</div><div class="line"></div><div class="line">LoginBL p = (LoginBL)ac.getBean(&quot;loginBL&quot;);</div></pre></td></tr></table></figure>
+</li>
 </ol>
 </li>
-<li>Web项目</li>
+<li><p>Web项目</p>
+</li>
 </ol>
 </li>
-<li>Spring命名空间<code>scope</code>属性</li>
-</ol>
-</li>
-<li><p><code>&lt;bean&gt; &lt;/bean&gt;</code>标签开辟空间，创建对象</p>
+<li><p>实际工作中的Spring-IoC的实现方式</p>
 <ul>
-<li><p>Person类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">package com.bean.Person</div><div class="line">	</div><div class="line">public class Person &#123;</div><div class="line">	</div><div class="line">	private String name;</div><div class="line">	private int age;</div><div class="line">	</div><div class="line">	public String getName() &#123;</div><div class="line">		...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setName() &#123;</div><div class="line">		...</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">	public String getAge() &#123;</div><div class="line">		...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setAge() &#123;</div><div class="line">		...</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>接口注入 + get/set方法的注入 + 手工匹配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">// DAO接口</div><div class="line">public interface LoginDAO &#123;</div><div class="line">	</div><div class="line">	public int login(String uname, String uwrod) throws Exception;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">// DAO接口的实现类</div><div class="line">public class LoginDAOImpl implements LoginDAO &#123;</div><div class="line"></div><div class="line">	@override</div><div class="line">	public int login(String uname, String uwrod) &#123;</div><div class="line">		....</div><div class="line">	&#125;</div><div class="line">		</div><div class="line">&#125;</div><div class="line">// Service接口</div><div class="line">public interface LoginBL &#123;</div><div class="line">	</div><div class="line">	public int login(String uname, String uword) throws Exception;</div><div class="line"></div><div class="line">&#125;</div><div class="line">// Service接口的实现类</div><div class="line">public class LoginBLImpl implements LoginBL &#123;</div><div class="line"></div><div class="line">	//	接口注入</div><div class="line">	private LoginDAO loginDao;</div><div class="line"></div><div class="line">	@override</div><div class="line">	public int login(String uname, String uword) throws Exception &#123;</div><div class="line">		</div><div class="line">		return this.loginDao.login(uname,uword);</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public LoginDAO getLoginDao() &#123;</div><div class="line">		</div><div class="line">		return loginDao;</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setLoginDao(LoginDAO loginDao) &#123;</div><div class="line">		</div><div class="line">		this.loginDao = loginDao;</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line">// Test测试类</div><div class="line">public class test &#123;</div><div class="line"></div><div class="line">	private LoginBL loginBl;</div><div class="line">	</div><div class="line">	private String uname;</div><div class="line">	private String uword;</div><div class="line"></div><div class="line">	public static void main(Stirng[] args) &#123;</div><div class="line">	</div><div class="line">		</div><div class="line">		</div><div class="line">		loginBl.login(uname,uword);</div><div class="line">		</div><div class="line">		ApplicationContext ac = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</div><div class="line">		LoginBL p = (LoginBL)ac.getBean(&quot;loginBL&quot;);</div><div class="line">		System.out.println(p);</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>Spring配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">&lt;bean id=&quot;person&quot; class=&quot;com.bean.Person&quot; scope=&quot;&quot;&gt; </div><div class="line"></div><div class="line">	&lt;property name=&quot;name&quot; value=&quot;King&quot; /&gt;</div><div class="line">	&lt;property name=&quot;age&quot; value=&quot;18&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">		</div><div class="line">&lt;bean id=&quot;loginDAO&quot; class=&quot;com.dao.impl.LoginDAOImpl&quot; /&gt;</div><div class="line"></div><div class="line">&lt;bean id=&quot;loginBL&quot; class=&quot;com.service.impl.LoginBLImpl&quot;&gt;</div><div class="line">	</div><div class="line">	&lt;property name=&quot;loginDao&quot; ref=&quot;loginDAO&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/bean&gt;</div><div class="line">		</div><div class="line">		</div><div class="line">...</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ol>
+</li>
+</ol>
+<hr>
+<hr>
+<h3 id="bean标签"><a href="#bean标签" class="headerlink" title="bean标签"></a>bean标签</h3><ul>
+<li>bean标签开辟空间，创建对象</li>
+<li><p>应该采用id或者name属性标识一个bean。</p>
+</li>
+<li><p>Person类</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">package com.bean.Person</div><div class="line">	</div><div class="line">public class Person &#123;</div><div class="line">	</div><div class="line">	private String name;</div><div class="line">	private int age;</div><div class="line">	</div><div class="line">	public String getName() &#123;</div><div class="line">		...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setName() &#123;</div><div class="line">		...</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">	public String getAge() &#123;</div><div class="line">		...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setAge() &#123;</div><div class="line">		...</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>Demo类</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">package com.bean.Demo</div><div class="line">	</div><div class="line">public class Demo &#123;</div><div class="line">	</div><div class="line">	private String title;</div><div class="line">	private Demo demo;</div><div class="line">	</div><div class="line">	public Demo() &#123;</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public Demo(Demo demo) &#123;</div><div class="line">		this.demo = demo;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public String getTitle() &#123;</div><div class="line">		...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setTitle() &#123;</div><div class="line">		...</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Spring配置文件之get/set注入、构造函数注入</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">&lt;!-- set/get方式 id与属性的手工匹配， 常用 --&gt;</div><div class="line">&lt;bean id=&quot;xxx&quot; class=&quot;com.bean.Demo&quot;&gt;</div><div class="line">	</div><div class="line">	&lt;property name=&quot;title&quot; value=&quot;hello&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/bean&gt;</div><div class="line">	</div><div class="line">&lt;bean id=&quot;person&quot; class=&quot;com.bean.Person&quot; scope=&quot;&quot;&gt; </div><div class="line"></div><div class="line">	&lt;property name=&quot;name&quot; value=&quot;King&quot; /&gt;</div><div class="line">	&lt;property name=&quot;age&quot; value=&quot;18&quot; /&gt;</div><div class="line">	&lt;property name=&quot;title&quot; ref=&quot;xxx&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;!-- 构造函数方式，bean的class属性和成员变量的自动匹配 不常用 --&gt;</div><div class="line">&lt;bean id=&quot;xxx&quot; class=&quot;com.bean.Demo&quot;&gt;</div><div class="line">	</div><div class="line">	&lt;property name=&quot;title&quot; value=&quot;hello&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/bean&gt;</div><div class="line">	</div><div class="line">&lt;bean id=&quot;person&quot; class=&quot;com.bean.Person&quot; autowire=&quot;constructor&quot;&gt; </div><div class="line"></div><div class="line">	&lt;property name=&quot;name&quot; value=&quot;King&quot; /&gt;</div><div class="line">	&lt;property name=&quot;age&quot; value=&quot;18&quot; /&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
     
   </div>
