@@ -7,45 +7,47 @@
 <head>
   <meta charset="utf-8">
   
-  <title>渐进式的感悟 | 后来他乡遇故人</title>
+  <title>前后端分离的思考 | 后来他乡遇故人</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="随笔," />
+    <meta name="keywords" content="前后端分离," />
   
 
-  <meta name="description" content="面向生活曾经在林清玄先生的书中看到这样一个故事：  
+  <meta name="description" content="项目划分
+应用、管控类的Web项目
+偏展示类的Web项目
 
-老僧三十年前未参禅时，见山是山，见水是水。及至后来，亲见知识，有个入处，见山不是山，见水不是水。而今得个休歇处，依前见山只是山，见水只是水。
-
-
-以前，觉得生活应该是幸福的，每个人都应该努力追求幸福，但却并不怎么感到幸福。
-后来，觉得生活应该是苦难的，面对苦难，享受苦难，却渐渐感觉到了幸福。
-现在，感觉到生活既不是幸福的也不是苦难的，一切都是">
+应用、管控类Web项目
+前后端是天然分离的
+后端数据服务化，走统一的接口规范输出，甚至是统一走一层后端的服务输出接口，降低前后端接口定义的沟通成本，对前端来说，后端是一个巨大的数据源。而这部分接口的规范是需要前后端在很多方面达成一致才能落地的。
+前端页面组件化，目前已经看到一些业务中，前端编写组件和调用规范，然后把文档扔给后端，直接由后端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="渐进式的感悟">
-<meta property="og:url" content="http://yoursite.com/2017/05/14/随笔/index.html">
+<meta property="og:title" content="前后端分离的思考">
+<meta property="og:url" content="http://yoursite.com/2017/05/17/前后端分离的思考/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
-<meta property="og:description" content="面向生活曾经在林清玄先生的书中看到这样一个故事：  
+<meta property="og:description" content="项目划分
+应用、管控类的Web项目
+偏展示类的Web项目
 
-老僧三十年前未参禅时，见山是山，见水是水。及至后来，亲见知识，有个入处，见山不是山，见水不是水。而今得个休歇处，依前见山只是山，见水只是水。
-
-
-以前，觉得生活应该是幸福的，每个人都应该努力追求幸福，但却并不怎么感到幸福。
-后来，觉得生活应该是苦难的，面对苦难，享受苦难，却渐渐感觉到了幸福。
-现在，感觉到生活既不是幸福的也不是苦难的，一切都是">
-<meta property="og:updated_time" content="2017-05-14T05:00:11.000Z">
+应用、管控类Web项目
+前后端是天然分离的
+后端数据服务化，走统一的接口规范输出，甚至是统一走一层后端的服务输出接口，降低前后端接口定义的沟通成本，对前端来说，后端是一个巨大的数据源。而这部分接口的规范是需要前后端在很多方面达成一致才能落地的。
+前端页面组件化，目前已经看到一些业务中，前端编写组件和调用规范，然后把文档扔给后端，直接由后端">
+<meta property="og:image" content="http://yoursite.com/2017/05/17/前后端分离的思考/1.png">
+<meta property="og:updated_time" content="2017-05-16T17:02:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="渐进式的感悟">
-<meta name="twitter:description" content="面向生活曾经在林清玄先生的书中看到这样一个故事：  
+<meta name="twitter:title" content="前后端分离的思考">
+<meta name="twitter:description" content="项目划分
+应用、管控类的Web项目
+偏展示类的Web项目
 
-老僧三十年前未参禅时，见山是山，见水是水。及至后来，亲见知识，有个入处，见山不是山，见水不是水。而今得个休歇处，依前见山只是山，见水只是水。
-
-
-以前，觉得生活应该是幸福的，每个人都应该努力追求幸福，但却并不怎么感到幸福。
-后来，觉得生活应该是苦难的，面对苦难，享受苦难，却渐渐感觉到了幸福。
-现在，感觉到生活既不是幸福的也不是苦难的，一切都是">
+应用、管控类Web项目
+前后端是天然分离的
+后端数据服务化，走统一的接口规范输出，甚至是统一走一层后端的服务输出接口，降低前后端接口定义的沟通成本，对前端来说，后端是一个巨大的数据源。而这部分接口的规范是需要前后端在很多方面达成一致才能落地的。
+前端页面组件化，目前已经看到一些业务中，前端编写组件和调用规范，然后把文档扔给后端，直接由后端">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/17/前后端分离的思考/1.png">
 
   
 
@@ -170,20 +172,20 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#面向生活"><span class="toc-text">面向生活</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#项目划分"><span class="toc-text">项目划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用、管控类Web项目"><span class="toc-text">应用、管控类Web项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#偏展示类的Web项目-比较复杂"><span class="toc-text">偏展示类的Web项目(比较复杂)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-前后端分离的意义大吗？"><span class="toc-text">Web 前后端分离的意义大吗？</span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-随笔" class="article article-type-post" itemprop="blogPost">
+   <article id="post-前后端分离的思考" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">渐进式的感悟</h1>
+    <h1 class="post-title">前后端分离的思考</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.05.14</span>
+        <span>2017.05.17</span>
       </span>
 
       
@@ -196,7 +198,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/随笔/">随笔</a>
+    <a class="article-category-link" href="/categories/前端/">前端</a>
   </span>
 
 
@@ -218,19 +220,33 @@
 
   <div class="article-content">
     
-      <h3 id="面向生活"><a href="#面向生活" class="headerlink" title="面向生活"></a>面向生活</h3><p>曾经在林清玄先生的书中看到这样一个故事：  </p>
-<ul>
-<li>老僧三十年前未参禅时，见山是山，见水是水。及至后来，亲见知识，有个入处，见山不是山，见水不是水。而今得个休歇处，依前见山只是山，见水只是水。</li>
+      <h3 id="项目划分"><a href="#项目划分" class="headerlink" title="项目划分"></a>项目划分</h3><ul>
+<li>应用、管控类的Web项目</li>
+<li>偏展示类的Web项目</li>
 </ul>
-<blockquote>
-<p>以前，觉得生活应该是幸福的，每个人都应该努力追求幸福，但却并不怎么感到幸福。</p>
-<p>后来，觉得生活应该是苦难的，面对苦难，享受苦难，却渐渐感觉到了幸福。</p>
-<p>现在，感觉到生活既不是幸福的也不是苦难的，一切都是我执，诸事随心，枯荣随缘。</p>
-<p>突然想起，胡大雨给我的留过的一段话：</p>
-<blockquote>
-<p>在这个世界上既没有幸福也没有不幸，只有一种处境和另一处境的比较。唯有经历过最大厄运磨难的人，才懂得感受最大的乐趣。必须想到过死的痛苦，才能感受生的快乐。所以，你们幸福的活下去吧，我亲爱的孩子们，永远不要忘记，在上帝垂顾为人类揭开未来之前，人类的全部智慧都包含在这两个词语中:这就是等待和希望。</p>
-</blockquote>
-</blockquote>
+<h3 id="应用、管控类Web项目"><a href="#应用、管控类Web项目" class="headerlink" title="应用、管控类Web项目"></a>应用、管控类Web项目</h3><ul>
+<li>前后端是天然分离的</li>
+<li>后端数据服务化，走统一的接口规范输出，甚至是统一走一层后端的服务输出接口，降低前后端接口定义的沟通成本，对前端来说，后端是一个巨大的数据源。而这部分接口的规范是需要前后端在很多方面达成一致才能落地的。</li>
+<li>前端页面组件化，目前已经看到一些业务中，前端编写组件和调用规范，然后把文档扔给后端，直接由后端来编写html，js来接入数据，组合页面。</li>
+</ul>
+<img src="/2017/05/17/前后端分离的思考/1.png" alt="1.png" title="">
+<h3 id="偏展示类的Web项目-比较复杂"><a href="#偏展示类的Web项目-比较复杂" class="headerlink" title="偏展示类的Web项目(比较复杂)"></a>偏展示类的Web项目(比较复杂)</h3><ul>
+<li>问题一，模板的控制权在谁手里？<ul>
+<li>模板应当由前端人员去控制，主要原因有两方面：<ul>
+<li>性能优化（尤其是外部资源的管理与发布，请求合并等等）</li>
+<li>协作的顺畅性（已形成模板的界面片段的返工等问题）    </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>问题二，模板到底应该在什么地方跟数据结合？</li>
+</ul>
+<h3 id="Web-前后端分离的意义大吗？"><a href="#Web-前后端分离的意义大吗？" class="headerlink" title="Web 前后端分离的意义大吗？"></a>Web 前后端分离的意义大吗？</h3><ol>
+<li>该网站前端变化远比后端变化频繁，则意义大。</li>
+<li>该网站尚处于原始开发模式，数据逻辑与表现逻辑混杂不清，则意义大。</li>
+<li>该网站前端团队和后端团队分属两个领导班子，技能点差异很大，则意义大。</li>
+<li>该网站前端效果绚丽/跨设备兼容要求高，则意义大。</li>
+</ol>
 
     
   </div>
@@ -241,10 +257,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/05/13/Ajax-返回错误/">
+    <a class="show pull-left" href="/2017/05/16/客服端渲染和服务端渲染/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/05/16/客服端渲染和服务端渲染/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

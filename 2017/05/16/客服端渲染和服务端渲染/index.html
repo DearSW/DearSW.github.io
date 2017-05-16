@@ -7,45 +7,66 @@
 <head>
   <meta charset="utf-8">
   
-  <title>渐进式的感悟 | 后来他乡遇故人</title>
+  <title>客服端渲染和服务端渲染 | 后来他乡遇故人</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="随笔," />
+    <meta name="keywords" content="渲染," />
   
 
-  <meta name="description" content="面向生活曾经在林清玄先生的书中看到这样一个故事：  
+  <meta name="description" content="一个HTML页面的渲染
+首先，我们来看看浏览器的基本组成。
 
-老僧三十年前未参禅时，见山是山，见水是水。及至后来，亲见知识，有个入处，见山不是山，见水不是水。而今得个休歇处，依前见山只是山，见水只是水。
 
 
-以前，觉得生活应该是幸福的，每个人都应该努力追求幸福，但却并不怎么感到幸福。
-后来，觉得生活应该是苦难的，面对苦难，享受苦难，却渐渐感觉到了幸福。
-现在，感觉到生活既不是幸福的也不是苦难的，一切都是">
+浏览器的主要构成
+
+用户界面
+浏览器引擎：用来查询及操作渲染引擎的接口。
+渲染引擎：用来显示用户请求的内容。
+网络：完成网络调用，具有平台无关性。
+UI后端：用来绘制类似组合选择框及对话框等基本组件。
+JS解释器：用来解释执行JS代码。
+数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="渐进式的感悟">
-<meta property="og:url" content="http://yoursite.com/2017/05/14/随笔/index.html">
+<meta property="og:title" content="客服端渲染和服务端渲染">
+<meta property="og:url" content="http://yoursite.com/2017/05/16/客服端渲染和服务端渲染/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
-<meta property="og:description" content="面向生活曾经在林清玄先生的书中看到这样一个故事：  
+<meta property="og:description" content="一个HTML页面的渲染
+首先，我们来看看浏览器的基本组成。
 
-老僧三十年前未参禅时，见山是山，见水是水。及至后来，亲见知识，有个入处，见山不是山，见水不是水。而今得个休歇处，依前见山只是山，见水只是水。
 
 
-以前，觉得生活应该是幸福的，每个人都应该努力追求幸福，但却并不怎么感到幸福。
-后来，觉得生活应该是苦难的，面对苦难，享受苦难，却渐渐感觉到了幸福。
-现在，感觉到生活既不是幸福的也不是苦难的，一切都是">
-<meta property="og:updated_time" content="2017-05-14T05:00:11.000Z">
+浏览器的主要构成
+
+用户界面
+浏览器引擎：用来查询及操作渲染引擎的接口。
+渲染引擎：用来显示用户请求的内容。
+网络：完成网络调用，具有平台无关性。
+UI后端：用来绘制类似组合选择框及对话框等基本组件。
+JS解释器：用来解释执行JS代码。
+数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
+<meta property="og:image" content="http://yoursite.com/2017/05/16/客服端渲染和服务端渲染/1.png">
+<meta property="og:image" content="http://yoursite.com/2017/05/16/客服端渲染和服务端渲染/2.png">
+<meta property="og:updated_time" content="2017-05-16T16:48:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="渐进式的感悟">
-<meta name="twitter:description" content="面向生活曾经在林清玄先生的书中看到这样一个故事：  
+<meta name="twitter:title" content="客服端渲染和服务端渲染">
+<meta name="twitter:description" content="一个HTML页面的渲染
+首先，我们来看看浏览器的基本组成。
 
-老僧三十年前未参禅时，见山是山，见水是水。及至后来，亲见知识，有个入处，见山不是山，见水不是水。而今得个休歇处，依前见山只是山，见水只是水。
 
 
-以前，觉得生活应该是幸福的，每个人都应该努力追求幸福，但却并不怎么感到幸福。
-后来，觉得生活应该是苦难的，面对苦难，享受苦难，却渐渐感觉到了幸福。
-现在，感觉到生活既不是幸福的也不是苦难的，一切都是">
+浏览器的主要构成
+
+用户界面
+浏览器引擎：用来查询及操作渲染引擎的接口。
+渲染引擎：用来显示用户请求的内容。
+网络：完成网络调用，具有平台无关性。
+UI后端：用来绘制类似组合选择框及对话框等基本组件。
+JS解释器：用来解释执行JS代码。
+数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/16/客服端渲染和服务端渲染/1.png">
 
   
 
@@ -170,20 +191,20 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#面向生活"><span class="toc-text">面向生活</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一个HTML页面的渲染"><span class="toc-text">一个HTML页面的渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客服端渲染"><span class="toc-text">客服端渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端渲染"><span class="toc-text">服务端渲染</span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-随笔" class="article article-type-post" itemprop="blogPost">
+   <article id="post-客服端渲染和服务端渲染" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">渐进式的感悟</h1>
+    <h1 class="post-title">客服端渲染和服务端渲染</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.05.14</span>
+        <span>2017.05.16</span>
       </span>
 
       
@@ -196,7 +217,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/随笔/">随笔</a>
+    <a class="article-category-link" href="/categories/前端/">前端</a>
   </span>
 
 
@@ -218,19 +239,57 @@
 
   <div class="article-content">
     
-      <h3 id="面向生活"><a href="#面向生活" class="headerlink" title="面向生活"></a>面向生活</h3><p>曾经在林清玄先生的书中看到这样一个故事：  </p>
-<ul>
-<li>老僧三十年前未参禅时，见山是山，见水是水。及至后来，亲见知识，有个入处，见山不是山，见水不是水。而今得个休歇处，依前见山只是山，见水只是水。</li>
+      <h3 id="一个HTML页面的渲染"><a href="#一个HTML页面的渲染" class="headerlink" title="一个HTML页面的渲染"></a>一个HTML页面的渲染</h3><ul>
+<li>首先，我们来看看浏览器的基本组成。</li>
 </ul>
-<blockquote>
-<p>以前，觉得生活应该是幸福的，每个人都应该努力追求幸福，但却并不怎么感到幸福。</p>
-<p>后来，觉得生活应该是苦难的，面对苦难，享受苦难，却渐渐感觉到了幸福。</p>
-<p>现在，感觉到生活既不是幸福的也不是苦难的，一切都是我执，诸事随心，枯荣随缘。</p>
-<p>突然想起，胡大雨给我的留过的一段话：</p>
-<blockquote>
-<p>在这个世界上既没有幸福也没有不幸，只有一种处境和另一处境的比较。唯有经历过最大厄运磨难的人，才懂得感受最大的乐趣。必须想到过死的痛苦，才能感受生的快乐。所以，你们幸福的活下去吧，我亲爱的孩子们，永远不要忘记，在上帝垂顾为人类揭开未来之前，人类的全部智慧都包含在这两个词语中:这就是等待和希望。</p>
-</blockquote>
-</blockquote>
+<img src="/2017/05/16/客服端渲染和服务端渲染/1.png" alt="1.png" title="">
+<ul>
+<li><p>浏览器的主要构成</p>
+<ul>
+<li>用户界面</li>
+<li>浏览器引擎：用来查询及操作渲染引擎的接口。</li>
+<li>渲染引擎：用来显示用户请求的内容。</li>
+<li>网络：完成网络调用，具有平台无关性。</li>
+<li>UI后端：用来绘制类似组合选择框及对话框等基本组件。</li>
+<li>JS解释器：用来解释执行JS代码。</li>
+<li>数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的database技术，这是一种轻量级完整的客户端存储技术。</li>
+</ul>
+</li>
+<li><p>渲染引擎</p>
+<ul>
+<li>渲染引擎的职责就是渲染，即在浏览器窗口中显示用户所请求的内容，客户在浏览器的地址栏中输入什么，它就会显示什么（如果它有能力渲染的话），比如你打开一个PDF文件，它就是打不开的，你可以给它安装一个PDF插件就可以打开了。不同浏览器的插件是不一样，Chorme就有自己的插件生态系统，比如你要开发React，你可以安装一个<code>React Developer Tools</code>插件就可以在控制台显示出React的组件了。</li>
+<li>渲染引擎分类<ul>
+<li>Firefox使用gecko引擎</li>
+<li>IE使用trident引擎</li>
+<li>2015年微软推出自己新的浏览器，原名叫斯巴达，后改名edge,使用edge引擎</li>
+<li>Opera最早使用presto引擎，后来弃用</li>
+<li>Chrome、Safari、Opera使用webkit引擎</li>
+<li>13年Chrome、Opera开始使用blink引擎</li>
+</ul>
+</li>
+<li>JavaScript引擎分类（现在JS引擎独立出来了，以前是包含在渲染引擎中的）<ul>
+<li>老版本IE使用Jscript引擎</li>
+<li>IE9之后使用Chakra引擎</li>
+<li>Edge浏览器仍然使用Chakra引擎</li>
+<li>Opera使用Carakan引擎</li>
+<li>Firefox使用monkey系列引擎</li>
+<li>Safari使用的SquirrelFish系列引擎</li>
+<li>Chrome使用V8引擎（NodeJs其实就是封装了V8引擎）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>HTML页面的渲染</p>
+</li>
+</ul>
+<img src="/2017/05/16/客服端渲染和服务端渲染/2.png" alt="2.png" title=""> 
+<h3 id="客服端渲染"><a href="#客服端渲染" class="headerlink" title="客服端渲染"></a>客服端渲染</h3><ul>
+<li>客服端渲染主要用在单页应用，需要使用JS动态生成更多的HTML。</li>
+<li>JS生成代码，一般来说就是从服务器异步获取json数据。</li>
+</ul>
+<h3 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h3><ul>
+<li>服务端渲染由于计算量主要集中在服务端，那么在用户请求量很大的情况下系统负载会比客户端渲染的方案高一些。如果因此导致服务器响应变慢，那么用户体验也会下降。</li>
+</ul>
 
     
   </div>
@@ -241,10 +300,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/05/13/Ajax-返回错误/">
+    <a class="show pull-left" href="/2017/05/14/随笔/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/05/16/客服端渲染和服务端渲染/">
+    <a class="show pull-right" href="/2017/05/17/前后端分离的思考/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
