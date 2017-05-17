@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>页面渲染的思考 | 后来他乡遇故人</title>
+  <title>页面渲染的学习笔记 | 后来他乡遇故人</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -30,7 +30,7 @@ UI后端：用来绘制类似组合选择框及对话框等基本组件。
 JS解释器：用来解释执行JS代码。
 数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="页面渲染的思考">
+<meta property="og:title" content="页面渲染的学习笔记">
 <meta property="og:url" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
 <meta property="og:description" content="一个HTML页面的渲染
@@ -49,9 +49,10 @@ JS解释器：用来解释执行JS代码。
 数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
 <meta property="og:image" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/1.png">
 <meta property="og:image" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/2.png">
-<meta property="og:updated_time" content="2017-05-17T07:09:36.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/3.png">
+<meta property="og:updated_time" content="2017-05-17T17:36:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="页面渲染的思考">
+<meta name="twitter:title" content="页面渲染的学习笔记">
 <meta name="twitter:description" content="一个HTML页面的渲染
 首先，我们来看看浏览器的基本组成。
 
@@ -199,7 +200,7 @@ JS解释器：用来解释执行JS代码。
 <div class="content content-post CENTER">
    <article id="post-客服端渲染和服务端渲染" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">页面渲染的思考</h1>
+    <h1 class="post-title">页面渲染的学习笔记</h1>
 
     <div class="article-meta">
       <span>
@@ -313,7 +314,8 @@ JS解释器：用来解释执行JS代码。
 <li>FreeMarker是一个后端模板引擎，一个基于模板生成文本输出的通用工具，使用纯Java编写，模板用servlet提供的数据动态地生成 HTML，模板语言是强大的直观的，编译器速度快，输出接近静态HTML页面的速度。</li>
 </ul>
 </li>
-<li>放在前端执行，则涉及到前端模板引擎 <ul>
+<li><p>放在前端执行，则涉及到前端模板引擎 </p>
+<ul>
 <li>前端模版的优缺点<ul>
 <li>提高了前端开发的可维护性（后期改起来方便）以及可扩展性（想要增加功能，增加需求方便）；</li>
 <li>提高了开发效率提高（程序逻辑组织更好，调试方便）；</li>
@@ -322,9 +324,19 @@ JS解释器：用来解释执行JS代码。
 <li>可能不利于SEO以及模版错误不好调试。</li>
 </ul>
 </li>
-<li>前端模板技术分类<ul>
-<li>String-based 模板技术 (基于字符串的parse和compile过程)</li>
-<li>Dom-based 模板技术 (基于Dom的link或compile过程)</li>
+<li><p>前端模板技术分类</p>
+<ul>
+<li><p>String-based 模板技术 (基于字符串的parse和compile过程)</p>
+<ul>
+<li>Smarty</li>
+<li>Jade</li>
+<li>artTemplate</li>
+<li>etpl</li>
+</ul>
+<img src="/2017/04/16/客服端渲染和服务端渲染/3.png" alt="3.png" title="">
+</li>
+<li><p>Dom-based 模板技术 (基于Dom的link或compile过程)</p>
+</li>
 <li>杂交的Living templating 技术 (基于字符串的parse 和 基于dom的compile过程)。</li>
 </ul>
 </li>
@@ -338,6 +350,7 @@ JS解释器：用来解释执行JS代码。
 </ul>
 </li>
 <li>比起后端渲染，前端渲染既能提升性能，又没有无解的安全问题。</li>
+<li>后端模板可以承载页面的固定数据，如登陆的webUser，它随着页面的产生而产生，随着页面的消失而消失；前端模板主要实现复杂的页面交互伴随的数据变化，进行页面无刷新的数据更新，实现页面的多彩化。所以前端模板和后端模板要相互结合使用，才能更好的服务于web应用。</li>
 </ul>
 <h3 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h3><ul>
 <li>服务端渲染由于计算量主要集中在服务端，那么在用户请求量很大的情况下系统负载会比客户端渲染的方案高一些。如果因此导致服务器响应变慢，那么用户体验也会下降。</li>
@@ -350,6 +363,7 @@ JS解释器：用来解释执行JS代码。
 </ul>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
 <li><a href="https://my.oschina.net/MrHou/blog/704640" target="_blank" rel="external">https://my.oschina.net/MrHou/blog/704640</a></li>
+<li><a href="http://web.jobbole.com/87670/" target="_blank" rel="external">前端模板总结</a></li>
 </ul>
 
     
