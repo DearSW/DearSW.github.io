@@ -50,7 +50,7 @@ JS解释器：用来解释执行JS代码。
 <meta property="og:image" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/1.png">
 <meta property="og:image" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/2.png">
 <meta property="og:image" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/3.png">
-<meta property="og:updated_time" content="2017-05-17T17:36:19.000Z">
+<meta property="og:updated_time" content="2017-05-18T09:29:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="页面渲染的学习笔记">
 <meta name="twitter:description" content="一个HTML页面的渲染
@@ -326,14 +326,17 @@ JS解释器：用来解释执行JS代码。
 </li>
 <li><p>前端模板技术分类</p>
 <ul>
-<li><p>String-based 模板技术 (基于字符串的parse和compile过程)</p>
+<li><p>String-based 模板技术 (基于字符串的parse和compile过程)，产生HTML结构，通过innerHTML插入到DOM中。</p>
 <ul>
 <li>Smarty</li>
 <li>Jade</li>
 <li>artTemplate</li>
 <li>etpl</li>
-</ul>
+<li>优点：相对于字符串拼接，实现了模版和代码逻辑的分离，不用大量的字符串拼接</li>
+<li><p>缺点：render之后数据即与view完全分离，innerHTML的性能问题，安全问题等</p>
 <img src="/2017/04/16/客服端渲染和服务端渲染/3.png" alt="3.png" title="">
+</li>
+</ul>
 </li>
 <li><p>Dom-based 模板技术 (基于Dom的link或compile过程)</p>
 </li>
