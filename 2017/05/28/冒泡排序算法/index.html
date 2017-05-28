@@ -7,52 +7,89 @@
 <head>
   <meta charset="utf-8">
   
-  <title>字体图标（学习笔记） | 后来他乡遇故人</title>
+  <title>排序算法之冒泡 | 后来他乡遇故人</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="font," />
+    <meta name="keywords" content="冒泡排序算法," />
   
 
-  <meta name="description" content="Fontello - icon fonts generator
-Fontello 是个图标字体生成器。这个工具允许用户把这些图标 web 字体放到自己的项目中。
-http://fontello.com/
+  <meta name="description" content="前言
+依据不同的原则，排序可以分为五类
+插入排序
+交换排序
+选择排序
+归并排序
+基数排序
 
-使用方法
 
-选择想要的图标，然后点击右上角的红色按钮下载
-解压下载回来的 zip，把里面的文件上传到你的网站
-下载回来的包有个 demo.html，这里可以看到相对应的类名（class name">
+排序通常有两种基本操作：
+比较两个关键字的大小；（必要的）
+将记录从一个位置记录转移到另一个位置；
+
+
+交换排序
+冒泡排序
+快速排序（快排）
+
+
+
+冒泡排序
+冒泡排序的思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一轮就可以选出一个最大的数放在最后面；那么经过N-1轮，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字体图标（学习笔记）">
-<meta property="og:url" content="http://yoursite.com/2017/05/24/字体图标/index.html">
+<meta property="og:title" content="排序算法之冒泡">
+<meta property="og:url" content="http://yoursite.com/2017/05/28/冒泡排序算法/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
-<meta property="og:description" content="Fontello - icon fonts generator
-Fontello 是个图标字体生成器。这个工具允许用户把这些图标 web 字体放到自己的项目中。
-http://fontello.com/
+<meta property="og:description" content="前言
+依据不同的原则，排序可以分为五类
+插入排序
+交换排序
+选择排序
+归并排序
+基数排序
 
-使用方法
 
-选择想要的图标，然后点击右上角的红色按钮下载
-解压下载回来的 zip，把里面的文件上传到你的网站
-下载回来的包有个 demo.html，这里可以看到相对应的类名（class name">
-<meta property="og:image" content="http://yoursite.com/2017/05/24/字体图标/website.png">
-<meta property="og:image" content="http://yoursite.com/2017/05/24/字体图标/content.png">
-<meta property="og:image" content="http://yoursite.com/2017/05/24/字体图标/iconfont.png">
-<meta property="og:updated_time" content="2017-05-24T08:36:26.000Z">
+排序通常有两种基本操作：
+比较两个关键字的大小；（必要的）
+将记录从一个位置记录转移到另一个位置；
+
+
+交换排序
+冒泡排序
+快速排序（快排）
+
+
+
+冒泡排序
+冒泡排序的思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一轮就可以选出一个最大的数放在最后面；那么经过N-1轮，">
+<meta property="og:image" content="http://yoursite.com/2017/05/28/冒泡排序算法/1.png">
+<meta property="og:updated_time" content="2017-05-28T09:21:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="字体图标（学习笔记）">
-<meta name="twitter:description" content="Fontello - icon fonts generator
-Fontello 是个图标字体生成器。这个工具允许用户把这些图标 web 字体放到自己的项目中。
-http://fontello.com/
+<meta name="twitter:title" content="排序算法之冒泡">
+<meta name="twitter:description" content="前言
+依据不同的原则，排序可以分为五类
+插入排序
+交换排序
+选择排序
+归并排序
+基数排序
 
-使用方法
 
-选择想要的图标，然后点击右上角的红色按钮下载
-解压下载回来的 zip，把里面的文件上传到你的网站
-下载回来的包有个 demo.html，这里可以看到相对应的类名（class name">
-<meta name="twitter:image" content="http://yoursite.com/2017/05/24/字体图标/website.png">
+排序通常有两种基本操作：
+比较两个关键字的大小；（必要的）
+将记录从一个位置记录转移到另一个位置；
+
+
+交换排序
+冒泡排序
+快速排序（快排）
+
+
+
+冒泡排序
+冒泡排序的思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一轮就可以选出一个最大的数放在最后面；那么经过N-1轮，">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/28/冒泡排序算法/1.png">
 
   
 
@@ -177,20 +214,20 @@ http://fontello.com/
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fontello-icon-fonts-generator"><span class="toc-text">Fontello - icon fonts generator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Iconfont：阿里巴巴矢量图标库"><span class="toc-text">Iconfont：阿里巴巴矢量图标库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Font-Awesome"><span class="toc-text">Font Awesome</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冒泡排序"><span class="toc-text">冒泡排序</span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-字体图标" class="article article-type-post" itemprop="blogPost">
+   <article id="post-冒泡排序算法" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">字体图标（学习笔记）</h1>
+    <h1 class="post-title">排序算法之冒泡</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.05.24</span>
+        <span>2017.05.28</span>
       </span>
 
       
@@ -203,7 +240,7 @@ http://fontello.com/
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/前端/">前端</a>
+    <a class="article-category-link" href="/categories/算法/">算法</a>
   </span>
 
 
@@ -225,36 +262,35 @@ http://fontello.com/
 
   <div class="article-content">
     
-      <h3 id="Fontello-icon-fonts-generator"><a href="#Fontello-icon-fonts-generator" class="headerlink" title="Fontello - icon fonts generator"></a>Fontello - icon fonts generator</h3><ul>
-<li>Fontello 是个图标字体生成器。这个工具允许用户把这些图标 web 字体放到自己的项目中。</li>
-<li><p><a href="http://fontello.com/" target="_blank" rel="external">http://fontello.com/</a></p>
+      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>依据不同的原则，排序可以分为五类<ul>
+<li>插入排序</li>
+<li>交换排序</li>
+<li>选择排序</li>
+<li>归并排序</li>
+<li>基数排序</li>
+</ul>
 </li>
-<li><p>使用方法</p>
+<li>排序通常有两种基本操作：<ul>
+<li>比较两个关键字的大小；（必要的）</li>
+<li>将记录从一个位置记录转移到另一个位置；</li>
+</ul>
+</li>
+<li>交换排序<ul>
+<li>冒泡排序</li>
+<li>快速排序（快排）</li>
+</ul>
+</li>
+</ul>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><ul>
+<li>冒泡排序的思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一轮就可以选出一个最大的数放在最后面；那么经过N-1轮，就完成了所有数的排序。</li>
+<li>伪代码</li>
+</ul>
+<img src="/2017/05/28/冒泡排序算法/1.png" alt="1.png" title="">
 <ul>
-<li>选择想要的图标，然后点击右上角的红色按钮下载</li>
-<li>解压下载回来的 zip，把里面的文件上传到你的网站</li>
-<li>下载回来的包有个 demo.html，这里可以看到相对应的类名（class name）。使用的话照着demo.html 用就可以了。</li>
-<li><img src="/2017/05/24/字体图标/website.png" alt="website.png" title=""></li>
-<li><img src="/2017/05/24/字体图标/content.png" alt="content.png" title=""></li>
+<li>JavaScript实现</li>
 </ul>
-</li>
-<li>Fontello 的 web-font 使用利弊问题<ul>
-<li>利：矢量图标，可以完美支持 放大、改变颜色 等 CSS 层面的修饰而无失真</li>
-<li>弊：不兼容某些浏览器（IE）、同比图片式图标，加载的文件容量（字体文件、CSS文件）更大；如果考虑hack，加载更多的CSS 文件</li>
-</ul>
-</li>
-</ul>
-<h3 id="Iconfont：阿里巴巴矢量图标库"><a href="#Iconfont：阿里巴巴矢量图标库" class="headerlink" title="Iconfont：阿里巴巴矢量图标库"></a>Iconfont：阿里巴巴矢量图标库</h3><ul>
-<li>Iconfont 国内功能很强大且图标内容很丰富的矢量图标库，提供矢量图标下载、在线存储、格式转换等功能。阿里巴巴体验团队倾力打造，设计和前端开发的便捷工具。</li>
-<li><a href="http://www.iconfont.cn/" target="_blank" rel="external">http://www.iconfont.cn/</a></li>
-<li><img src="/2017/05/24/字体图标/iconfont.png" alt="iconfont.png" title="">
-</li>
-</ul>
-<h3 id="Font-Awesome"><a href="#Font-Awesome" class="headerlink" title="Font Awesome"></a>Font Awesome</h3><ul>
-<li>Font Awesome 字体为您提供可缩放矢量图标,它可以被定制大小、颜色、阴影以及任何可以用CSS的样式。</li>
-<li><a href="http://www.fontawesome.com.cn/" target="_blank" rel="external">http://www.fontawesome.com.cn/</a></li>
-</ul>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">function bubbleSort(arr) &#123;</div><div class="line"></div><div class="line">	let swapped = false;// 循环标记，为false时表示整个排序完成</div><div class="line"></div><div class="line">	let len = arr.length;// 数的个数，也是数组的长度</div><div class="line"></div><div class="line">	let temp;// 临时变量</div><div class="line"></div><div class="line">	do &#123;</div><div class="line">		</div><div class="line">		swapped = false;</div><div class="line">		</div><div class="line">		for(let i = 0; i &lt; len - 1; i++) &#123;</div><div class="line"></div><div class="line">			if(arr[i] &gt; arr[i + 1]) &#123;</div><div class="line">				</div><div class="line">				// 左右比较数交换位置</div><div class="line">				 temp=arr[i];</div><div class="line">		                 arr[i]=arr[i+1];</div><div class="line">		                 arr[i+1]=temp;</div><div class="line">		                 swapped = true;</div><div class="line">				</div><div class="line"></div><div class="line">			&#125;</div><div class="line"></div><div class="line"></div><div class="line">		&#125;</div><div class="line"></div><div class="line">		len --; </div><div class="line">		// 递减表示，每一轮比较之后，都会把最大的数排在数组的末尾，</div><div class="line">		// 所以不需要再比较这个很大的数，因此比较数的个数需要递减</div><div class="line"></div><div class="line"></div><div class="line">	&#125; while(swapped);</div><div class="line"></div><div class="line">	return arr;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
     
   </div>
 </article>
@@ -280,10 +316,10 @@ http://fontello.com/
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/05/19/高性能网站建设指南读书笔记/">
+    <a class="show pull-left" href="/2017/05/24/字体图标/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/05/28/冒泡排序算法/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
