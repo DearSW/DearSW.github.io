@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>排序算法之冒泡 | 后来他乡遇故人</title>
+  <title>排序算法（冒泡、快排） | 后来他乡遇故人</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -35,10 +35,10 @@
 
 
 
-冒泡排序
-冒泡排序的思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一轮就可以选出一个最大的数放在最后面；那么经过N-1轮，">
+冒泡排序（bubble sort）
+冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法之冒泡">
+<meta property="og:title" content="排序算法（冒泡、快排）">
 <meta property="og:url" content="http://yoursite.com/2017/05/28/冒泡排序算法/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
 <meta property="og:description" content="前言
@@ -61,12 +61,13 @@
 
 
 
-冒泡排序
-冒泡排序的思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一轮就可以选出一个最大的数放在最后面；那么经过N-1轮，">
+冒泡排序（bubble sort）
+冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数">
 <meta property="og:image" content="http://yoursite.com/2017/05/28/冒泡排序算法/1.png">
-<meta property="og:updated_time" content="2017-05-28T09:21:37.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/05/28/冒泡排序算法/2.png">
+<meta property="og:updated_time" content="2017-05-30T14:16:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序算法之冒泡">
+<meta name="twitter:title" content="排序算法（冒泡、快排）">
 <meta name="twitter:description" content="前言
 依据不同的原则，排序可以分为五类
 插入排序
@@ -87,8 +88,8 @@
 
 
 
-冒泡排序
-冒泡排序的思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一轮就可以选出一个最大的数放在最后面；那么经过N-1轮，">
+冒泡排序（bubble sort）
+冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数">
 <meta name="twitter:image" content="http://yoursite.com/2017/05/28/冒泡排序算法/1.png">
 
   
@@ -214,7 +215,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冒泡排序"><span class="toc-text">冒泡排序</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冒泡排序（bubble-sort）"><span class="toc-text">冒泡排序（bubble sort）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快排（quick-sort）"><span class="toc-text">快排（quick sort）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-sort"><span class="toc-text">Array.prototype.sort</span></a></li></ol>
   </div>
 
 
@@ -222,7 +223,7 @@
 <div class="content content-post CENTER">
    <article id="post-冒泡排序算法" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">排序算法之冒泡</h1>
+    <h1 class="post-title">排序算法（冒泡、快排）</h1>
 
     <div class="article-meta">
       <span>
@@ -282,8 +283,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><ul>
-<li>冒泡排序的思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一轮就可以选出一个最大的数放在最后面；那么经过N-1轮，就完成了所有数的排序。</li>
+<h3 id="冒泡排序（bubble-sort）"><a href="#冒泡排序（bubble-sort）" class="headerlink" title="冒泡排序（bubble sort）"></a>冒泡排序（bubble sort）</h3><ul>
+<li>冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数放在最后面；那么经过N-1轮，就完成了所有数的排序。</li>
 <li>伪代码</li>
 </ul>
 <img src="/2017/05/28/冒泡排序算法/1.png" alt="1.png" title="">
@@ -291,6 +292,22 @@
 <li>JavaScript实现</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">function bubbleSort(arr) &#123;</div><div class="line"></div><div class="line">	let swapped = false;// 循环标记，为false时表示整个排序完成</div><div class="line"></div><div class="line">	let len = arr.length;// 数的个数，也是数组的长度</div><div class="line"></div><div class="line">	let temp;// 临时变量</div><div class="line"></div><div class="line">	do &#123;</div><div class="line">		</div><div class="line">		swapped = false;</div><div class="line">		</div><div class="line">		for(let i = 0; i &lt; len - 1; i++) &#123;</div><div class="line"></div><div class="line">			if(arr[i] &gt; arr[i + 1]) &#123;</div><div class="line">				</div><div class="line">				// 左右比较数交换位置</div><div class="line">				 temp=arr[i];</div><div class="line">		                 arr[i]=arr[i+1];</div><div class="line">		                 arr[i+1]=temp;</div><div class="line">		                 swapped = true;</div><div class="line">				</div><div class="line"></div><div class="line">			&#125;</div><div class="line"></div><div class="line"></div><div class="line">		&#125;</div><div class="line"></div><div class="line">		len --; </div><div class="line">		// 递减表示，每一轮比较之后，都会把最大的数排在数组的末尾，</div><div class="line">		// 所以不需要再比较这个很大的数，因此比较数的个数需要递减</div><div class="line"></div><div class="line"></div><div class="line">	&#125; while(swapped);</div><div class="line"></div><div class="line">	return arr;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="快排（quick-sort）"><a href="#快排（quick-sort）" class="headerlink" title="快排（quick sort）"></a>快排（quick sort）</h3><ul>
+<li>快排是对冒泡排序的一种改进，其基本思想是：对N个数进行一趟排序能达到将数据分割成两部分，一部分的所有数据都比另一部分的所有数据都要小。然后再按此方法，对这两部分数据进行相同的处理，直到完成排序。</li>
+<li>快速排序算法非常适用于大型数据集合；在处理小数据集时性能反而会下降。快速排序是处理大数据集最快的排序算法之一。它是一种分而治之的算法，通过递归的方 式将数据依次分解为包含较小元素和较大元素的不同子序列。</li>
+<li>代码一（实现普遍、易懂，Java版本也是这样实现)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">function partition(arr, low, high) &#123;</div><div class="line"></div><div class="line">	let key = arr[low]; // 关键字</div><div class="line"></div><div class="line">	while(low &lt; high) &#123;</div><div class="line">		</div><div class="line">		while(low &lt; high &amp;&amp; key &lt;= arr[high]) &#123;</div><div class="line">			high--;</div><div class="line">		&#125;</div><div class="line">		arr[low] = arr[high];</div><div class="line"></div><div class="line">		while(low &lt; high &amp;&amp; key &gt;= arr[low]) &#123;</div><div class="line">			low++;</div><div class="line">		&#125; </div><div class="line">		arr[high] = arr[low];</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	arr[low] = key;</div><div class="line"></div><div class="line">	return low;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">function quickSort(arr, low, high) &#123;</div><div class="line"></div><div class="line">	if(low &lt; high || arr != null) &#123;</div><div class="line"></div><div class="line">		let p = partition(arr, low, high);</div><div class="line"></div><div class="line">		quickSort(arr, low, p - 1);</div><div class="line">		quickSort(arr, p + 1, high);</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return arr;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>代码二（实现更加简洁）</li>
+</ul>
+<img src="/2017/05/28/冒泡排序算法/2.png" alt="2.png" title="">
+<h3 id="Array-prototype-sort"><a href="#Array-prototype-sort" class="headerlink" title="Array.prototype.sort"></a>Array.prototype.sort</h3><ul>
+<li>JavaScript原生数组对象的sort，是优化过的快排算法。</li>
+<li>不过，此方法需要接收一个比较函数为参数。</li>
+<li>代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 比较函数</div><div class="line">function compare(num1, num2) &#123;</div><div class="line"></div><div class="line">	// 需要根据返回的结果来看</div><div class="line">	// 返回负数，num1排在num2前</div><div class="line">	// 返回0，num1与num2位置不变</div><div class="line">	// 返回正数，num1排在num2后</div><div class="line">	</div><div class="line">	return num1 - num2; // 升序</div><div class="line">	// return num2 - num1; // 降序</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">let arr = [1, 2, 3];</div><div class="line">arr.sort(compare);</div><div class="line">console.log(arr);</div></pre></td></tr></table></figure>
     
   </div>
 </article>
