@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>信息安全之密码（专业总结） | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="密码学," />
+  
+
+  <meta name="description" content="概述
+总的来说，计算机系统及网络由于其本身的开放性和匿名性带来了信息安全的隐患。
+信息安全的5个基本要素：保密性、完整性、可控性、可用性、可审查性；而对于网络及网络交易而言，信息安全的基本需求是保密性、完整性、不可抵赖性。
+主要的安全的技术
+数据加密
+数据签名
+身份认证
+防火墙
+内容检查
+
+
+从TCP/IP五层网络结构看
+
+物理层：可以采用防窃听技术来加强通信线路的安全
+数据链路层：可以使用通信保">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息安全之密码（专业总结）">
+<meta property="og:url" content="http://yoursite.com/2017/05/31/PBC/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="概述
+总的来说，计算机系统及网络由于其本身的开放性和匿名性带来了信息安全的隐患。
+信息安全的5个基本要素：保密性、完整性、可控性、可用性、可审查性；而对于网络及网络交易而言，信息安全的基本需求是保密性、完整性、不可抵赖性。
+主要的安全的技术
+数据加密
+数据签名
+身份认证
+防火墙
+内容检查
+
+
+从TCP/IP五层网络结构看
+
+物理层：可以采用防窃听技术来加强通信线路的安全
+数据链路层：可以使用通信保">
+<meta property="og:updated_time" content="2017-05-31T10:31:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="信息安全之密码（专业总结）">
+<meta name="twitter:description" content="概述
+总的来说，计算机系统及网络由于其本身的开放性和匿名性带来了信息安全的隐患。
+信息安全的5个基本要素：保密性、完整性、可控性、可用性、可审查性；而对于网络及网络交易而言，信息安全的基本需求是保密性、完整性、不可抵赖性。
+主要的安全的技术
+数据加密
+数据签名
+身份认证
+防火墙
+内容检查
+
+
+从TCP/IP五层网络结构看
+
+物理层：可以采用防窃听技术来加强通信线路的安全
+数据链路层：可以使用通信保">
+
+  
+
+  
+    <link rel="icon" href="/header2.png">
+  
+
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  <!-- 
+
+  
+
+  
+ -->
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">大雨</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">大雨</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RSA详解"><span class="toc-text">RSA详解</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-PBC" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">信息安全之密码（专业总结）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.05.31</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/密码学/">密码学</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>总的来说，计算机系统及网络由于其本身的<code>开放性</code>和<code>匿名性</code>带来了信息安全的隐患。</li>
+<li>信息安全的5个基本要素：保密性、完整性、可控性、可用性、可审查性；而对于网络及网络交易而言，信息安全的基本需求是保密性、完整性、不可抵赖性。</li>
+<li>主要的安全的技术<ul>
+<li>数据加密</li>
+<li>数据签名</li>
+<li>身份认证</li>
+<li>防火墙</li>
+<li>内容检查</li>
+</ul>
+</li>
+<li><p>从TCP/IP五层网络结构看</p>
+<ul>
+<li>物理层：可以采用防窃听技术来加强通信线路的安全</li>
+<li>数据链路层：可以使用通信保密机技术来进行链路加密，使用L2TP、PPTP来实现二层隧道通信</li>
+<li>网络层：可以采用防火墙来处理信息内外网络边界的流动，利用IPSec建立透明的安全加密信道</li>
+<li>传输层：可以使用SSL对低层安全服务进行抽象和屏蔽</li>
+<li>应用层：最有效的一类做法是可以在传输层和应用层之间建立中间件层次，以实现通用的安全服务功能，通过定义统一的安全服务接口向应用层提供身份认证、访问控制、数据加密安全服务。</li>
+</ul>
+</li>
+<li><p><code>数据加密技术与认证技术一起，构建起了安全的商业加密体系</code>。传统的数据加密是保护数据的最基本方式，它只能防止第三者获得真实的数据（数据的保密性）；认证技术则可以解决否认、伪造、篡改和冒充的问题（数据的完整性和不可抵赖性）。</p>
+</li>
+<li><p>数据加密技术</p>
+<ul>
+<li>对称密钥体制：加密系统的加密密钥和解密密钥相同，它的优点是具有很高的保密强度，但密钥的传输需要经过安全可靠地途径。<ul>
+<li>分组密码、序列密码</li>
+<li>DES、3DES、AES、IDEA</li>
+</ul>
+</li>
+<li>非对称密钥体制（公钥密码体制）：加密系统的加密密钥和解密密钥不相同，它的优点在于适应开放性的使用环境，可以实现数字签名与验证。<ul>
+<li>RSA：它的理论基础是数论中的大数素分解难题，但如果使用RSA来加密大量的数据则速度太慢，因此RSA广范用于密钥的分发。</li>
+<li>现在主要有两类公钥算法<ul>
+<li>大数素分解的困难</li>
+<li>以大数素为模来计算离散对数的困难</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>认证技术<ul>
+<li>Hash函数和信息摘要（消息摘要）<ul>
+<li>简单的说，hash函数就是把任意长的输入字符串变化成固定长的输出字符串的一种函数。输出字符串的长度称为hash函数的位数。</li>
+<li>常见的信息摘要算法<ul>
+<li>MD5（128位）</li>
+<li>SHA-1（160位）</li>
+</ul>
+</li>
+<li>目前应用最为广泛的是SHA-1和MD5，很多下载网站都提供下载文件的MD5码或SHA-1码校验，可以用来判别文件是否完整。</li>
+</ul>
+</li>
+<li>数字签名技术</li>
+</ul>
+</li>
+</ul>
+<h3 id="RSA详解"><a href="#RSA详解" class="headerlink" title="RSA详解"></a>RSA详解</h3><ul>
+<li>RSA涉及到六个数字，<code>p,q,n,φ(n),e,d</code>。<ul>
+<li><code>p,q</code>为素数</li>
+<li><code>n = p*q</code></li>
+<li><code>φ(n) = (p-1)(q-1)</code></li>
+<li><code>1 &lt; e &lt; φ(n)</code>，且为素数</li>
+<li><code>ed ≡ 1(modφ(n))</code>，计算出d</li>
+<li><code>公钥（n，e）</code>，<code>私钥（n，d）</code></li>
+</ul>
+</li>
+<li>具体计算步骤<ul>
+<li>假设p = 3、q = 11（p，q都是素数即可。）</li>
+<li>则N = pq = 33；</li>
+<li>φ(n) = (p-1)(q-1) = (3-1)(11-1) = 20；</li>
+<li>e·d ≡ 1 (mod φ(n)),即e·d = 20n+1 (n为正整数)；我们假设n=1，则e·d = 21。e、d为正整数，并且e与r互质，则e = 3，d = 7。</li>
+<li>到这里，公钥和密钥已经确定。公钥为(N, e) = (33, 3)，密钥为(N, d) = (33, 7)。</li>
+</ul>
+</li>
+<li>代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public class RSA &#123;  </div><div class="line">    /** </div><div class="line">     *  加密、解密算法 </div><div class="line">     * @param (baseNum,key) 公钥或密钥 </div><div class="line">     * @param message 数据 </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static long rsa(int baseNum, int key, long message)&#123;  </div><div class="line">        if(baseNum &lt; 1 || key &lt; 1)&#123;  </div><div class="line">            return 0L;  </div><div class="line">        &#125;  </div><div class="line">        //加密或者解密之后的数据  </div><div class="line">        long rsaMessage = 0L;  </div><div class="line">          </div><div class="line">        //加密核心算法  </div><div class="line">        rsaMessage = Math.round(Math.pow(message, key)) % baseNum;  </div><div class="line">        return rsaMessage;  </div><div class="line">    &#125;  </div><div class="line">    </div><div class="line">    public static void main(String[] args)&#123;  </div><div class="line">        //基数  </div><div class="line">        int baseNum = 3 * 11;  </div><div class="line">        //公钥  </div><div class="line">        int keyE = 3;  </div><div class="line">        //密钥  </div><div class="line">        int keyD = 7;  </div><div class="line">        //未加密的数据  </div><div class="line">        long msg = 24L;  </div><div class="line">        //加密后的数据  </div><div class="line">        long encodeMsg = rsa(baseNum, keyE, msg);  </div><div class="line">        //解密后的数据  </div><div class="line">        long decodeMsg = rsa(baseNum, keyD, encodeMsg);  </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">支持Shaowei Teng</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/zfb4.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/05/28/冒泡排序算法/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>
