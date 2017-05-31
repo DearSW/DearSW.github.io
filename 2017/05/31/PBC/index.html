@@ -49,7 +49,7 @@
 
 物理层：可以采用防窃听技术来加强通信线路的安全
 数据链路层：可以使用通信保">
-<meta property="og:updated_time" content="2017-05-31T10:31:35.000Z">
+<meta property="og:updated_time" content="2017-05-31T10:36:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信息安全之密码（专业总结）">
 <meta name="twitter:description" content="概述
@@ -269,6 +269,7 @@
 </ul>
 </li>
 <li>非对称密钥体制（公钥密码体制）：加密系统的加密密钥和解密密钥不相同，它的优点在于适应开放性的使用环境，可以实现数字签名与验证。<ul>
+<li>Diffie-Hellman密钥交换算法:一种加密协议，允许双方在事先不了解对方的情况下，在不安全的通信信道中，共同建立共享密钥。该密钥以后可与一个对称密码一起，加密后续通讯。</li>
 <li>RSA：它的理论基础是数论中的大数素分解难题，但如果使用RSA来加密大量的数据则速度太慢，因此RSA广范用于密钥的分发。</li>
 <li>现在主要有两类公钥算法<ul>
 <li>大数素分解的困难</li>
@@ -295,6 +296,7 @@
 </li>
 </ul>
 <h3 id="RSA详解"><a href="#RSA详解" class="headerlink" title="RSA详解"></a>RSA详解</h3><ul>
+<li>公钥加密算法。首个适用于以签名作为加密的算法。RSA在电商行业中仍大规模使用，大家也相信它有足够安全长度的公钥。</li>
 <li>RSA涉及到六个数字，<code>p,q,n,φ(n),e,d</code>。<ul>
 <li><code>p,q</code>为素数</li>
 <li><code>n = p*q</code></li>
@@ -305,11 +307,11 @@
 </ul>
 </li>
 <li>具体计算步骤<ul>
-<li>假设p = 3、q = 11（p，q都是素数即可。）</li>
-<li>则N = pq = 33；</li>
+<li>假设 p = 3、q = 11（p，q都是素数即可。）</li>
+<li>则 n = p*q = 33；</li>
 <li>φ(n) = (p-1)(q-1) = (3-1)(11-1) = 20；</li>
-<li>e·d ≡ 1 (mod φ(n)),即e·d = 20n+1 (n为正整数)；我们假设n=1，则e·d = 21。e、d为正整数，并且e与r互质，则e = 3，d = 7。</li>
-<li>到这里，公钥和密钥已经确定。公钥为(N, e) = (33, 3)，密钥为(N, d) = (33, 7)。</li>
+<li>e·d ≡ 1 (mod φ(n)),即 e·d = 20n+1 (n为正整数)；我们假设 n=1，则 e·d = 21。e、d为正整数，并且e与r互质，则 e = 3，d = 7。</li>
+<li>到这里，公钥和密钥已经确定。公钥为(n, e) = (33, 3)，密钥为(n, d) = (33, 7)。</li>
 </ul>
 </li>
 <li>代码</li>
