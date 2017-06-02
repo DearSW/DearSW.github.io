@@ -49,7 +49,9 @@
 
 物理层：可以采用防窃听技术来加强通信线路的安全
 数据链路层：可以使用通信保">
-<meta property="og:updated_time" content="2017-05-31T10:36:35.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/05/31/PBC/2.png">
+<meta property="og:image" content="http://yoursite.com/2017/05/31/PBC/1.png">
+<meta property="og:updated_time" content="2017-06-02T14:24:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信息安全之密码（专业总结）">
 <meta name="twitter:description" content="概述
@@ -67,6 +69,7 @@
 
 物理层：可以采用防窃听技术来加强通信线路的安全
 数据链路层：可以使用通信保">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/31/PBC/2.png">
 
   
 
@@ -191,7 +194,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RSA详解"><span class="toc-text">RSA详解</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RSA详解"><span class="toc-text">RSA详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双线性配对"><span class="toc-text">双线性配对</span></a></li></ol>
   </div>
 
 
@@ -317,6 +320,32 @@
 <li>代码</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public class RSA &#123;  </div><div class="line">    /** </div><div class="line">     *  加密、解密算法 </div><div class="line">     * @param (baseNum,key) 公钥或密钥 </div><div class="line">     * @param message 数据 </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static long rsa(int baseNum, int key, long message)&#123;  </div><div class="line">        if(baseNum &lt; 1 || key &lt; 1)&#123;  </div><div class="line">            return 0L;  </div><div class="line">        &#125;  </div><div class="line">        //加密或者解密之后的数据  </div><div class="line">        long rsaMessage = 0L;  </div><div class="line">          </div><div class="line">        //加密核心算法  </div><div class="line">        rsaMessage = Math.round(Math.pow(message, key)) % baseNum;  </div><div class="line">        return rsaMessage;  </div><div class="line">    &#125;  </div><div class="line">    </div><div class="line">    public static void main(String[] args)&#123;  </div><div class="line">        //基数  </div><div class="line">        int baseNum = 3 * 11;  </div><div class="line">        //公钥  </div><div class="line">        int keyE = 3;  </div><div class="line">        //密钥  </div><div class="line">        int keyD = 7;  </div><div class="line">        //未加密的数据  </div><div class="line">        long msg = 24L;  </div><div class="line">        //加密后的数据  </div><div class="line">        long encodeMsg = rsa(baseNum, keyE, msg);  </div><div class="line">        //解密后的数据  </div><div class="line">        long decodeMsg = rsa(baseNum, keyD, encodeMsg);  </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<img src="/2017/05/31/PBC/2.png" alt="2.png" title="">
+<h3 id="双线性配对"><a href="#双线性配对" class="headerlink" title="双线性配对"></a>双线性配对</h3><ul>
+<li><p>双线性配对（Bilinear Pairing, 也叫双线性映射）最早在密码学中是扮演者负面的角色。2000年，Joux利用双线性配对构造了一个三方密钥交换协议。随后在2001年，Boneh和Franklin利用它构造了第一个实用并且可证安全的基于身份的加密方案（Identity-Based Encryption， IBE）。从此开始，双线性配对才在密码学中得到了广泛的应用。</p>
+</li>
+<li><p>现在使用双线性对实现的加密方案，实际上都是密钥封装方案，也就是封装一个随机的群上的密钥，然后调用单钥体制对消息进行加密或者解密操作。</p>
+</li>
+<li><p>当前的双线性配对是基于群的，那么下面先讲解群的相关概念。</p>
+</li>
+<li><p>什么是群？</p>
+<ul>
+<li><code>群本身就是某个数学对象（集合）所有的自同构构成的集合</code>。</li>
+<li>自同构：对于一个集合A，A中定义一个闭合运算○，存在一个A与A之间的映射φ ，若φ为一双射，且对于A内任意元素a,b都有φ（a○b）=φ（a）○φ（b）则这个映射φ 叫做一个对于○ 来说的A的自同构。</li>
+</ul>
+</li>
+<li><p>离散对数群</p>
+<ul>
+<li>在离散对数群中有一个难题，成为了离散对数难题。给定群的生成元g，和某一个群中的元素g^x，求解x本身很困难。有的人要问了，这个挺简单的啊，求log不就行了吗？需要注意的是，在连续域上面，确实有求log的快速算法（比如用数学分析中的Taylor展示求法，或者各种数值分析中的逼近算法等等），但是这些算法都是逼近算法，并不能求出准确解。当然了，一般数的log结果也是一个无线不循环小数，只能用逼近算法求。但是，在离散对数群中，我们是在用整数和整数做解，根本没有逼近算法这么回事…有兴趣的同学，可以了解一下离散对数群，并且设置一个生成元g，来尝试求一求一个数的离散对数，就会发现只能用枚举的算法来求。</li>
+<li>但是，在密码学中，这个计算困难假设不太好用，因此密码学家扩充了离散对数难题，提出了很多别的困难假设，以用于安全性证明。其中，最直接也是最简单的扩展，为计算Diffie-Hellman问题（Computataional Diffie-Hellman Problem，CDH），以及确定Diffie-Hellman问题（Decision Diffie-Hellman Problem，DDH）。</li>
+<li>CDH问题是说，给定生成元g，两个群中的元素g^x，g^y，再不给定x，y的情况下，求g^{xy}。DDH问题是：同样给定生成元g，两个群中的元素g^x，g^y，再给定群的一个元素g^z，确定是否满足g^z = g^{xy}。CDH问题和DDH问题是很多加密方案和签名方案的安全基础，如著名的El Gamal加密方案。</li>
+</ul>
+</li>
+<li><p>如图</p>
+</li>
+</ul>
+<img src="/2017/05/31/PBC/1.png" alt="1.png" title="">
+
     
   </div>
 </article>
