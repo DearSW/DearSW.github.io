@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>ESLint（学习笔记） | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="ESLint," />
+  
+
+  <meta name="description" content="概述
+代码校验工具
+JSLint
+JSHint
+JSCS
+ESLint
+
+
+一个好的校验工具可以确保一个项目遵循代码规范。
+现在最流行的是ESLint，由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写, 2013 年发布第一个版本。
+优点
+灵活：任何规则都可以开启闭合，以及有些规则有些额外配置
+很容易拓展和有需要可用插件
+容易理解产出
+包含了在其他检查器中不可用的规">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESLint（学习笔记）">
+<meta property="og:url" content="http://yoursite.com/2017/06/05/ESLint/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="概述
+代码校验工具
+JSLint
+JSHint
+JSCS
+ESLint
+
+
+一个好的校验工具可以确保一个项目遵循代码规范。
+现在最流行的是ESLint，由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写, 2013 年发布第一个版本。
+优点
+灵活：任何规则都可以开启闭合，以及有些规则有些额外配置
+很容易拓展和有需要可用插件
+容易理解产出
+包含了在其他检查器中不可用的规">
+<meta property="og:image" content="http://yoursite.com/2017/06/05/ESLint/1.png">
+<meta property="og:updated_time" content="2017-06-08T08:27:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ESLint（学习笔记）">
+<meta name="twitter:description" content="概述
+代码校验工具
+JSLint
+JSHint
+JSCS
+ESLint
+
+
+一个好的校验工具可以确保一个项目遵循代码规范。
+现在最流行的是ESLint，由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写, 2013 年发布第一个版本。
+优点
+灵活：任何规则都可以开启闭合，以及有些规则有些额外配置
+很容易拓展和有需要可用插件
+容易理解产出
+包含了在其他检查器中不可用的规">
+<meta name="twitter:image" content="http://yoursite.com/2017/06/05/ESLint/1.png">
+
+  
+
+  
+    <link rel="icon" href="/header2.png">
+  
+
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  <!-- 
+
+  
+
+  
+ -->
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">大雨</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">大雨</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件参数"><span class="toc-text">配置文件参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-text">参考链接</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-ESLint" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">ESLint（学习笔记）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.06.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>代码校验工具<ul>
+<li>JSLint</li>
+<li>JSHint</li>
+<li>JSCS</li>
+<li>ESLint</li>
+</ul>
+</li>
+<li>一个好的校验工具可以确保一个项目遵循代码规范。</li>
+<li>现在最流行的是ESLint，由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写, 2013 年发布第一个版本。</li>
+<li>优点<ul>
+<li>灵活：任何规则都可以开启闭合，以及有些规则有些额外配置</li>
+<li>很容易拓展和有需要可用插件</li>
+<li>容易理解产出</li>
+<li>包含了在其他检查器中不可用的规则，使得ESLint在错误检查上更有用</li>
+<li>支持ES6，唯一支持JSX的工具</li>
+<li>支持自定义报告</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>需要一些配置</li>
+<li>速度慢，但不是主要问题</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li>安装<ul>
+<li><code>npm install -g eslint</code></li>
+</ul>
+</li>
+<li><p>生成配置文件</p>
+<ul>
+<li>首先，在命令行中，切换到项目的根目录下 。</li>
+<li>然后使用命令：<code>eslint --init</code>（必须先有package.json存在）。</li>
+<li><p>接着就是一堆交互。</p>
+  <img src="/2017/06/05/ESLint/1.png" alt="1.png" title="">
+</li>
+<li><p>交互完毕之后就会生成ESLint的配置文件<code>.eslintrc.js</code>，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    &quot;extends&quot;: &quot;standard&quot;,</div><div class="line">    &quot;installedESLint&quot;: true,</div><div class="line">    &quot;plugins&quot;: [</div><div class="line">        &quot;standard&quot;,</div><div class="line">        &quot;promise&quot;</div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="配置文件参数"><a href="#配置文件参数" class="headerlink" title="配置文件参数"></a>配置文件参数</h3><ul>
+<li><p><code>parserOptions</code>：配置解析参数（<code>Parser options are set in your .eslintrc.* file by using the parserOptions property.</code>），eslint通过parserOptions，允许指定校验的ecma的版本，及ecma的一些特性，具体的解析参数如下：</p>
+<ul>
+<li>ecmaVersion，指定JS语言版本，默认值为ECMAScript5</li>
+<li>sourceType，设置代码模块类型，默认值为script，另一个值为module</li>
+<li>ecmaFeatures，是一个对象，指定JS额外的语言特点，包含如下子参数<ul>
+<li>jsx，开启JSX</li>
+<li>impliedStrict，开启全局<code>strict mode</code>模式（如果ecmaVersion指定的JS版本是不低于ECMAScript5）</li>
+</ul>
+</li>
+<li><p>实例</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;parserOptions&quot;: &#123;</div><div class="line">	</div><div class="line">		&quot;ecmaVersion&quot;: 6,</div><div class="line">		&quot;sourceType&quot;: &quot;module&quot;,</div><div class="line">		&quot;ecmaFeatures&quot;: &#123;</div><div class="line">		</div><div class="line">			&quot;jsx&quot;: true,</div><div class="line">			&quot;impliedStrict&quot;: true</div><div class="line">		</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><code>parser</code>：配置解析器，默认使用Espree，其他的解析器有Esprima和Bable-ESLint。</p>
+<ul>
+<li><p>实例</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">	&quot;parser&quot;:&quot;babel-eslint&quot;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><code>env</code>：配置运行环境，环境用来定义需要预定义的全局变量，可用环境参数如下</p>
+<ul>
+<li>browser</li>
+<li>node</li>
+<li>es6：开启所有ES6的特性</li>
+<li>mocha：添加Mocha的所有测试全局变量</li>
+<li><p>实例</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	</div><div class="line">	&quot;env&quot;: &#123;</div><div class="line">	</div><div class="line">		&quot;brower&quot;: true,</div><div class="line">		&quot;node&quot;: true,</div><div class="line">		&quot;es6&quot;: true</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><code>plugins</code>：插件配置，在使用插件之前必须先安装插件。插件的前缀<code>eslint-plugin</code>可以省略。</p>
+<ul>
+<li><p>实例</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">	&quot;plugins&quot;: [</div><div class="line">		&quot;plugin1&quot;,</div><div class="line">		&quot;eslint-plugin-plugin2&quot;,</div><div class="line">		&quot;standard&quot;,</div><div class="line">		&quot;promise&quot;</div><div class="line">	</div><div class="line">	]</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><code>rules</code>，ESLint可以配置大量的高度自定义的规则。</li>
+</ul>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="http://eslint.org/docs/user-guide/configuring" target="_blank" rel="external">ESLint官网文档</a></li>
+<li><a href="http://eslint.cn/docs/user-guide/configuring" target="_blank" rel="external">ESLint中文文档</a></li>
+</ul>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">支持Shaowei Teng</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/zfb4.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/05/31/PBC/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>
