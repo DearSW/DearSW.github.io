@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>React之Redux架构 | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="React," />
+  
+
+  <meta name="description" content="概述Flux
+再理解Redux之前，先了解Flux。
+什么是Flux？
+构建用户接口的应用程序架构。
+说的直白点：使用Flux组织代码和安排内部逻辑，使你的应用程序更易于开发和维护。
+Flux是一种架构思路，专门解决软件的结构问题，它跟MVC是同一类东西。
+Flux的最大特点是单向数据流。
+Flux的实现有很多种，其中最流行有两种
+Mobox
+Redux
+
+
+
+
+
+Redux（架构）
+
+
+如果你学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React之Redux架构">
+<meta property="og:url" content="http://yoursite.com/2017/06/13/React之Redux架构/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="概述Flux
+再理解Redux之前，先了解Flux。
+什么是Flux？
+构建用户接口的应用程序架构。
+说的直白点：使用Flux组织代码和安排内部逻辑，使你的应用程序更易于开发和维护。
+Flux是一种架构思路，专门解决软件的结构问题，它跟MVC是同一类东西。
+Flux的最大特点是单向数据流。
+Flux的实现有很多种，其中最流行有两种
+Mobox
+Redux
+
+
+
+
+
+Redux（架构）
+
+
+如果你学">
+<meta property="og:image" content="http://yoursite.com/2017/06/13/React之Redux架构/1.png">
+<meta property="og:updated_time" content="2017-06-16T17:15:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React之Redux架构">
+<meta name="twitter:description" content="概述Flux
+再理解Redux之前，先了解Flux。
+什么是Flux？
+构建用户接口的应用程序架构。
+说的直白点：使用Flux组织代码和安排内部逻辑，使你的应用程序更易于开发和维护。
+Flux是一种架构思路，专门解决软件的结构问题，它跟MVC是同一类东西。
+Flux的最大特点是单向数据流。
+Flux的实现有很多种，其中最流行有两种
+Mobox
+Redux
+
+
+
+
+
+Redux（架构）
+
+
+如果你学">
+<meta name="twitter:image" content="http://yoursite.com/2017/06/13/React之Redux架构/1.png">
+
+  
+
+  
+    <link rel="icon" href="/header2.png">
+  
+
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  <!-- 
+
+  
+
+  
+ -->
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">大雨</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">大雨</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Flux"><span class="toc-text">Flux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redux（架构）"><span class="toc-text">Redux（架构）</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-React之Redux架构" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">React之Redux架构</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.06.13</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h3><ul>
+<li>再理解Redux之前，先了解Flux。</li>
+<li>什么是Flux？<ul>
+<li>构建用户接口的应用程序架构。</li>
+<li>说的直白点：使用Flux组织代码和安排内部逻辑，使你的应用程序更易于开发和维护。</li>
+<li>Flux是一种架构思路，专门解决软件的结构问题，它跟MVC是同一类东西。</li>
+<li>Flux的最大特点是单向数据流。</li>
+<li>Flux的实现有很多种，其中最流行有两种<ul>
+<li>Mobox</li>
+<li>Redux</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Redux（架构）"><a href="#Redux（架构）" class="headerlink" title="Redux（架构）"></a>Redux（架构）</h3><ul>
+<li><img src="/2017/06/13/React之Redux架构/1.png" alt="1.png" title="">
+</li>
+<li><p>如果你学了React了，会编写组件式的代码（React组件），这还是不够的，因为React只是一个View（DOM层的抽象），并不是完整的Web应用解决方案。它有两个方面没有涉及</p>
+<ul>
+<li>架构</li>
+<li>通信</li>
+</ul>
+</li>
+<li>2015年，Redux出现，将Flux与函数式编程结合在一起。</li>
+</ul>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">支持Shaowei Teng</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/zfb4.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/06/05/ESLint/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/06/17/React之cssmodule/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>
