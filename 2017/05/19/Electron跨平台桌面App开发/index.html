@@ -466,7 +466,7 @@ Electron内嵌Chromium 和 Node.js，所以你可以用HTML、CSS和JavaScript�
       elem.rel = "stylesheet";
       elem.type = "text/css";
       elem.href = url;
-      document.getElementsByTagName('head')[0].appendChild(elem);
+      document.body.appendChild(elem);
 
   }
 
