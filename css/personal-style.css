@@ -4,21 +4,21 @@
  * index home
  */
 
-.content-home {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 100%;
-    height: 300px;
-    margin-top: -150px;
-    margin-bottom: 100px;
-    right: 400px;
-    opacity: 0;
-}
+// .content-home {
+//     position: absolute;
+//     top: 50%;
+//     width: 100%;
+//     height: 100%;
+//     height: 300px;
+//     margin-top: -150px;
+//     margin-bottom: 100px;
+//     right: 400px;
+//     opacity: 0;
+// }
 
-.content-home .nav .item a:hover {
-    color: #9E9E9E;
-}
+// .content-home .nav .item a:hover {
+//     color: #9E9E9E;
+// }
 
 /**
  * archives
