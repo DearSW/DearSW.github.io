@@ -1,9 +1,14 @@
-# 前端求生之路
+## 前端求生之路
+
+#### Show
 
 ![图片](./images/dearsw1.png)
 
 ![图片](./images/dearsw2.png)
 
-#### Power by hexo
 
-#### Theme by fexo
+## Thanks
+
+* Power by hexo
+
+* Theme by fexo
