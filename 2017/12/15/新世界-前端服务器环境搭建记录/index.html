@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>新世界 前端服务器环境搭建记录 | 后来他乡遇故人</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="新世界," />
+  
+
+  <meta name="description" content="概览
+Nginx、Node 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。
+
+
+一、查看云服务器主机环境
+yum install -y redhat-lsb 首先安装redhat-lsb。
+lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以查看云">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新世界 前端服务器环境搭建记录">
+<meta property="og:url" content="http://yoursite.com/2017/12/15/新世界-前端服务器环境搭建记录/index.html">
+<meta property="og:site_name" content="后来他乡遇故人">
+<meta property="og:description" content="概览
+Nginx、Node 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。
+
+
+一、查看云服务器主机环境
+yum install -y redhat-lsb 首先安装redhat-lsb。
+lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以查看云">
+<meta property="og:image" content="http://yoursite.com/./新世界-前端服务器环境搭建记录/hexo1.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/15/新世界-前端服务器环境搭建记录/hexo1.png">
+<meta property="og:updated_time" content="2017-12-15T14:49:37.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新世界 前端服务器环境搭建记录">
+<meta name="twitter:description" content="概览
+Nginx、Node 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。
+
+
+一、查看云服务器主机环境
+yum install -y redhat-lsb 首先安装redhat-lsb。
+lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以查看云">
+<meta name="twitter:image" content="http://yoursite.com/./新世界-前端服务器环境搭建记录/hexo1.png">
+
+  
+
+  
+    <link rel="icon" href="/logo3.png">
+  
+
+  
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  <style type="text/css">
+  
+      /**
+       * index home
+       */
+
+      .content-home {
+          position: absolute;
+          top: 50%;
+          width: 100%;
+          height: 100%;
+          height: 300px;
+          margin-top: -150px;
+          margin-bottom: 100px;
+          right: 400px;
+          opacity: 0;
+      }
+
+      .content-home .nav .item a:hover {
+          color: #9E9E9E;
+      }
+
+
+  </style>
+
+  <!-- 
+    <link rel="stylesheet" href="/css/personal-style.css">
+   -->
+
+  <!-- 
+
+  
+
+  
+ -->
+
+
+  <!-- 
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+   -->
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">目录</span>
+  
+
+  <div class="post-header CENTER">
+   
+
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/archives">
+      <span class="toolbox-entry-text">目录</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            文章
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概览"><span class="toc-text">概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、查看云服务器主机环境"><span class="toc-text">一、查看云服务器主机环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、查看系统cpu内核信息"><span class="toc-text">二、查看系统cpu内核信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、安装Node"><span class="toc-text">三、安装Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、配置NPM镜像"><span class="toc-text">四、配置NPM镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、安装PM2"><span class="toc-text">五、安装PM2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、查看端口使用"><span class="toc-text">六、查看端口使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、查看进程-Nginx"><span class="toc-text">七、查看进程 Nginx</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-新世界-前端服务器环境搭建记录" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">新世界 前端服务器环境搭建记录</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.12.15</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shaowei_Teng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><ol>
+<li><strong>Nginx、Node</strong> 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。<br><img src="./新世界-前端服务器环境搭建记录/hexo1.png" alt="图例"></li>
+</ol>
+<img src="/2017/12/15/新世界-前端服务器环境搭建记录/hexo1.png" alt="hexo1.png" title="">
+<h2 id="一、查看云服务器主机环境"><a href="#一、查看云服务器主机环境" class="headerlink" title="一、查看云服务器主机环境"></a>一、查看云服务器主机环境</h2><ol>
+<li><strong>yum install -y redhat-lsb</strong> 首先安装redhat-lsb。</li>
+<li><strong>lsb_release -a</strong> 接着才可以使用lsb_release命令，使用这个命令可以查看云服务器的环境信息。</li>
+</ol>
+<h2 id="二、查看系统cpu内核信息"><a href="#二、查看系统cpu内核信息" class="headerlink" title="二、查看系统cpu内核信息"></a>二、查看系统cpu内核信息</h2><ol>
+<li><strong>cat /proc/cpuinfo</strong> </li>
+</ol>
+<h2 id="三、安装Node"><a href="#三、安装Node" class="headerlink" title="三、安装Node"></a>三、安装Node</h2><ol>
+<li><strong>rpm -ivh <a href="https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm" target="_blank" rel="external">https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm</a> &amp;&amp; yum -y install nodejs</strong></li>
+</ol>
+<h2 id="四、配置NPM镜像"><a href="#四、配置NPM镜像" class="headerlink" title="四、配置NPM镜像"></a>四、配置NPM镜像</h2><ol>
+<li>安装Node之后，NPM也是捆绑安装的，但是我们需要配置一下镜像，使用淘宝的npm镜像，为了使用NPM安装包时速度更快，更容易成功。</li>
+<li><strong>npm config get registry</strong> 查看当前的npm镜像。</li>
+<li><strong>npm config set registry <a href="http://registry.npm.taobao.org/" target="_blank" rel="external">http://registry.npm.taobao.org/</a></strong> 设置npm镜像。</li>
+</ol>
+<h2 id="五、安装PM2"><a href="#五、安装PM2" class="headerlink" title="五、安装PM2"></a>五、安装PM2</h2><ol>
+<li>PM2是运行Node程序的管理器，其他的管理器还有forever、supervisor等等。</li>
+<li><strong>npm install -g pm2@latest</strong> 全局安装pm2命令。</li>
+<li><strong>pm2的相关操作</strong><ol>
+<li>pm2 start app.js –name “bus-wechat”  // 启动node程序，并命令为<code>bus-wechat</code>。注意：需要在Express程序的app.js中添加端口监听代码，</li>
+<li>pm2 delete bus-wechat // 删除bus-wechat程序，仅仅是从pm2内存中移除，并不会实际删除文件。</li>
+<li>pm2 restart bus-wechat // 重启bus-wechat程序。</li>
+<li>pm2 show bus-wechat // 展示bus-wechat程序的相关信息。</li>
+<li>pm2 stop bus-wechat // 停止bus-wechat程序。</li>
+<li>pm2 monit // 打开监控器，可以监控所有的node程序，而不仅仅是bus-wechat。</li>
+<li>pm2 start app.js –name “bus-wechat” -i max // 启用node的cluster模式（集群模式），可以最大化利用服务器的CPU，开启多线程，但是取决于服务器的多核！如果是单核服务器是无法启动的。</li>
+<li>pm2 scale bus-wechat <number> // 扩展bus-wechat程序的cluster（集群）的规模。</number></li>
+<li>pm2 restart all // 重启所有的node程序。</li>
+</ol>
+</li>
+</ol>
+<h2 id="六、查看端口使用"><a href="#六、查看端口使用" class="headerlink" title="六、查看端口使用"></a>六、查看端口使用</h2><ol>
+<li>至此，我们可能会在服务器上运行多个程序，或者服务器，但是端口不能重复，不然会冲突的，导致程序无法启动。所以需要查看端口的使用情况。</li>
+<li><strong>netstat -anp</strong> 查看服务器端口使用情况。</li>
+</ol>
+<h2 id="七、查看进程-Nginx"><a href="#七、查看进程-Nginx" class="headerlink" title="七、查看进程 Nginx"></a>七、查看进程 Nginx</h2>
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/10/10/博客维护记录/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              文章
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+
+  function loadScript(url, callback) {
+      var script = document.createElement('script')
+      script.type = 'text/javascript';
+
+      if (script.readyState) { //IE
+        script.onreadystatechange = function() {
+          if (script.readyState == 'loaded' ||
+            script.readyState == 'complete') {
+            script.onreadystatechange = null;
+            callback();
+          }
+        };
+      } else { //Others
+        script.onload = function() {
+          callback();
+        };
+      }
+
+      script.src = url;
+      document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  function indexHomeAnimation() {
+
+       var target = document.querySelector('.content-home');
+       if( target != null ) {
+          target.style.transition = "all 2s cubic-bezier(0.57, 0.05, 0.36, 1)";
+          target.style.right = 0;
+          target.style.opacity = 1.0;
+       } else {
+          return;
+       }
+       
+  }
+
+
+  function downloadJS(url) {
+
+      var elem = document.createElement("script");
+      elem.src = url;
+      document.body.appendChild(elem);
+  }
+
+  function downloadCSS(url) {
+
+      var elem = document.createElement("link");
+      elem.rel = "stylesheet";
+      elem.type = "text/css";
+      elem.href = url;
+      document.body.appendChild(elem);
+
+  }
+
+  function downloadComponets() {
+
+    downloadCSS("/css/personal-style.css");
+    downloadJS("https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js");
+    downloadCSS("//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css");
+
+  }
+
+
+
+  window.onload = function() {
+
+    indexHomeAnimation();
+    downloadComponets();
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>
