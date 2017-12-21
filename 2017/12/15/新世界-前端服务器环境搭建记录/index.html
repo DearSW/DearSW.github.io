@@ -15,37 +15,21 @@
     <meta name="keywords" content="新世界," />
   
 
-  <meta name="description" content="概览
-Nginx、Node 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。
-
-
-一、查看云服务器主机环境
-yum install -y redhat-lsb 首先安装redhat-lsb。
-lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以查看云">
+  <meta name="description" content="概览 Nginx、Node 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。   一、查看云服务器主机环境 yum install -y redhat-lsb 首先安装redhat-lsb。 lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以查看云">
+<meta name="keywords" content="新世界">
 <meta property="og:type" content="article">
 <meta property="og:title" content="新世界 前端服务器环境搭建记录">
 <meta property="og:url" content="http://yoursite.com/2017/12/15/新世界-前端服务器环境搭建记录/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
-<meta property="og:description" content="概览
-Nginx、Node 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。
-
-
-一、查看云服务器主机环境
-yum install -y redhat-lsb 首先安装redhat-lsb。
-lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以查看云">
-<meta property="og:image" content="http://yoursite.com/./新世界-前端服务器环境搭建记录/hexo1.png">
+<meta property="og:description" content="概览 Nginx、Node 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。   一、查看云服务器主机环境 yum install -y redhat-lsb 首先安装redhat-lsb。 lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以查看云">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2017/12/15/新世界-前端服务器环境搭建记录/新世界-前端服务器环境搭建记录/hexo1.png">
 <meta property="og:image" content="http://yoursite.com/2017/12/15/新世界-前端服务器环境搭建记录/hexo1.png">
 <meta property="og:updated_time" content="2017-12-20T09:07:50.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新世界 前端服务器环境搭建记录">
-<meta name="twitter:description" content="概览
-Nginx、Node 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。
-
-
-一、查看云服务器主机环境
-yum install -y redhat-lsb 首先安装redhat-lsb。
-lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以查看云">
-<meta name="twitter:image" content="http://yoursite.com/./新世界-前端服务器环境搭建记录/hexo1.png">
+<meta name="twitter:description" content="概览 Nginx、Node 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。   一、查看云服务器主机环境 yum install -y redhat-lsb 首先安装redhat-lsb。 lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以查看云">
+<meta name="twitter:image" content="http://yoursite.com/2017/12/15/新世界-前端服务器环境搭建记录/新世界-前端服务器环境搭建记录/hexo1.png">
 
   
 
@@ -236,7 +220,7 @@ lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以
       <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><ol>
 <li><strong>Nginx、Node</strong> 在这里我们主要负责Node服务器和Nginx服务器的搭建和配置，而Tomcat为Java服务器，暂时忽略。其中，Node服务器作为中间件，方便来实践前后端的分离。<br><img src="./新世界-前端服务器环境搭建记录/hexo1.png" alt="图例"></li>
 </ol>
-<img src="/2017/12/15/新世界-前端服务器环境搭建记录/hexo1.png" alt="hexo1.png" title="">
+<img src="/2017/12/15/新世界-前端服务器环境搭建记录/hexo1.png">
 <h2 id="一、查看云服务器主机环境"><a href="#一、查看云服务器主机环境" class="headerlink" title="一、查看云服务器主机环境"></a>一、查看云服务器主机环境</h2><ol>
 <li><strong>yum install -y redhat-lsb</strong> 首先安装redhat-lsb。</li>
 <li><strong>lsb_release -a</strong> 接着才可以使用lsb_release命令，使用这个命令可以查看云服务器的环境信息。</li>
@@ -245,12 +229,12 @@ lsb_release -a 接着才可以使用lsb_release命令，使用这个命令可以
 <li><strong>cat /proc/cpuinfo</strong> </li>
 </ol>
 <h2 id="三、安装Node"><a href="#三、安装Node" class="headerlink" title="三、安装Node"></a>三、安装Node</h2><ol>
-<li><strong>rpm -ivh <a href="https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm" target="_blank" rel="external">https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm</a> &amp;&amp; yum -y install nodejs</strong></li>
+<li><strong>rpm -ivh <a href="https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm" target="_blank" rel="noopener">https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm</a> &amp;&amp; yum -y install nodejs</strong></li>
 </ol>
 <h2 id="四、配置NPM镜像"><a href="#四、配置NPM镜像" class="headerlink" title="四、配置NPM镜像"></a>四、配置NPM镜像</h2><ol>
 <li>安装Node之后，NPM也是捆绑安装的，但是我们需要配置一下镜像，使用淘宝的npm镜像，为了使用NPM安装包时速度更快，更容易成功。</li>
 <li><strong>npm config get registry</strong> 查看当前的npm镜像。</li>
-<li><strong>npm config set registry <a href="http://registry.npm.taobao.org/" target="_blank" rel="external">http://registry.npm.taobao.org/</a></strong> 设置npm镜像。</li>
+<li><strong>npm config set registry <a href="http://registry.npm.taobao.org/" target="_blank" rel="noopener">http://registry.npm.taobao.org/</a></strong> 设置npm镜像。</li>
 </ol>
 <h2 id="五、安装PM2"><a href="#五、安装PM2" class="headerlink" title="五、安装PM2"></a>五、安装PM2</h2><ol>
 <li>PM2是运行Node程序的管理器，其他的管理器还有forever、supervisor等等。</li>

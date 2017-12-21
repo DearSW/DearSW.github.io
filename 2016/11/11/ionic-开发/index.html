@@ -15,47 +15,18 @@
     <meta name="keywords" content="Angular、ionic、Express、Nginx、Fis、JQuery、SemanticUI" />
   
 
-  <meta name="description" content="###基本Ionic环境搭建
-
-基于node环境，使用npm来安装环境，首先需要安装node。
-npm install -g ionic
-npm install -g cordova
-ionic info，这个会显示出当前所有的ionic环境搭建情况。
-
-###开始一个新的Ionic项目
-
-官网提供了几个示例项目如：tabs、sidemenu等。
-开始官方的示例项目：ionic start [my">
+  <meta name="description" content="###基本Ionic环境搭建  基于node环境，使用npm来安装环境，首先需要安装node。 npm install -g ionic npm install -g cordova ionic info，这个会显示出当前所有的ionic环境搭建情况。  ###开始一个新的Ionic项目  官网提供了几个示例项目如：tabs、sidemenu等。 开始官方的示例项目：ionic start [my">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ionic-iOS开发说明">
 <meta property="og:url" content="http://yoursite.com/2016/11/11/ionic-开发/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
-<meta property="og:description" content="###基本Ionic环境搭建
-
-基于node环境，使用npm来安装环境，首先需要安装node。
-npm install -g ionic
-npm install -g cordova
-ionic info，这个会显示出当前所有的ionic环境搭建情况。
-
-###开始一个新的Ionic项目
-
-官网提供了几个示例项目如：tabs、sidemenu等。
-开始官方的示例项目：ionic start [my">
+<meta property="og:description" content="###基本Ionic环境搭建  基于node环境，使用npm来安装环境，首先需要安装node。 npm install -g ionic npm install -g cordova ionic info，这个会显示出当前所有的ionic环境搭建情况。  ###开始一个新的Ionic项目  官网提供了几个示例项目如：tabs、sidemenu等。 开始官方的示例项目：ionic start [my">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2016/11/11/ionic-开发/ionic项目目录结构.png">
 <meta property="og:updated_time" content="2017-04-29T10:35:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ionic-iOS开发说明">
-<meta name="twitter:description" content="###基本Ionic环境搭建
-
-基于node环境，使用npm来安装环境，首先需要安装node。
-npm install -g ionic
-npm install -g cordova
-ionic info，这个会显示出当前所有的ionic环境搭建情况。
-
-###开始一个新的Ionic项目
-
-官网提供了几个示例项目如：tabs、sidemenu等。
-开始官方的示例项目：ionic start [my">
+<meta name="twitter:description" content="###基本Ionic环境搭建  基于node环境，使用npm来安装环境，首先需要安装node。 npm install -g ionic npm install -g cordova ionic info，这个会显示出当前所有的ionic环境搭建情况。  ###开始一个新的Ionic项目  官网提供了几个示例项目如：tabs、sidemenu等。 开始官方的示例项目：ionic start [my">
 <meta name="twitter:image" content="http://yoursite.com/2016/11/11/ionic-开发/ionic项目目录结构.png">
 
   
@@ -254,7 +225,7 @@ ionic info，这个会显示出当前所有的ionic环境搭建情况。
 <li>大致会生成如下内容</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">hooks           //google之后这个目录应该是在编译cordova时自定义的脚本命令，方便整合到我们的编译系统和版本控制系统中</div><div class="line">plugins         //cordova插件的目录，插件的安装下一节详述</div><div class="line">scss            //scss文件，发布时编译这个目录下的文件输出到www的css目录中</div><div class="line">www             //我们的开发目录，页面、样式、脚本和图片都放在这个目录下</div><div class="line">	--css</div><div class="line">	--img</div><div class="line">	--js</div><div class="line">	--lib</div><div class="line">	--index.html //作为我们的程序入口文件，首先编辑这个文件</div><div class="line">bower.json      //bower配置文件</div><div class="line">config.xml      //Ionic的配置文件 ⱃ可以配置app的id，名称、描述起始页和一起其他配置</div><div class="line">gulpfile.js     //gulp构建工具的执行文件，在这个文件中创建任务实现编译scss，css、js优化等</div><div class="line">ionic.project   //Ionic的项目文件可以配置Ionic命令中livereload的监控文件</div><div class="line">package.json    //npm配置文件</div></pre></td></tr></table></figure>
-<img src="/2016/11/11/ionic-开发/ionic项目目录结构.png" alt="ionic项目目录结构.png" title="">
+<img src="/2016/11/11/ionic-开发/ionic项目目录结构.png">
 <p>###运行Ionic项目</p>
 <ul>
 <li>切换到项目目录，也就是[myProjectName]目录：cd [myProjectName]</li>
@@ -314,8 +285,8 @@ ionic info，这个会显示出当前所有的ionic环境搭建情况。
 <li><p>注意，在Xcode中有些是目录不是真实存在的，只是一个虚拟目录，仅仅表示引用。</p>
 </li>
 <li>关于程序不能运行时不能全屏的问题分析解决：构建IOS程序时，是使用xib作为启动页面的，但是xib只能使用在Xcode8.0以上的系统，以前的系统还是需要在lanchImage里面设置启动图片，而且启动图片还需要分为不同的倍图和对应的设备。重点：在工程找到<code>Images.xcassets</code>这个文件夹，Finder中去查看，便会发现其中有许多的图片文件，这真是各个分辨率需要使用的。如果没有，请生成，并加入到其中。如果有了的话，你在Xcode中点击这个文件夹，你会发现右侧中会点亮相应的图框，表示已经添加了的不同分辨率的图片。接着，还需要在工程中设置，进入到这里<code>TARGETS-&gt;General-&gt;App Icons and Launch Images</code>下的 <code>Lacnch Images Source</code>选项添加这个Image即可。</li>
-<li>关于IOS的头部区域占用页面20px的问题，只需要在app.js中添加<code>ionic.platform.fullScreen()</code>即可，具体请 <a href="https://forum.ionicframework.com/t/ios-header-size-is-too-large/16127/4" target="_blank" rel="external">点击这里</a></li>
-<li>关于IOS程序WEB页面调试的方法，详情请 <a href="http://stackoverflow.com/questions/11262236/ios-remote-debugging" target="_blank" rel="external">点击这里</a></li>
+<li>关于IOS的头部区域占用页面20px的问题，只需要在app.js中添加<code>ionic.platform.fullScreen()</code>即可，具体请 <a href="https://forum.ionicframework.com/t/ios-header-size-is-too-large/16127/4" target="_blank" rel="noopener">点击这里</a></li>
+<li>关于IOS程序WEB页面调试的方法，详情请 <a href="http://stackoverflow.com/questions/11262236/ios-remote-debugging" target="_blank" rel="noopener">点击这里</a></li>
 </ul>
 <p>###更新</p>
 <ul>

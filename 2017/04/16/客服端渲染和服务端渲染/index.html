@@ -15,58 +15,21 @@
     <meta name="keywords" content="渲染," />
   
 
-  <meta name="description" content="一个HTML页面的渲染
-首先，我们来看看浏览器的基本组成。
-
-
-
-浏览器的主要构成
-
-用户界面
-浏览器引擎：用来查询及操作渲染引擎的接口。
-渲染引擎：用来显示用户请求的内容。
-网络：完成网络调用，具有平台无关性。
-UI后端：用来绘制类似组合选择框及对话框等基本组件。
-JS解释器：用来解释执行JS代码。
-数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
+  <meta name="description" content="一个HTML页面的渲染 首先，我们来看看浏览器的基本组成。    浏览器的主要构成  用户界面 浏览器引擎：用来查询及操作渲染引擎的接口。 渲染引擎：用来显示用户请求的内容。 网络：完成网络调用，具有平台无关性。 UI后端：用来绘制类似组合选择框及对话框等基本组件。 JS解释器：用来解释执行JS代码。 数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
+<meta name="keywords" content="渲染">
 <meta property="og:type" content="article">
 <meta property="og:title" content="页面渲染（学习笔记）">
 <meta property="og:url" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
-<meta property="og:description" content="一个HTML页面的渲染
-首先，我们来看看浏览器的基本组成。
-
-
-
-浏览器的主要构成
-
-用户界面
-浏览器引擎：用来查询及操作渲染引擎的接口。
-渲染引擎：用来显示用户请求的内容。
-网络：完成网络调用，具有平台无关性。
-UI后端：用来绘制类似组合选择框及对话框等基本组件。
-JS解释器：用来解释执行JS代码。
-数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
+<meta property="og:description" content="一个HTML页面的渲染 首先，我们来看看浏览器的基本组成。    浏览器的主要构成  用户界面 浏览器引擎：用来查询及操作渲染引擎的接口。 渲染引擎：用来显示用户请求的内容。 网络：完成网络调用，具有平台无关性。 UI后端：用来绘制类似组合选择框及对话框等基本组件。 JS解释器：用来解释执行JS代码。 数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/1.png">
 <meta property="og:image" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/2.png">
 <meta property="og:image" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/3.png">
 <meta property="og:updated_time" content="2017-05-23T16:05:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="页面渲染（学习笔记）">
-<meta name="twitter:description" content="一个HTML页面的渲染
-首先，我们来看看浏览器的基本组成。
-
-
-
-浏览器的主要构成
-
-用户界面
-浏览器引擎：用来查询及操作渲染引擎的接口。
-渲染引擎：用来显示用户请求的内容。
-网络：完成网络调用，具有平台无关性。
-UI后端：用来绘制类似组合选择框及对话框等基本组件。
-JS解释器：用来解释执行JS代码。
-数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
+<meta name="twitter:description" content="一个HTML页面的渲染 首先，我们来看看浏览器的基本组成。    浏览器的主要构成  用户界面 浏览器引擎：用来查询及操作渲染引擎的接口。 渲染引擎：用来显示用户请求的内容。 网络：完成网络调用，具有平台无关性。 UI后端：用来绘制类似组合选择框及对话框等基本组件。 JS解释器：用来解释执行JS代码。 数据存储：属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，H5定义了一些新的dat">
 <meta name="twitter:image" content="http://yoursite.com/2017/04/16/客服端渲染和服务端渲染/1.png">
 
   
@@ -258,7 +221,7 @@ JS解释器：用来解释执行JS代码。
       <h3 id="一个HTML页面的渲染"><a href="#一个HTML页面的渲染" class="headerlink" title="一个HTML页面的渲染"></a>一个HTML页面的渲染</h3><ul>
 <li>首先，我们来看看浏览器的基本组成。</li>
 </ul>
-<img src="/2017/04/16/客服端渲染和服务端渲染/1.png" alt="1.png" title="">
+<img src="/2017/04/16/客服端渲染和服务端渲染/1.png">
 <ul>
 <li><p>浏览器的主要构成</p>
 <ul>
@@ -298,7 +261,7 @@ JS解释器：用来解释执行JS代码。
 <li><p>HTML页面的渲染过程如下：</p>
 </li>
 </ul>
-<img src="/2017/04/16/客服端渲染和服务端渲染/2.png" alt="2.png" title=""> 
+<img src="/2017/04/16/客服端渲染和服务端渲染/2.png"> 
 <h3 id="客户端渲染"><a href="#客户端渲染" class="headerlink" title="客户端渲染"></a>客户端渲染</h3><ul>
 <li>客服端渲染主要用在单页应用，需要使用JS动态生成更多的HTML。</li>
 <li>JS生成代码，一般来说就是从服务器异步获取json数据。</li>
@@ -349,7 +312,7 @@ JS解释器：用来解释执行JS代码。
 <li>etpl</li>
 <li>优点：相对于字符串拼接，实现了模版和代码逻辑的分离，不用大量的字符串拼接</li>
 <li><p>缺点：render之后数据即与view完全分离，innerHTML的性能问题，安全问题等</p>
-<img src="/2017/04/16/客服端渲染和服务端渲染/3.png" alt="3.png" title="">
+<img src="/2017/04/16/客服端渲染和服务端渲染/3.png">
 </li>
 </ul>
 </li>
@@ -380,8 +343,8 @@ JS解释器：用来解释执行JS代码。
 </li>
 </ul>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
-<li><a href="https://my.oschina.net/MrHou/blog/704640" target="_blank" rel="external">https://my.oschina.net/MrHou/blog/704640</a></li>
-<li><a href="http://web.jobbole.com/87670/" target="_blank" rel="external">前端模板总结</a></li>
+<li><a href="https://my.oschina.net/MrHou/blog/704640" target="_blank" rel="noopener">https://my.oschina.net/MrHou/blog/704640</a></li>
+<li><a href="http://web.jobbole.com/87670/" target="_blank" rel="noopener">前端模板总结</a></li>
 </ul>
 
     

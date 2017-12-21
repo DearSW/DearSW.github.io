@@ -15,60 +15,20 @@
     <meta name="keywords" content="密码学," />
   
 
-  <meta name="description" content="概述
-总的来说，计算机系统及网络由于其本身的开放性和匿名性带来了信息安全的隐患。
-信息安全的5个基本要素：保密性、完整性、可控性、可用性、可审查性；而对于网络及网络交易而言，信息安全的基本需求是保密性、完整性、不可抵赖性。
-主要的安全的技术
-数据加密
-数据签名
-身份认证
-防火墙
-内容检查
-
-
-从TCP/IP五层网络结构看
-
-物理层：可以采用防窃听技术来加强通信线路的安全
-数据链路层：可以使用通信保">
+  <meta name="description" content="概述 总的来说，计算机系统及网络由于其本身的开放性和匿名性带来了信息安全的隐患。 信息安全的5个基本要素：保密性、完整性、可控性、可用性、可审查性；而对于网络及网络交易而言，信息安全的基本需求是保密性、完整性、不可抵赖性。 主要的安全的技术 数据加密 数据签名 身份认证 防火墙 内容检查   从TCP/IP五层网络结构看  物理层：可以采用防窃听技术来加强通信线路的安全 数据链路层：可以使用通信保">
+<meta name="keywords" content="密码学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="信息安全之密码（专业总结）">
 <meta property="og:url" content="http://yoursite.com/2017/05/31/PBC/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
-<meta property="og:description" content="概述
-总的来说，计算机系统及网络由于其本身的开放性和匿名性带来了信息安全的隐患。
-信息安全的5个基本要素：保密性、完整性、可控性、可用性、可审查性；而对于网络及网络交易而言，信息安全的基本需求是保密性、完整性、不可抵赖性。
-主要的安全的技术
-数据加密
-数据签名
-身份认证
-防火墙
-内容检查
-
-
-从TCP/IP五层网络结构看
-
-物理层：可以采用防窃听技术来加强通信线路的安全
-数据链路层：可以使用通信保">
+<meta property="og:description" content="概述 总的来说，计算机系统及网络由于其本身的开放性和匿名性带来了信息安全的隐患。 信息安全的5个基本要素：保密性、完整性、可控性、可用性、可审查性；而对于网络及网络交易而言，信息安全的基本需求是保密性、完整性、不可抵赖性。 主要的安全的技术 数据加密 数据签名 身份认证 防火墙 内容检查   从TCP/IP五层网络结构看  物理层：可以采用防窃听技术来加强通信线路的安全 数据链路层：可以使用通信保">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2017/05/31/PBC/2.png">
 <meta property="og:image" content="http://yoursite.com/2017/05/31/PBC/1.png">
 <meta property="og:updated_time" content="2017-06-02T14:24:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信息安全之密码（专业总结）">
-<meta name="twitter:description" content="概述
-总的来说，计算机系统及网络由于其本身的开放性和匿名性带来了信息安全的隐患。
-信息安全的5个基本要素：保密性、完整性、可控性、可用性、可审查性；而对于网络及网络交易而言，信息安全的基本需求是保密性、完整性、不可抵赖性。
-主要的安全的技术
-数据加密
-数据签名
-身份认证
-防火墙
-内容检查
-
-
-从TCP/IP五层网络结构看
-
-物理层：可以采用防窃听技术来加强通信线路的安全
-数据链路层：可以使用通信保">
+<meta name="twitter:description" content="概述 总的来说，计算机系统及网络由于其本身的开放性和匿名性带来了信息安全的隐患。 信息安全的5个基本要素：保密性、完整性、可控性、可用性、可审查性；而对于网络及网络交易而言，信息安全的基本需求是保密性、完整性、不可抵赖性。 主要的安全的技术 数据加密 数据签名 身份认证 防火墙 内容检查   从TCP/IP五层网络结构看  物理层：可以采用防窃听技术来加强通信线路的安全 数据链路层：可以使用通信保">
 <meta name="twitter:image" content="http://yoursite.com/2017/05/31/PBC/2.png">
 
   
@@ -335,7 +295,7 @@
 <li>代码</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public class RSA &#123;  </div><div class="line">    /** </div><div class="line">     *  加密、解密算法 </div><div class="line">     * @param (baseNum,key) 公钥或密钥 </div><div class="line">     * @param message 数据 </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static long rsa(int baseNum, int key, long message)&#123;  </div><div class="line">        if(baseNum &lt; 1 || key &lt; 1)&#123;  </div><div class="line">            return 0L;  </div><div class="line">        &#125;  </div><div class="line">        //加密或者解密之后的数据  </div><div class="line">        long rsaMessage = 0L;  </div><div class="line">          </div><div class="line">        //加密核心算法  </div><div class="line">        rsaMessage = Math.round(Math.pow(message, key)) % baseNum;  </div><div class="line">        return rsaMessage;  </div><div class="line">    &#125;  </div><div class="line">    </div><div class="line">    public static void main(String[] args)&#123;  </div><div class="line">        //基数  </div><div class="line">        int baseNum = 3 * 11;  </div><div class="line">        //公钥  </div><div class="line">        int keyE = 3;  </div><div class="line">        //密钥  </div><div class="line">        int keyD = 7;  </div><div class="line">        //未加密的数据  </div><div class="line">        long msg = 24L;  </div><div class="line">        //加密后的数据  </div><div class="line">        long encodeMsg = rsa(baseNum, keyE, msg);  </div><div class="line">        //解密后的数据  </div><div class="line">        long decodeMsg = rsa(baseNum, keyD, encodeMsg);  </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<img src="/2017/05/31/PBC/2.png" alt="2.png" title="">
+<img src="/2017/05/31/PBC/2.png">
 <h3 id="双线性配对"><a href="#双线性配对" class="headerlink" title="双线性配对"></a>双线性配对</h3><ul>
 <li><p>双线性配对（Bilinear Pairing, 也叫双线性映射）最早在密码学中是扮演者负面的角色。2000年，Joux利用双线性配对构造了一个三方密钥交换协议。随后在2001年，Boneh和Franklin利用它构造了第一个实用并且可证安全的基于身份的加密方案（Identity-Based Encryption， IBE）。从此开始，双线性配对才在密码学中得到了广泛的应用。</p>
 </li>
@@ -359,7 +319,7 @@
 <li><p>如图</p>
 </li>
 </ul>
-<img src="/2017/05/31/PBC/1.png" alt="1.png" title="">
+<img src="/2017/05/31/PBC/1.png">
 
     
   </div>

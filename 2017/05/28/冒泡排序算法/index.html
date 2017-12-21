@@ -15,81 +15,20 @@
     <meta name="keywords" content="冒泡排序算法," />
   
 
-  <meta name="description" content="前言
-依据不同的原则，排序可以分为五类
-插入排序
-交换排序
-选择排序
-归并排序
-基数排序
-
-
-排序通常有两种基本操作：
-比较两个关键字的大小；（必要的）
-将记录从一个位置记录转移到另一个位置；
-
-
-交换排序
-冒泡排序
-快速排序（快排）
-
-
-
-冒泡排序（bubble sort）
-冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数">
+  <meta name="description" content="前言 依据不同的原则，排序可以分为五类 插入排序 交换排序 选择排序 归并排序 基数排序   排序通常有两种基本操作： 比较两个关键字的大小；（必要的） 将记录从一个位置记录转移到另一个位置；   交换排序 冒泡排序 快速排序（快排）    冒泡排序（bubble sort） 冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数">
+<meta name="keywords" content="冒泡排序算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法（冒泡、快排）">
 <meta property="og:url" content="http://yoursite.com/2017/05/28/冒泡排序算法/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
-<meta property="og:description" content="前言
-依据不同的原则，排序可以分为五类
-插入排序
-交换排序
-选择排序
-归并排序
-基数排序
-
-
-排序通常有两种基本操作：
-比较两个关键字的大小；（必要的）
-将记录从一个位置记录转移到另一个位置；
-
-
-交换排序
-冒泡排序
-快速排序（快排）
-
-
-
-冒泡排序（bubble sort）
-冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数">
+<meta property="og:description" content="前言 依据不同的原则，排序可以分为五类 插入排序 交换排序 选择排序 归并排序 基数排序   排序通常有两种基本操作： 比较两个关键字的大小；（必要的） 将记录从一个位置记录转移到另一个位置；   交换排序 冒泡排序 快速排序（快排）    冒泡排序（bubble sort） 冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2017/05/28/冒泡排序算法/1.png">
 <meta property="og:image" content="http://yoursite.com/2017/05/28/冒泡排序算法/2.png">
 <meta property="og:updated_time" content="2017-05-30T14:16:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法（冒泡、快排）">
-<meta name="twitter:description" content="前言
-依据不同的原则，排序可以分为五类
-插入排序
-交换排序
-选择排序
-归并排序
-基数排序
-
-
-排序通常有两种基本操作：
-比较两个关键字的大小；（必要的）
-将记录从一个位置记录转移到另一个位置；
-
-
-交换排序
-冒泡排序
-快速排序（快排）
-
-
-
-冒泡排序（bubble sort）
-冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数">
+<meta name="twitter:description" content="前言 依据不同的原则，排序可以分为五类 插入排序 交换排序 选择排序 归并排序 基数排序   排序通常有两种基本操作： 比较两个关键字的大小；（必要的） 将记录从一个位置记录转移到另一个位置；   交换排序 冒泡排序 快速排序（快排）    冒泡排序（bubble sort） 冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数">
 <meta name="twitter:image" content="http://yoursite.com/2017/05/28/冒泡排序算法/1.png">
 
   
@@ -302,7 +241,7 @@
 <li>冒泡排序的基本思想：有N个数，比较相邻两个数，如果前者大于后者，就把两个数交换位置；这样一来，第一趟就可以选出一个最大的数放在最后面；那么经过N-1轮，就完成了所有数的排序。</li>
 <li>伪代码</li>
 </ul>
-<img src="/2017/05/28/冒泡排序算法/1.png" alt="1.png" title="">
+<img src="/2017/05/28/冒泡排序算法/1.png">
 <ul>
 <li>JavaScript实现</li>
 </ul>
@@ -316,7 +255,7 @@
 <ul>
 <li>代码二（实现更加简洁）</li>
 </ul>
-<img src="/2017/05/28/冒泡排序算法/2.png" alt="2.png" title="">
+<img src="/2017/05/28/冒泡排序算法/2.png">
 <h3 id="Array-prototype-sort"><a href="#Array-prototype-sort" class="headerlink" title="Array.prototype.sort"></a>Array.prototype.sort</h3><ul>
 <li>JavaScript原生数组对象的sort，是优化过的快排算法。</li>
 <li>不过，此方法需要接收一个比较函数为参数。</li>

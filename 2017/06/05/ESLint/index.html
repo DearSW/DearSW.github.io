@@ -15,59 +15,19 @@
     <meta name="keywords" content="ESLint," />
   
 
-  <meta name="description" content="概述
-代码校验工具
-JSLint
-JSHint
-JSCS
-ESLint
-
-
-一个好的校验工具可以确保一个项目遵循代码规范。
-现在最流行的是ESLint，由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写, 2013 年发布第一个版本。
-优点
-灵活：任何规则都可以开启闭合，以及有些规则有些额外配置
-很容易拓展和有需要可用插件
-容易理解产出
-包含了在其他检查器中不可用的规">
+  <meta name="description" content="概述 代码校验工具 JSLint JSHint JSCS ESLint   一个好的校验工具可以确保一个项目遵循代码规范。 现在最流行的是ESLint，由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写, 2013 年发布第一个版本。 优点 灵活：任何规则都可以开启闭合，以及有些规则有些额外配置 很容易拓展和有需要可用插件 容易理解产出 包含了在其他检查器中不可用的规">
+<meta name="keywords" content="ESLint">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ESLint（学习笔记）">
 <meta property="og:url" content="http://yoursite.com/2017/06/05/ESLint/index.html">
 <meta property="og:site_name" content="后来他乡遇故人">
-<meta property="og:description" content="概述
-代码校验工具
-JSLint
-JSHint
-JSCS
-ESLint
-
-
-一个好的校验工具可以确保一个项目遵循代码规范。
-现在最流行的是ESLint，由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写, 2013 年发布第一个版本。
-优点
-灵活：任何规则都可以开启闭合，以及有些规则有些额外配置
-很容易拓展和有需要可用插件
-容易理解产出
-包含了在其他检查器中不可用的规">
+<meta property="og:description" content="概述 代码校验工具 JSLint JSHint JSCS ESLint   一个好的校验工具可以确保一个项目遵循代码规范。 现在最流行的是ESLint，由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写, 2013 年发布第一个版本。 优点 灵活：任何规则都可以开启闭合，以及有些规则有些额外配置 很容易拓展和有需要可用插件 容易理解产出 包含了在其他检查器中不可用的规">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2017/06/05/ESLint/1.png">
 <meta property="og:updated_time" content="2017-06-08T08:27:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ESLint（学习笔记）">
-<meta name="twitter:description" content="概述
-代码校验工具
-JSLint
-JSHint
-JSCS
-ESLint
-
-
-一个好的校验工具可以确保一个项目遵循代码规范。
-现在最流行的是ESLint，由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写, 2013 年发布第一个版本。
-优点
-灵活：任何规则都可以开启闭合，以及有些规则有些额外配置
-很容易拓展和有需要可用插件
-容易理解产出
-包含了在其他检查器中不可用的规">
+<meta name="twitter:description" content="概述 代码校验工具 JSLint JSHint JSCS ESLint   一个好的校验工具可以确保一个项目遵循代码规范。 现在最流行的是ESLint，由 JavaScript 红宝书 作者 Nicholas C. Zakas 编写, 2013 年发布第一个版本。 优点 灵活：任何规则都可以开启闭合，以及有些规则有些额外配置 很容易拓展和有需要可用插件 容易理解产出 包含了在其他检查器中不可用的规">
 <meta name="twitter:image" content="http://yoursite.com/2017/06/05/ESLint/1.png">
 
   
@@ -291,7 +251,7 @@ ESLint
 <li>首先，在命令行中，切换到项目的根目录下 。</li>
 <li>然后使用命令：<code>eslint --init</code>（必须先有package.json存在）。</li>
 <li><p>接着就是一堆交互。</p>
-  <img src="/2017/06/05/ESLint/1.png" alt="1.png" title="">
+  <img src="/2017/06/05/ESLint/1.png">
 </li>
 <li><p>交互完毕之后就会生成ESLint的配置文件<code>.eslintrc.js</code>，内容如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    &quot;extends&quot;: &quot;standard&quot;,</div><div class="line">    &quot;installedESLint&quot;: true,</div><div class="line">    &quot;plugins&quot;: [</div><div class="line">        &quot;standard&quot;,</div><div class="line">        &quot;promise&quot;</div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
@@ -350,8 +310,8 @@ ESLint
 <li><code>rules</code>，ESLint可以配置大量的高度自定义的规则。</li>
 </ul>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
-<li><a href="http://eslint.org/docs/user-guide/configuring" target="_blank" rel="external">ESLint官网文档</a></li>
-<li><a href="http://eslint.cn/docs/user-guide/configuring" target="_blank" rel="external">ESLint中文文档</a></li>
+<li><a href="http://eslint.org/docs/user-guide/configuring" target="_blank" rel="noopener">ESLint官网文档</a></li>
+<li><a href="http://eslint.cn/docs/user-guide/configuring" target="_blank" rel="noopener">ESLint中文文档</a></li>
 </ul>
 
     
